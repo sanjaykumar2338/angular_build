@@ -1,0 +1,869 @@
+<!--BANNER AND SERACH BOX-->
+
+<section id="background1" class="dir1-home-head">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="dir-ho-tl">
+            <ul>
+              <li>
+                <a href="https://walldirectory.com/">
+                    <img src="assets/images/walldirectory.png" alt="walldirectory"> 
+                  </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+          <div class="dir-ho-tr">
+            <ul>
+              <li *ngIf="!isLoggedIn"><a routerLink="/register">Register</a> </li>
+              <li *ngIf="!isLoggedIn"><a routerLink="/login">Sign In</a> </li>
+              <li *ngIf="isLoggedIn"><a routerLink="/logout">Logout</a></li>
+              <li *ngIf="!isLoggedIn"><a routerLink="/plans"><i class="fa fa-plus"></i> Add Business</a> </li>
+              <li class="mydropdown" *ngIf="isLoggedIn">
+                <a routerLink="/myaccount" ><div class="circle-prof" style="background-image:url('assets/images/icon/profile.jpg')"></div> My Account <i class="fa fa-angle-down"></i></a>
+                <div class="dropdown-content">
+                  <div class="loged_usertitle">
+                    <span> Hello,  <span>{{logedname}}</span></span>
+                    <a routerLink="/my-profile">View and edit profile</a>
+                  </div>
+                    <div class="divider"></div>
+                    <a routerLink="/myaccount"><i class="fa fa-id-card-o"></i> My Account</a>
+                    <a routerLink="/add-business"><i class="fa fa-plus"></i> Add Business</a>
+                    <a routerLink="/add-promotion"><i class="fa fa-plus"></i> Add Promotion</a>
+                    <a routerLink="/plans"><i class="fa fa-plus"></i> Extend Subscription</a>
+                    <div class="divider"></div>
+                    <a routerLink="/how-it-works"><i class="fa fa-question-circle-o"></i> Help</a>                 
+                    <a routerLink="/settings"><i class="fa fa-cog"></i> Settings</a>
+                    <div class="divider"></div>
+                    <a routerLink="/logout"><i class="fa fa-sign-in"></i> Logout</a>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container dir-ho-t-sp">
+      <div class="homebanner">
+         <div class="dir-hr1 dir-cat-search">
+          
+          <div class="dir-ho-t-tit">
+            <h1>Know Your Neighborhood!</h1> 
+            <p>Connecting Vendors to Customers! Converting Customers to Clients!</p>
+          </div>
+          
+          <form class="cate-search-form" [formGroup]="searchbanner">
+            <div class="input-field">
+              <input type="text" id="select-search" class="" formControlName="keyword">
+              <label for="select-search" class="">Search your services</label>
+            </div>
+
+            <div class="input-field">
+              <select class="basic-cate" name="select-city" id="select-city"  formControlName="loc" >
+                <option value="">Select Location</option>
+                <option value="{{lstate?.slug}}" *ngFor="let lstate of homeserv?.listregionCont; let i =index" innerHtml="{{lstate?.name}}"></option>                  
+              </select>
+            </div>
+
+            <div class="input-field">              
+             <!-- <label for="select-category">Select category</label>-->
+              <select class="basic-cate" name="categ"  formControlName="cate" >
+                  <option value="">Select Category</option>
+                  <option value="{{cservice?.slug}}" *ngFor="let cservice of homeserv?.listcateCont; let i =index" innerHtml="{{cservice?.name}}"></option>                  
+              </select>
+            </div>
+
+              <div class="input-field">
+                <input type="submit" value="search" (click)="onHomeSearch($event)" class="waves-effect waves-light tourz-sear-btn waves-input-wrapper">
+              </div>
+          
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--TOP SEARCH SECTION-->
+  
+  <section class="proj mar-bot-red-m30">
+    <div class="container">
+      <div class="row">
+        <!--HOME PROJECTS: 1-->
+        <div class="col-md-3 col-sm-6">
+          <div class="hom-pro"> <img src="assets/images/icon/1.png" alt="">
+            <h4>Find Local Businesses</h4>
+            <p>Choose from a explore to attract Leads with a Custom Call-to-Action Button.</p>
+            <a routerLink="/explore">Explore</a> </div>
+        </div>
+        <!--HOME PROJECTS: 1-->
+        <div class="col-md-3 col-sm-6">
+          <div class="hom-pro"> <img src="assets/images/icon/2.png" alt="">
+            <h4>Connect with Local Businesses</h4>
+            <p>Choose from a engage to attract Leads with a Custom Call-to-Action Button.</p>
+            <a routerLink="/engage">Engage</a> </div>
+        </div>
+        <!--HOME PROJECTS: 1-->
+        <div class="col-md-3 col-sm-6">
+          <div class="hom-pro"> <img src="assets/images/icon/3.png" alt="">
+            <h4>Shop from Local Businesses</h4>
+            <p>Choose from a Shop to attract Leads with a Custom Call-to-Action Button.</p> 
+            <a routerLink="/shop">Shop</a> </div>
+        </div>
+        <!--HOME PROJECTS: 1-->
+        <div class="col-md-3 col-sm-6">
+          <div class="hom-pro"> <img src="assets/images/icon/7.png" alt="">
+            <h4>Rate Local Businesses</h4>
+            <p>Choose from a Shop to attract Leads with a Custom Call-to-Action Button.</p> 
+            <a routerLink="/review">Review</a> </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+ 
+  <!--FIND YOUR SERVICE-->
+  <section class="com-padd com-padd-redu-bot1 pad-bot-red-40">
+    <div class="container">
+      <div class="row">
+        <div class="com-title">
+          <h2>Find your <span>Services</span></h2>
+          <p>Here is a look at the services offered by your nearest neighbors. </p>					
+        </div>
+        <div class="dir-hli">
+          <ul>
+           <!--=====LISTINGS======-->
+          <li class="col-md-3 col-sm-6 " *ngFor="let cservice of homeserv?.cateCont;  let i = index; " >              
+            <a routerLink="/listing-category/{{cservice?.slug}}">
+            <div class="dir-hli-5">
+                <div class="dir-hli-1">
+                <div class="dir-hli-4"> </div> 
+                <img src="{{imgPath}}{{cservice?.image}}" alt=""> </div>
+                <div class="dir-hli-2">
+                <h4 innerHtml="{{cservice?.name}}  <span class='dir-ho-cat'>Show All ({{cservice?.count}})</span> "></h4> </div>
+            </div>
+            </a>
+          </li>
+          <!--=====LISTINGS======-->
+          </ul>
+        </div>
+      </div>
+      
+      <div class="text-center mt-2 mb-3">
+        <a routerLink="/categories" class="text-btn">More Services</a>
+      </div>
+      
+    </div>
+  </section>
+  
+  
+  
+  <!--EXPLORE CITY LISTING-->
+  <section class="com-padd com-padd-redu-top">
+    <div class="container">
+      <div class="row">
+        <div class="com-title">
+          <h2>Explore your <span>State Services</span></h2>
+          <p>USA Business Services registered for Listings and Promotions.</p>
+        </div>
+
+        <div class="col-md-6" *ngFor="let stateSer of homeserv?.stateCont | slice:0:1;  let s = index;">
+            <a routerLink="/listing-region/{{stateSer?.slug}}">
+            <div class="list-mig-like-com">
+              <div class="list-mig-lc-img"> 
+                <img src="{{imgPath}}{{stateSer?.image}}" alt="{{stateSer?.name}}" />
+              </div>
+              <div class="list-mig-lc-con">
+                <div class="list-rat-ch list-room-rati"> 
+                  <span>4.9</span> <i class="fa fa-star" aria-hidden="true"></i>
+                   <i class="fa fa-star" aria-hidden="true"></i> 
+                   <i class="fa fa-star" aria-hidden="true"></i> 
+                   <i class="fa fa-star" aria-hidden="true"></i> 
+                   <i class="fa fa-star-o" aria-hidden="true"></i> 
+                  </div>
+                <h5>{{stateSer?.name}}</h5>
+                <p>{{stateSer?.count}} Listings</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-md-3" *ngFor="let stateSer of homeserv?.stateCont | slice:1:5;  let s = index;">
+          <a routerLink="/listing-region/{{stateSer?.slug}}">
+            <div class="list-mig-like-com">
+              <div class="list-mig-lc-img"> <img src="{{imgPath}}{{stateSer?.image}}" alt="" /> </div>
+              <div class="list-mig-lc-con list-mig-lc-con2">
+                <h5>{{stateSer?.name}}</h5>
+                <p>{{stateSer?.count}} Listings</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="text-center mt-2 mb-3">
+        <a routerLink="/local-marketing/" class="text-btn">More States</a>
+      </div>
+    </div>
+  </section>
+  <!--ADD BUSINESS-->
+  <section class="com-padd home-dis">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">				
+          <h3 class="mar-bot-20">Looking For Deals Or Website Promotions By Local Businesses?</h3>
+          <p>Got a business? Looking for a business? We can help you do both. Simply search our comprehensive business directory to find links to online promotions offered by local businesses in your state or town.</p>
+          <div class="add_bus_link mar-top-30"><a href="javascript:void(0)" (click)="onaddBuss()">Add My Business</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!--BEST THINGS-->
+  <section class="com-padd com-padd-redu-bot1 trending_buss">
+    <div class="container dir-hom-pre-tit">
+      <div class="row">
+        <div class="com-title">
+          <h2>Top Trending <span>New Business</span></h2>
+    <p>Local businesses are built, nurtured and sustained by the people. How about some love for the newest in your neighborhood?</p>
+        </div>
+        
+        <div class="col-md-6" *ngFor="let newlist of homeserv.bussCont; let i= index">
+          <div class="home-list-pop">
+            <!--POPULAR LISTINGS IMAGE-->
+            <div class="col-md-3 col-xs-12"> 
+              <img src="{{imgPath}}{{newlist?.listinglogo?.small }}" alt="{{newlist?.title}}" /> 
+              <div class="join_listing" title="Business Post Date">{{newlist?.created_at | date: "MMM, dd yyyy" }}</div>
+            </div>
+            <!--POPULAR LISTINGS: CONTENT-->
+            <div class="col-md-9 col-xs-12 home-list-pop-desc"> 
+              <a routerLink="/listing/{{newlist?.slug}}"><h3>{{newlist?.title}}</h3></a>
+              <h4 innerHtml="{{newlist?.currentcategory?.category?.parentCat?.name}}, {{newlist?.currentcategory?.category?.name}} "></h4>
+              <p class="post_loc">
+              <i class="fa fa-map-marker"></i> {{newlist?.listingregions[0].region?.name}}, United States</p>
+              <p>{{newlist?.location}}</p> 
+              <span class="home-list-pop-rat verify" *ngIf="newlist?.is_verified">
+                  <i  class="material-icons dp48 verfied" title="Verified Business">done</i>
+              </span>
+              <div class="hom-list-share">
+                <ul>
+               
+                  <li><a href="javascript:void(0)" [attr.data-id]="list?.id" (click)="pathcid(newlist?.id);" data-dismiss="modal" data-toggle="modal" data-target="#enquiy_popup"><i class="fa fa-envelope" aria-hidden="true"></i> </a>  </li>
+
+                  <li><a href="{{newlist?.website ? 'tel:'+newlist?.phone  : '#' }}"><i class="fa fa-phone" aria-hidden="true"></i></a></li>
+                  <li><a href="{{newlist?.website || '#'}}" target="{{newlist?.website ? '_blank' : '' }}" (click)="webclicked(newlist?.id)" ><i class="fa fa-globe" aria-hidden="true"></i></a></li>
+                  <li><a href="javascript:void(0)" class="sharepopup"><i class="fa fa-share-alt" aria-hidden="true"></i></a> 
+                    <div class="share_pop share_{{newlist?.id}}" >
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{siteUrl}}listing/{{newlist?.slug}}&t={{newlist?.title}}"
+                        onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+                        target="_blank" title="Share on Facebook"><i class="fa fa-facebook fb1"></i></a> 
+                        <a title="Share On Twitter" href="http://twitter.com/share?text={{newlist?.title}}&url={{siteUrl}}listing/{{newlist?.slug}}&hashtags=walldirectory">
+                        <i class="fa fa-twitter tw1"></i> </a>
+                    </div> 
+                  </li>
+                  <li><a href="javascript:void(0)"><i class="fa fa-eye" aria-hidden="true"></i>{{newlist?.view_count}}</a> </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>		
+
+      </div><!--row-->			
+      
+      <div class="horizontal_ads text-center com-mar-top-20">
+          <ng-adsense></ng-adsense>
+      </div>
+    </div>
+  </section>
+  
+  
+<section class="com-padd quic-book-ser-full">
+  <div class="quic-book-ser">
+    <div class="quic-book-ser-inn">
+      <div class="quic-book-ser-left">
+          <div class="hom-cre-acc-left">
+              <h3 class="mb-1">What Kind of deals are you<span> looking for?</span></h3>
+              <p>Shop and get value. Get the value your are looking for when you shop from a local small business.</p>
+              <ul>
+                  <li> <img src="assets/images/icon/3.png" alt="Deals">
+                  <div>
+                      <h5>Find Great Deals</h5>
+                      <p>Search for deals, coupons and discounts offered by a business near you.</p>
+                  </div>
+                  </li>
+                  <li> <img src="assets/images/icon/5.png" alt="Local Business">
+                  <div>
+                      <h5>Connect with a Local Business</h5>
+                      <p>Reach the business offering. Start connecting with business owners, sellers and contractors.</p>
+                  </div>
+                  </li>
+                  <li> <img src="assets/images/icon/6.png" alt="Small Business">
+                  <div>
+                      <h5>Shop from a Small Business</h5>
+                      <p>Buy Value. Save on gifts, clothing, home improvement services and local entertainment venues.</p>
+                  </div>
+                  </li>
+                  <li> <img src="assets/images/icon/7.png" alt="Shopping">
+                  <div>
+                      <h5>Evaluate your Shopping Value</h5>
+                      <p>Express your experience. add value to your local connection, build loyalty and expect quality.</p>
+                  </div>
+                  </li>
+              </ul>
+          </div>
+      </div><!---left-->
+      <div class="quic-book-ser-right">
+        <div class="land-com-form">
+          <h2><span>Quick Service</span>  Request</h2>
+          <form method="POST" [formGroup]="wiz1Form">
+            <div class="step1"  *ngIf="step1">
+                <ul class="service1">
+                    <li><input type="radio" name="step1" id="val1" value="Emergency Services" formControlName="step1" 
+                      (change)=step(2); /> 
+                      <label for="val1">Emergency Services</label></li>
+                      <li><input type="radio" name="step1" id="val2" value="Free Advice" formControlName="step1" (change)=step(2); /> 
+                        <label  for="val2">Free Advice</label></li>
+                      <li><input type="radio" name="step1" id="val3" value="Free Estimate" formControlName="step1" (change)=step(2); />
+                        <label for="val3">Free Estimate</label></li>
+                      <li><input type="radio" name="step1" id="val4" value="Free Consultaion" formControlName="step1" (change)=step(2); /> 
+                        <label for="val4">Free Consultaion</label></li>
+                      <li><input type="radio" name="step1" id="val5" value="Free Gift" formControlName="step1" (change)=step(2); /> 
+                        <label for="val5">Free Gift</label></li>
+                      <li><input type="radio" name="step1" id="val6" value="Free Quote" formControlName="step1" (change)=step(2); /> <label for="val6">Free Quote</label></li>
+                      <li><input type="radio" name="step1" id="val7" value="Free Shipping" formControlName="step1" (change)=step(2); /> <label for="val7">Free Shipping</label></li>
+                      <li><input type="radio" name="step1" id="val8" value="Free Subscription" formControlName="step1" (change)=step(2); /> <label for="val8">Free Subscription</label></li>
+                      <li><input type="radio" name="step1" id="val9" value="Free Trial" formControlName="step1" (change)=step(2); /> <label for="val9">Free Trial</label></li>
+                      <li><input type="radio" name="step1" id="val10" value="Price Match" formControlName="step1" (change)=step(2); /><label for="val10">Price Match</label></li>
+                </ul>
+                
+                <div class="help-block" *ngIf="step1err">Choose One Servcie</div>
+            </div>   
+            
+            <div class="step2" *ngIf="step2">
+                <a href="javascript:void(0)" class="back-step" (click)=step(1);><i class="fa fa-angle-left" aria-hidden="true"></i> 
+                   Back</a>
+                <h4>Choose Your Interest Category</h4>
+                <ul class="pro-detail">
+                    <li>
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <select class="validate" formControlName="cate" (change)="onSelect($event.target.value)">
+                            <option value="">Select Category</option>
+                            <option *ngFor="let cls of listCates" value="{{cls.id}}" innerHtml="{{cls.name}}"></option>
+                          </select>                        
+                          <span class="help-block" *ngIf="wizcate">Choose Category</span>
+                        </div>
+                     </div>
+                    </li>
+
+                    <li>
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <i class="fa fa-spinner fa-spin" *ngIf="scateloader"></i>
+                          <select class="validate" formControlName="subcate">
+                            <option value="">Select sub Category</option>
+                            <option *ngFor="let scls of subCates; let s=index;" value="{{scls.id}}" innerHtml="{{scls.name}}"></option>
+                          </select>
+                          <span class="help-block" *ngIf="wizscate">Choose Relevant Category</span>
+                        </div>
+                      </div>
+                    </li>
+                </ul>  
+            </div>
+
+            <div class="step3" *ngIf="step3">
+                <a href="javascript:void(0)" class="back-step" (click)=step(2);><i class="fa fa-angle-left" aria-hidden="true"></i> Back</a>
+                <h4>Contact Details</h4>
+                <ul>
+                  <li>
+                      <div class="row">
+                          <div class="input-field col s12">
+                              <input id="subname" type="text" class="validate" formControlName="subname">
+                              <label for="subname" class="">First Name</label>
+                              <span class="help-block" *ngIf="suberr1">Enter First Name</span>
+                          </div>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="row">
+                          <div class="input-field col s12">
+                              <input id="sublname" type="text" class="validate"  formControlName="sublname">
+                              <label for="sublname" class="">Last Name</label>
+                              <span class="help-block" *ngIf="suberr2">Enter Last Name</span>
+                          </div>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="row">
+                          <div class="input-field col s12">
+                              <input id="subemail" type="text" class="validate" formControlName="subemail">
+                              <label for="subemail" class="">Email</label>
+                              <span class="help-block" *ngIf="suberr3">Enter Vaild Email</span>
+                          </div>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="row">
+                          <div class="input-field col s12">
+                              <input id="subphone" type="text" class="validate" formControlName="subphone">
+                              <label for="subphone" class="">Contact No.</label>
+                              <span class="help-block" *ngIf="suberr4">Enter Contact No.</span>
+                          </div>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="row">
+                        <div class="input-field col s12">
+                        <textarea id="textarea1" class="materialize-textarea" formControlName="enqs"></textarea>
+                        <label for="textarea1" class="">Enquiry</label>
+                        </div>
+                      </div>
+                  </li>
+                  <li>
+                    <p>Terms and Conditions and Privacy Policy.  <a href="/privacy-policy/walldirectory-privacy-policy" target="_blank">Click</a></p>
+                  </li>
+                </ul>
+            </div><!---stpe3-->
+
+            <div class="step4"  *ngIf="wizsucc">
+              <div class="alert alert-success text-center">
+                Thank you for contacting us. We will forward your request to business owners.
+              </div>
+            </div>
+
+            <div>
+              <div class="row">
+                <div class="input-field col s12">
+                <a href="javascript:void(0)" class="waves-effect waves-light btn"  *ngIf="step1"  (click)="cont(2)">Continue</a>
+                <a href="javascript:void(0)" class="waves-effect waves-light btn"  *ngIf="step2" (click)="cont(3)">Continue</a>
+                <a href="javascript:void(0)" class="waves-effect waves-light btn"  *ngIf="step3" (click)="onSub()">Submit
+                  <i class="fa fa-spinner fa-spin" *ngIf="wizsubed"></i>
+                </a>
+                </div>
+                <div class="alert alert-danger" *ngIf="wizerr">Something went wrong. Try Later.</div>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div><!---right-->
+    </div>
+  </div>
+</section>
+
+    
+  
+  <section class="com-padd">
+    <div class="container">
+      
+      <div class="com-title">
+        <h3>Here Is Our Answer To Your Whom, Why, Where & How!</h3>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <div class="head_in_link">
+            <h3>Explore</h3> 
+            <a routerLink="/explore">View All</a>
+          </div>
+          <div class="row ">
+            <div class="col-md-6" *ngFor="let hexplore of homeserv.exploreCont;  let i= index">
+              <div class="com-mar-bot-30  text-center grid_listing">              
+                  <div class="post_thumb" *ngIf="hexplore?.listinglogo.medium"
+                  [style.background-image]="'url(' + imgPath+''+hexplore?.listinglogo.medium + ')'">
+                  <span class="home-list-pop-rat">{{hexplore.reviews.rating || '0.0' }}</span>
+                  <a routerLink="/listing/{{hexplore?.slug}}"></a>
+                </div>
+                <div class="post_cont">
+                 <a routerLink="/listing/{{hexplore?.slug}}"><h5>{{hexplore?.title}}</h5></a>
+                 <p class="hcates" *ngFor="let cl of hexplore?.listingcategory">
+                   <a href="/listing/{{cl?.category?.slug}}" innerHtml="{{cl?.category?.name}}" *ngIf="cl.category?.parent!=0"></a>
+                  </p>
+                </div>
+                <div class="join_listing" title="Business Post Date">{{hexplore?.created_at | date: "MMM, dd yyyy" }}</div>
+                <div class="post_link">
+                  <a routerLink="/listing/{{hexplore.slug}}">{{hexplore?.type?.name}}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!--explore close-->
+        
+        <div class="col-md-6 col-sm-12">
+          <div class="head_in_link">
+            <h3>Engage</h3> 
+            <a routerLink="/engage">View All</a>
+          </div>
+          <div class="row">
+              <div class="col-md-6" *ngFor="let hengage of homeserv.engageCont;  let i= index">
+                <div class="com-mar-bot-30  text-center grid_listing">              
+                  <div class="post_thumb" *ngIf="hengage?.listinglogo.medium"
+                  [style.background-image]="'url(' + imgPath+''+hengage?.listinglogo.medium + ')'">
+                  <span class="home-list-pop-rat">{{hengage.reviews.rating || '0.0' }}</span>
+                  <a routerLink="/listing/{{hengage?.slug}}"></a>
+                </div>
+                <div class="post_cont">
+                  <a routerLink="/listing/{{hengage?.slug}}"><h5>{{hengage?.title}}</h5></a>
+                  <p class="hcates" *ngFor="let cl of hengage?.listingcategory">
+                    <a href="/listing/{{cl?.category?.slug}}" innerHtml="{{cl?.category?.name}}" *ngIf="cl.category?.parent!=0"></a>
+                    </p>
+                </div>
+                <div class="join_listing" title="Business Post Date">{{hengage?.created_at | date: "MMM, dd yyyy" }}</div>
+                <div class="post_link">
+                  <a routerLink="/listing/{{hengage.slug}}">{{hengage?.type?.name}}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>	<!--engage close-->
+        
+        <div class="col-md-12 com-mar-bot-30 clearfix">
+          
+        </div>
+        
+        <div class="col-md-6 col-sm-12">
+          <div class="head_in_link">
+            <h3>Shop</h3> 
+            <a routerLink="/shop">View All</a>
+          </div>
+          <div class="row">
+            <div class="col-md-6" *ngFor="let hshop of homeserv.shopCont;  let i= index">
+               <div class="com-mar-bot-30  text-center grid_listing">              
+                  <div class="post_thumb" *ngIf="hshop?.listinglogo.medium"
+                  [style.background-image]="'url(' + imgPath+''+hshop?.listinglogo.medium + ')'">
+                  <span class="home-list-pop-rat">{{hshop.reviews.rating || '0.0' }}</span>
+                  <a routerLink="/listing/{{hshop?.slug}}"></a>
+                </div>
+                <div class="post_cont">
+                  <a routerLink="/listing/{{hshop?.slug}}"><h5>{{hshop?.title}}</h5></a>
+                  <p class="hcates" *ngFor="let cl of hshop?.listingcategory">
+                  <a href="/listing/{{cl?.category?.slug}}" innerHtml="{{cl?.category?.name}}" *ngIf="cl.category?.parent!=0"></a>
+                  </p>
+                </div>
+                <div class="join_listing" title="Business Post Date">{{hshop?.created_at | date: "MMM, dd yyyy" }}</div>
+                <div class="post_link">
+                  <a routerLink="/listing/{{hshop.slug}}">{{hshop?.type?.name}}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!--shop close-->	
+        
+        
+        <div class="col-md-6 col-sm-12">
+          <div class="head_in_link">
+            <h3>Review</h3> 
+            <a routerLink="/review">View All</a>
+          </div>
+          <div class="row ">
+            <div class="col-md-6" *ngFor="let hreview of homeserv.reviewCont;  let i= index">
+              <div class="com-mar-bot-30  text-center grid_listing">              
+                  <div class="post_thumb" *ngIf="hreview?.listinglogo.medium"
+                  [style.background-image]="'url(' + imgPath+''+hreview?.listinglogo.medium + ')'">
+                  <span class="home-list-pop-rat">{{hreview.reviews.rating || '0.0' }}</span>
+                  <a routerLink="/listing/{{hreview?.slug}}"></a>
+                </div>
+                <div class="post_cont">
+                  <a routerLink="/listing/{{hreview?.slug}}"><h5>{{hreview?.title}}</h5></a>
+                  <p  class="hcates" *ngFor="let cl of hreview?.listingcategory">
+                    <a href="/listing/{{cl?.category?.slug}}" innerHtml="{{cl?.category?.name}}" *ngIf="cl.category?.parent!=0"></a>
+                    </p>
+                </div>
+                <div class="join_listing" title="Business Post Date">{{hreview?.created_at | date: "MMM, dd yyyy" }}</div>
+                <div class="post_link">
+                  <a routerLink="/listing/{{hreview.slug}}">{{hreview?.type?.name}}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!--review close-->
+      </div><!--row-->
+  
+      <div class="horizontal_ads text-center com-mar-top-20">
+          <ng-adsense></ng-adsense>
+      </div>
+    </div>
+  </section>
+  
+  
+  <section class="home_reviews com-padd com-mar-bot-70">
+    <div class="container">
+      <div class="com-title">
+        <h2>New <span>Reviews</span></h2>
+        <p>Here are some reviews given by the users recently.</p>
+      </div>
+  
+      <div class="row">
+        <div class="pg-cus-rev">
+          <div class="col-md-4" *ngFor="let revlist of  homeserv.newreviewCont; let r = index">
+            <div class="cus-rev">
+              <div class="pg-revi-re"><img src="{{revlist?.user?.userimage?.small ? imgPath+''+revlist?.user?.userimage?.small : siteUrl+'/assets/images/avatar.jpg' }}" alt="{{revlist?.listing?.title}}">
+                <p>{{revlist?.name}}</p>
+                <div class="list-rat-ch list-room-rati pg-re-rat">
+          <i class="fa rating-star " [ngClass]='{ full: revlist?.rating >= 1,  piece: revlist?.rating == 0.5 }'></i>
+          <i class="fa rating-star " [ngClass]='{ full: revlist?.rating >= 2,  piece: revlist?.rating == 1.5 }'></i>
+          <i class="fa rating-star " [ngClass]='{ full: revlist?.rating >= 3,  piece: revlist?.rating == 2.5 }'></i>
+          <i class="fa rating-star " [ngClass]='{ full: revlist?.rating >= 4,  piece: revlist?.rating == 3.5 }'></i>
+          <i class="fa rating-star " [ngClass]='{ full: revlist?.rating >= 5,  piece: revlist?.rating == 4.5 }'></i>
+                </div>
+              </div>
+              <p>{{revlist.content.substr(0, 150)}}...</p>
+              <div class="cus-re-com"> 								
+                <div class="post_logo">
+                  <img src="{{ revlist?.listing?.listinglogo?.small ? imgPath+''+revlist?.listing?.listinglogo?.small : '/assets/images/listing.jpg' }}" alt="{{revlist?.listing?.title}}">
+                </div>
+                <div class="titlerev">
+                    <a routerLink="/listing/{{revlist?.listing?.slug}}"><h4>{{revlist?.listing?.title}}</h4></a>
+                    <a routerLink="/listing-category/{{revlist?.listing?.currentcategory?.category?.slug}}">
+                      <span innerHtml="{{revlist?.listing?.currentcategory?.category?.name}}"></span>
+                    </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="horizontal_ads text-center com-mar-top-20">
+          <ng-adsense></ng-adsense>
+      </div>
+    </div>
+  </section>
+  
+  <!--MOBILE APP-->
+<section class="web-app com-padd com-padd-redu-top">
+  <div class="container">
+    <div class="com-title text-left">
+      <h2>Service Available <span>States</span></h2>
+      <p>Drive traffic to website form your state & City! Reach, connect, engage with and sell to local customers.</p>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-12">
+        <div class="land_page_state1 text-center">
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/alabama" title="Alabama">Alabama</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/alaska" title="Alaska">Alaska</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/arizona" title="Arizona">Arizona</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/arkansas" title="Arkansas">Arkansas</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/california" title="California">California</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/colorado" title="Colorado">Colorado</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/connecticut" title="Connecticut">Connecticut</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/delaware" title="Delaware">Delaware</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/florida" title="Florida">Florida</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/georgia" title="Georgia">Georgia</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/hawaii" title="Hawaii">Hawaii</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/idaho" title="Idaho">Idaho</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/illinois" title="Illinois">Illinois</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/indiana" title="Indiana">Indiana</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/iowa" title="Iowa">Iowa</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/kansas" title="Kansas">Kansas</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/kentucky" title="Kentucky">Kentucky</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/louisiana" title="Louisiana">Louisiana</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/maine" title="Maine">Maine</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/maryland" title="Maryland">Maryland</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/massachusetts" title="Massachusetts">Massachusetts</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/michigan" title="Michigan">Michigan</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/minnesota" title="Minnesota">Minnesota</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/mississippi" title="Mississippi">Mississippi</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/missouri" title="Missouri">Missouri</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/montana" title="Montana">Montana</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/nebraska" title="Nebraska">Nebraska</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/nevada" title="Nevada">Nevada</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/new-hampshire" title="New Hampshire">New Hampshire</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/new-jersey" title="New Jersey">New Jersey</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/new-mexico" title="New Mexico">New Mexico</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/new-york" title="New York">New York</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/north-carolina" title="North Carolina">North Carolina</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/north-dakota" title="North Dakota">North Dakota</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/ohio" title="Ohio">Ohio</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/oklahoma" title="Oklahoma">Oklahoma</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/oregon" title="Oregon">Oregon</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/pennsylvania" title="Pennsylvania">Pennsylvania</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/rhode-island" title="Rhode Island">Rhode Island</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/south-carolina" title="South Carolina">South Carolina</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/south-dakota" title="South Dakota">South Dakota</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/tennessee" title="Tennessee">Tennessee</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/texas" title="Texas">Texas</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/utah" title="Utah">Utah</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/vermont" title="Vermont">Vermont</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/virginia" title="Virginia">Virginia</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/washington" title="Washington">Washington</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/west-virginia" title="West Virginia">West Virginia</a>
+          </div>
+          <div class="state_list_link">
+            <a routerLink="/listing-region/wisconsin" title="Wisconsin">Wisconsin</a>
+          </div>
+          <div class="state_list_link">	
+            <a routerLink="/listing-region/wyoming" title="Wyoming">Wyoming</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="enquiy_popup" tabindex="-1" role="dialog" aria-labelledby="enquiy_form">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="enquiy_form">Enquiry</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row hom-cre-acc-right">
+                    <form id="enq_frm" name="enq_frm" [formGroup]="listingEnq">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="enq_fname" type="text" class="" formControlName="enq_fname">
+                                <label for="enq_fname">First Name</label>
+                                <span *ngIf="!listingEnq.get('enq_fname').valid && listingEnq.get('enq_fname').touched" class="help-block">Enter First Name</span>
+                            </div>
+
+                            <div class="input-field col s6">
+                                <input name="enq_lname" id="enq_lname" type="text" class="" formControlName="enq_lname">
+                                <label for="enq_lname">Last Name</label>
+                                <span *ngIf="!listingEnq.get('enq_lname').valid && listingEnq.get('enq_lname').touched" class="help-block">Enter Last Name</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input name="enq_email" id="enq_email" type="text" class="validate" formControlName="enq_email">
+                                <label for="enq_email">Email</label>
+                                <span *ngIf="!listingEnq.get('enq_email').valid  && listingEnq.get('enq_email').touched" class="help-block">Enter Valid  Email</span>
+                            </div>
+                            <div class="input-field col s6">
+                                <input name="enq_phone" id="enq_phone" type="text" class="validate" formControlName="enq_phone">
+                                <label for="enq_phone">Contact No.</label>
+                                <span *ngIf="listingEnq.get('enq_phone').value==''  && listingEnq.get('enq_phone').touched" class="help-block">Enter Contact No.</span>
+                                <span *ngIf="listingEnq.get('enq_phone').value!=''  &&  listingEnq.controls['enq_phone'].hasError('pattern')" class="help-block">Enter 10 digits no.</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea  name="enq_cont" id="enq_cont" class="validate" formControlName="enq_cont"></textarea>
+                                <label for="enq_cont">Enquiry</label>
+                                <span *ngIf="listingEnq.get('enq_cont').value=='' && listingEnq.get('enq_cont').touched" class="help-block">Enter Enquiry Message.</span>
+                                <span *ngIf="!listingEnq.get('enq_cont').valid && listingEnq.controls['enq_cont'].hasError('minlength') && listingEnq.get('enq_cont').touched" class="help-block">Enter min 50chars.</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                          <div class="input-field col s12 text-center">        
+                            <input type="hidden"  name="listid" formControlName="listingid" />
+                            <button type="text" class="btn-small waves-effect waves-light btn" (click)="onSubmitEnq()"> Send
+                                <i class="fa fa-spinner fa-spin" *ngIf="enqloader"></i> </button>
+                          </div>
+
+                          <div class="input-field col s12 text-center" *ngIf="enqsucc">
+                              <div class="alert alert-success">Thank you for your enquiry. We will be in touch shortly</div>
+                            </div>
+  
+                            <div class="input-field col s12 text-center" *ngIf="enqerr">
+                                <div class="alert alert-danger">Enquiry not send. Try again later!.</div>
+                            </div>
+                        </div>
+                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

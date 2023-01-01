@@ -1,0 +1,10 @@
+.pro-settings td:first-child {
+  white-space: initial;
+}
+.pro-settings .switch label span{
+  min-width: 90px;
+  display: inline-block;
+}
+.pro-settings .switch label span.lever{
+  min-width: 1px;
+}

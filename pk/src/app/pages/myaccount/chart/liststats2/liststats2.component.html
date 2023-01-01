@@ -1,0 +1,84 @@
+<section>
+  <div class="tz">
+    <!--LEFT SECTION-->
+    <app-dashmenu class="desk_dashnav"></app-dashmenu>
+
+    <!--CENTER SECTION-->
+    <div class="tz-2">
+      <div class="tz-2-com tz-2-main">
+        <h4>All Business Stats</h4>
+        <div class="db-list-com tz-db-table table-responsive">
+          <div class="ds-boar-title">
+            <h2>Business Stats</h2>
+            <p>Here is a list of your business and promotions Stats</p>
+          </div>
+
+          <div class="text-right">
+            <a
+              href="{{ siteUrl }}add-business"
+              class="mt-2 waves-effect waves-light btn btn-success"
+              >ADD YOUR BUSINESS NOW</a
+            >
+          </div>
+          <table class="mt-2 table  table-striped  bordered">
+            <thead>
+              <tr valign="middle" bgcolor="#ccc">
+                <th width="70%">Business Name</th>
+                <th class="text-center" width="30%">View</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let lists of listDetails">
+                <td>
+                  <a
+                    class="txt_uline text-cap"
+                    routerLink="/listing/{{ lists?.slug }}"
+                    >{{ lists?.title }}</a
+                  >
+                </td>
+                <td class="text-center">
+                  <a
+                    href="/listing-stats/{{ lists?.id }}"
+                    class="db-list-stats"
+                    title="Statistics Report"
+                    ><i class="fa fa-bar-chart" aria-hidden="true"></i> View
+                    Statistics</a
+                  >
+                </td>
+              </tr>
+              <tr *ngIf="!listDetails?.length" class="danger text-center">
+                <td colspan="2"><h5>No Business Found</h5></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="alert alert-success" *ngIf="vmailsend">
+            <a href="javascript:void(0)" (click)="closealert()"
+              ><i class="fa fa-check"></i
+            ></a>
+            {{ vmailsend }}
+          </div>
+          <div class="alert alert-danger" *ngIf="vmailfail">
+            <a href="javascript:void(0)" (click)="closealert()"
+              ><i class="fa fa-check"></i
+            ></a>
+            Unable to Send Email, Try Later
+          </div>
+
+          <div class="alert alert-success" *ngIf="successmsg">
+            <h3>One Listing Deleted.</h3>
+          </div>
+
+          <div class="alert alert-danger" *ngIf="errormsg">
+            <h3>{{ errormsg }}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Right SECTION-->
+	<app-dashmenu class="mobile_dashnav"></app-dashmenu>
+
+    <app-dashmsg></app-dashmsg>
+  </div>
+</section>

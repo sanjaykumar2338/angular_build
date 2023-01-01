@@ -1,0 +1,8 @@
+.modal-open .modal {
+  background: rgba(0, 0, 0, 0.85);
+}
+.ctypes_link button {
+  float: none;
+  display: inline-block;
+  margin: 0 10px;
+}

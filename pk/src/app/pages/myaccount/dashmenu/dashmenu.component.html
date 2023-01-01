@@ -1,0 +1,255 @@
+<!--LEFT SECTION-->
+<div class="tz-l dash_menu">
+  <div class="tz-l-1">
+    <ul class="user_ac_detail">
+      <li>
+        <img
+          src="{{ imgPath }}{{ this.userdet?.userimage?.small }}"
+          alt="User Photo"
+          *ngIf="proimg"
+        />
+        <img
+          src="assets/images/default-profile.jpg"
+          alt="User Photo"
+          *ngIf="!proimg"
+        />
+      </li>
+      <li>
+        <span>{{ profcomplet || 0 }}%</span> Profile Completed.
+      </li>
+      <li title="Unread Count">
+        <span>{{
+          recounts?.messages_count ? recounts?.messages_count : "0"
+        }}</span>
+        Notifications
+      </li>
+    </ul>
+  </div>
+
+  <div class="tz-l-2 text-center " *ngIf="cusertype">
+    <div><label>Switch account to</label></div>
+    <button
+      class="btn btn-danger"
+      (click)="usertype('customer')"
+      *ngIf="cusertype == 'owner'"
+    >
+      Customer Account
+    </button>
+    <button
+      class="btn btn-danger"
+      (click)="usertype('owner')"
+      *ngIf="cusertype == 'customer'"
+    >
+      Business Account
+    </button>
+  </div>
+
+  <div class="tz-l-2">
+    <ul *ngIf="cusertype == 'customer'">
+      <li>
+        <a routerLink="/myaccount" [routerLinkActive]="['tz-lma']"
+          ><img src="assets/images/icon/dbl1.png" alt="" /> My Dashboard</a
+        >
+      </li>
+      <li>
+        <a routerLink="/customer-enquiry" [routerLinkActive]="['tz-lma']"
+          ><img src="assets/images/icon/mail.png" alt="" /> Your Enquiry
+          (Request)</a
+        >
+      </li>
+      <!-- <li>
+        <a routerLink="/enquiry-response" [routerLinkActive]="['tz-lma']"
+          ><img src="assets/images/icon/mail.png" alt="USA business Directory" /> Request Response</a
+        >
+      </li> -->
+      <li>
+        <a routerLink="/settings" [routerLinkActive]="['tz-lma']"
+          ><img src="assets/images/icon/dbl210.png" alt="" /> Settings</a
+        >
+      </li>
+      <li>
+        <a routerLink="/logout"
+          ><img src="assets/images/icon/dbl12.png" alt="" /> Log Out</a
+        >
+      </li>
+    </ul>
+
+    <ul *ngIf="cusertype == 'owner'">
+      <li>
+        <a routerLink="/myaccount" [routerLinkActive]="['tz-lma']"
+          ><img src="assets/images/icon/dbl1.png" alt="" /> My Dashboard</a
+        >
+      </li>
+      <li>
+        <a routerLink="/all-business" [routerLinkActive]="['tz-lma']"
+          ><img src="assets/images/icon/dbl2.png" alt="" /> All Business</a
+        >
+      </li>
+      <li>
+        <a routerLink="/add-business" [routerLinkActive]="['tz-lma']"
+          ><img src="assets/images/icon/dbl3.png" alt="" /> Add Business</a
+        >
+      </li>
+      <li>
+        <a routerLink="/add-promotion" [routerLinkActive]="['tz-lma']"
+          ><img src="assets/images/icon/dbl14.png" alt="" /> Add Promotion</a
+        >
+      </li>
+      <li class="statdropdown">
+        <a href="/all-listing-stats" [routerLinkActive]="['tz-lma']"
+          ><img src="assets/images/icon/chart.png" alt="chart" /> Business Stats
+        </a>
+      </li>
+
+      <!-- <li class="statdropdown">
+        <a
+          href="javascript:void(0)"
+          (click)="showdrop()"
+          [routerLinkActive]="['tz-lma']"
+          ><img src="assets/images/icon/chart.png" alt="chart"/> Business Stats
+          <i [ngClass]="dropdown ? 'fa fa-angle-up' : 'fa fa-angle-down'"></i
+        ></a>
+        <div
+          class="sub-menu"
+          *ngIf="dropdown"
+          [ngClass]="dropdown ? 'show' : 'hide'"
+        >
+          <ul>
+            <li><a href="/listing-visit-stats">Business Views</a></li>
+            <li><a href="/website-visit-stats">Business Website Visit</a></li>
+            <li>
+              <a href="/address-visit-stats">Business Address Visit</a>
+            </li>
+            <li>
+              <a href="/search-visit-stats">Search your business</a>
+            </li>
+          </ul>
+        </div>
+      </li> -->
+      <li>
+        <a routerLink="/listing-enquiry" [routerLinkActive]="['tz-lma']"
+          ><img src="assets/images/icon/mail.png" alt="USA business Directory" />Business Enquiry
+        </a>
+      </li>
+      <li>
+        <a routerLink="/listing-reviews" [routerLinkActive]="['tz-lma']"
+          ><img src="assets/images/icon/dbl13.png" alt="" />Business Reviews ({{
+            recounts?.reviews_count
+          }})</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/customer-requests"
+          [routerLinkActive]="['tz-lma']"
+          title="Customer Requests"
+        >
+          <img src="assets/images/icon/dbl6.png" alt="" />Customer Requests</a
+        >
+      </li>
+
+      <li>
+        <a
+          routerLink="/list-of-joiners"
+          [routerLinkActive]="['tz-lma']"
+          title="joiner / Follower"
+        >
+          <img src="assets/images/icon/dbl6.png" alt="" /> Joiners ({{
+            recounts?.joiners_count
+          }})</a
+        >
+      </li>
+      <li>
+        <a routerLink="/messages" [routerLinkActive]="['tz-lma']"
+          ><img src="assets/images/icon/dbl14.png" alt="" /> Messages ({{
+            recounts?.messages_count
+          }})</a
+        >
+      </li>
+      <li>
+        <a routerLink="/my-profile" [routerLinkActive]="['tz-lma']"
+          ><img src="assets/images/icon/dbl6.png" alt="" /> My Profile</a
+        >
+      </li>
+      <!--
+        <li>
+        <a href=""><img src="assets/images/icon/dbl9.png" alt=""> Check Out</a>
+      </li>
+      -->
+      <li>
+        <a routerLink="/billing" [routerLinkActive]="['tz-lma']"
+          ><img src="assets/images/icon/db21.png" alt="" />Packages</a
+        >
+      </li>
+      <li>
+        <a routerLink="/claim-your-business" [routerLinkActive]="['tz-lma']"
+          ><img src="assets/images/icon/dbl7.png" alt="" /> Claim Your
+          Business</a
+        >
+      </li>
+      <li>
+        <a routerLink="/verify-your-business" [routerLinkActive]="['tz-lma']"
+          ><img src="assets/images/icon/verified.png" alt="" /> Verify Your
+          Business</a
+        >
+      </li>
+      <li>
+        <a routerLink="/settings" [routerLinkActive]="['tz-lma']"
+          ><img src="assets/images/icon/dbl210.png" alt="" /> Settings</a
+        >
+      </li>
+      <li>
+        <a routerLink="/logout"
+          ><img src="assets/images/icon/dbl12.png" alt="" /> Log Out</a
+        >
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Button trigger modal -->
+<button
+  type="button"
+  class="btn btn-primary apopup"
+  data-toggle="modal"
+  data-target="#exampleModal"
+  style="display: none;"
+>
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+  data-backdrop="static"
+  data-keyboard="false"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="exampleModalLabel">
+          Choose Account Type
+        </h5>
+      </div>
+      <div class="modal-body ctypes_link text-center">
+        <button class="btn btn-secondary utype" (click)="usertype('customer')">
+          Customer
+        </button>
+        <button class="btn btn-success utype" (click)="usertype('owner')">
+          Owner
+        </button>
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>

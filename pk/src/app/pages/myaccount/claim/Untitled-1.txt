@@ -1,0 +1,138 @@
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment.prod';
+
+
+
+@Component({
+  selector: 'app-claim',
+  templateUrl: './claim.component.html',
+  styleUrls: ['./claim.component.css']
+})
+export class ClaimComponent implements OnInit {
+
+  mobilereg = /^\+?\d{2}[- ]?\d{3}[- ]?\d{5}$/;
+  phonereg= /^-?(0|[1-9]\d*)?$/; 
+  mobCodes: any;
+  results: any;
+  errormsg: any;
+  successmsg: any;
+
+  mylists: any;
+  prof_fname: any;
+  prof_lname: any;
+  prof_email: any;
+
+
+  claimForm: FormGroup;
+
+
+  constructor(private fb: FormBuilder, private http: HttpClient) { }
+
+  ngOnInit() {
+    //this.getmyListing();
+    const Auth_Token=localStorage.getItem('token');
+    const logeduser=localStorage.getItem('logedUser');
+    const url=environment.apiUrl+"auth/profile/"+logeduser;
+    
+    
+    this.claimForm = this.fb.group({
+      listname: ['test', Validators.required],
+      claim_fname: ['', Validators.required],
+      claim_lname: ['', Validators.required],
+      claim_cont: ['', [Validators.required, Validators.pattern(this.phonereg)]],
+      claim_email: ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+      claim_msg: ['', Validators.required]
+    })
+
+    this.claimForm.patchValue({
+      claim_fname: 'test'
+    })
+    
+    this.http
+    .get (url, { headers: new HttpHeaders().set('Authorization', Auth_Token) }).subscribe(
+      data => {
+        this.mylists=data['listings'];
+        this.prof_fname= data['first_name'];
+        console.log('---'+this.prof_fname);
+
+        this.prof_lname= data['last_name'];
+        this.prof_email= data['email'];
+
+        this.claimForm.patchValue({
+          claim_fname: 'test'
+        })
+      },
+      msg=>{
+        console.log(msg);
+      }
+    );    
+  }
+
+  getmyListing(){
+    const Auth_Token=localStorage.getItem('token');
+    const logeduser=localStorage.getItem('logedUser');
+    const url=environment.apiUrl+"auth/profile/"+logeduser;
+
+    this.http
+    .get (url, { headers: new HttpHeaders().set('Authorization', Auth_Token) }).subscribe(
+      data => {
+        this.mylists=data['listings'];
+        this.prof_fname= data['first_name'];
+        this.prof_lname= data['last_name'];
+        this.prof_email= data['email'];
+      },
+      msg=>{
+        console.log(msg);
+      }
+    );
+  }
+  
+  
+
+  onSubmit() {
+    if (this.claimForm.valid) {
+        var form = this.claimForm.value;
+        const url = environment.apiUrl+'listings/claimlistings';
+        const Auth_Token=localStorage.getItem('token');
+        const logeduser=localStorage.getItem('logedUser');
+        
+        this.http
+        .post (url, {
+          listing_id:form.listname,
+          first_name:form.claim_fname,
+          last_name:form.claim_lname,
+          contact_no:form.claim_cont,
+          email:form.claim_email,
+          content:form.claim_msg
+        },{ headers: new HttpHeaders().set('Authorization', Auth_Token) }).subscribe(
+          data => {
+            console.log(data);
+            this.successmsg=data;
+            this.claimForm.reset();
+          },
+          msg=>{
+            this.results = msg;
+            this.results = msg.error;
+            this.errormsg = msg["error"].error;
+          }
+        );
+        
+    }else {
+      this.validateAllFormFields(this.claimForm);
+    }
+  }
+
+  validateAllFormFields(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(field => {    
+      const control = formGroup.get(field);
+      if (control instanceof FormControl) {
+        control.markAsTouched({ onlySelf: true });
+      } else if (control instanceof FormGroup) {
+        this.validateAllFormFields(control);
+      }
+    });
+  }
+
+}

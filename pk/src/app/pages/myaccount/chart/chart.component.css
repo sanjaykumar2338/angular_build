@@ -1,0 +1,28 @@
+.sortstats {
+  text-align: center;
+}
+.sortstats li {
+  display: inline-block;
+  float: none;
+  margin: 0 10px;
+}
+.titlebars {
+  background: #253d52;
+  display: inline-block;
+  width: 100%;
+}
+.titlebars h4,
+.titlebars a {
+  display: inline-block;
+}
+.titlebars a {
+  float: right;
+  margin: 0px;
+  background: #253d52;
+  padding: 14px;
+  color: #fff;
+}
+.filter-div {
+  position: relative;
+  z-index: 88;
+}

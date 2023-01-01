@@ -1,0 +1,51 @@
+<section>
+  <div class="tz">
+    <!--LEFT SECTION-->
+    <app-dashmenu class="desk_dashnav"></app-dashmenu>
+
+    <!--CENTER SECTION-->
+    <div class="tz-2">
+      <div class="tz-2-com tz-2-main">
+        <h4>Response form business owners</h4>
+        <div class="db-list-com table-responsive tz-db-table">
+          <div class="ds-boar-title">
+            <h2>Enquiry Response</h2>
+            <p>Replied interested business owners.</p>
+          </div>
+
+          <table class="mt-2 table  bordered">
+            <tr>
+              <th>S.no</th>
+              <th>Full Name</th>
+              <th>Email</th>
+              <th>Date</th>
+              <th>Owner Profile</th>
+            </tr>
+            <tr *ngIf="reslist == 0">
+              <td colspan="5">
+                <h3>No response found</h3>
+              </td>
+            </tr>
+            <tr *ngFor="let elist of reslist; let i = index">
+              <td class="text-center">{{ i + 1 }}</td>
+              <td>{{ elist.user.first_name }} {{ elist.user.last_name }}</td>
+              <td>{{ elist.owner_email }}</td>
+              <td>{{ elist.created_at | date: "MMM, dd yyyy" }}</td>
+              <td>
+                <a href="/author/{{ elist.user.username }}" class="btn btn-danger" *ngIf="elist.user.username">View
+                  Owner</a>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="mt-2 mb-1">
+          <app-unit5></app-unit5>
+        </div>
+      </div>
+    </div>
+
+    <!--Right SECTION-->
+    <app-dashmenu class="mobile_dashnav"></app-dashmenu>
+    <app-dashmsg></app-dashmsg>
+  </div>
+</section>

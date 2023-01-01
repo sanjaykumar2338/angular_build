@@ -1,0 +1,962 @@
+<div *ngIf="router.url === '/'; else otherPage">
+  <section id="myID" class="bottomMenu hom-top-menu">
+    <div class="container top-search-main">
+      <div class="row">
+        <div class="ts-menu">
+          <!--SECTION: LOGO-->
+          <div class="ts-menu-1">
+            <a href="https://walldirectory.com"
+              ><img
+                src="favicon.png"
+                alt="walldirectory"
+                width="32"
+                height="32"
+              />
+            </a>
+          </div>
+          <!--SECTION: BROWSE CATEGORY(NOTE:IT'S HIDE ON MOBILE & TABLET VIEW)-->
+          <div class="ts-menu-2">
+            <a href="javascript:void(0)" class="t-bb"
+              >Start Here <i class="fa fa-angle-down" aria-hidden="true"></i
+            ></a>
+
+            <!--SECTION: BROWSE CATEGORY-->
+            <div class="cat-menu cat-menu-1">
+              <div class="dz-menu">
+                <div class="dz-menu-inn">
+                  <h4>I Want to:</h4>
+                  <ul>
+                    <li><a href="/add-business"> Add Business</a></li>
+                    <li><a href="/add-promotion">Create Promotion</a></li>
+                    <li><a href="/explore">Explore</a></li>
+                    <li><a href="/engage">Engage</a></li>
+                    <li><a href="/shop">Shop</a></li>
+                    <li><a href="/review">Reviews</a></li>
+                    <li><a href="/owners">Owners</a></li>
+                    <li><a href="/claim-your-business">Claim Business</a></li>
+                  </ul>
+                </div>
+                <div class="dz-menu-inn double_col">
+                  <h4>My Interest</h4>
+                  <ul>
+                    <li>
+                      <a href="/listing-category/auto" title="auto">Auto</a>
+                    </li>
+                    <li>
+                      <a href="/listing-category/education" title="Education"
+                        >Education</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/listing-category/entertainment"
+                        title="Entertainment"
+                        >Entertainment</a
+                      >
+                    </li>
+                    <li>
+                      <a href="/listing-category/family" title="Family"
+                        >Family</a
+                      >
+                    </li>
+                    <li>
+                      <a href="/listing-category/fashion" title="Fashion"
+                        >Fashion</a
+                      >
+                    </li>
+                    <li>
+                      <a href="/listing-category/financial" title="Financial"
+                        >Financial</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/listing-category/food-drink"
+                        title="Food & Drink"
+                        >Food & Drink</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/listing-category/health-beauty"
+                        title="Health & Beauty"
+                        >Health & Beauty</a
+                      >
+                    </li>
+                  </ul>
+
+                  <ul>
+                    <li>
+                      <a
+                        href="/listing-category/home-garden"
+                        title="Home & Garden"
+                        >Home & Garden</a
+                      >
+                    </li>
+                    <li>
+                      <a href="/listing-category/insurance" title="Insurance"
+                        >Insurance</a
+                      >
+                    </li>
+                    <li>
+                      <a href="/listing-category/legal" title="Legal">Legal</a>
+                    </li>
+                    <li>
+                      <a href="/listing-category/medical" title="Medical"
+                        >Medical</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/listing-category/real-estate"
+                        title="Real Estate"
+                        >Real Estate</a
+                      >
+                    </li>
+                    <li>
+                      <a href="/listing-category/technology" title="Technology"
+                        >Technology</a
+                      >
+                    </li>
+                    <li>
+                      <a href="/listing-category/travel" title="Travel"
+                        >Travel</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="dz-menu-inn">
+                  <h4>Quick Links</h4>
+                  <ul>
+                    <li><a href="/messages">Messages</a></li>
+                    <li><a href="/about-us"> About us</a></li>
+                    <li><a href="/how-it-works"> How It Works </a></li>
+                    <li><a href="/career">Careers</a></li>
+                    <li><a href="/contact-us">Contact us</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="https://blog.walldirectory.com">Blog</a></li>
+                  </ul>
+                </div>
+                <div class="dz-menu-inn lat-menu">
+                  <h4>My Account</h4>
+                  <ul>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/register">Register</a></li>
+                    <li><a href="/myaccount">Dashboard</a></li>
+                    <li><a href="/all-business">My Business</a></li>
+                    <li><a href="/my-profile">Edit Profile</a></li>
+                    <li><a href="/billing">Billing Details</a></li>
+                    <li><a href="/list-of-joiners">Our Joiners </a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="dir-home-nav-bot">
+                <ul>
+                  <li>
+                    A few reasons you’ll love Online Business Directory
+                    <span>Enquiry on: support@walldirectory.com</span>
+                  </li>
+                  <li>
+                    <a
+                      href="/add-business"
+                      class="waves-effect waves-light btn-large"
+                      ><i class="fa fa-bullhorn"></i> Add your Business</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/add-promotion"
+                      class="waves-effect waves-light btn-large"
+                      ><i class="fa fa-bookmark"></i> Add your Promotion</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!--SECTION: SEARCH BOX-->
+          <div class="ts-menu-3">
+            <div class="">
+              <form
+                class="tourz-search-form tourz-top-search-form"
+                [formGroup]="sr1Form"
+              >
+                <div class="input-field">
+                  <!--   <input type="text" id="top-select-city" class="autocomplete" formControlName="loc">
+                      <label for="top-select-city">Location</label> -->
+
+                  <select
+                    class="basic-cate"
+                    name="select-city"
+                    id="top-select-city"
+                    formControlName="loc"
+                  >
+                    <option value="">Location</option>
+                    <option
+                      value="{{ lstate?.slug }}"
+                      *ngFor="let lstate of listofregion; let i = index"
+                      innerHtml="{{ lstate?.name }}"
+                    ></option>
+                  </select>
+                </div>
+                <div class="input-field">
+                  <input
+                    type="text"
+                    id="top-select-search"
+                    class="autocomplete"
+                    formControlName="keyword"
+                  />
+                  <label for="top-select-search" class="search-hotel-type"
+                    >Search your services
+                  </label>
+                </div>
+                <div class="input-field">
+                  <button
+                    type="submit"
+                    (click)="ontopSearch($event)"
+                    class="waves-effect waves-light tourz-top-sear-btn"
+                  >
+                    Search
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!--SECTION: REGISTER,SIGNIN AND ADD YOUR BUSINESS-->
+          <div class="ts-menu-4">
+            <div class="v3-top-ri">
+              <ul>
+                <li *ngIf="!isLoggedIn">
+                  <a href="/login" class="v3-menu-sign"
+                    ><i class="fa fa-sign-in"></i> Sign In</a
+                  >
+                </li>
+                <!-- <li *ngIf="isLoggedIn"><a href="/logout" class="v3-menu-sign"><i class="fa fa-sign-in"></i> Logout</a> </li>-->
+                <li *ngIf="!isLoggedIn">
+                  <a href="/plans" class="v3-add-bus"
+                    ><i class="fa fa-plus" aria-hidden="true"></i> Add
+                    Business</a
+                  >
+                </li>
+
+                <li class="mydropdown" *ngIf="isLoggedIn">
+                  
+                    <a href="/myaccount" *ngIf="isUsertype == 2"
+                      ><div
+                        class="circle-prof"
+                        style="background-image:url('assets/images/icon/profile.jpg')"
+                      ></div>
+                      My Account <i class="fa fa-angle-down"></i
+                    ></a>
+                    <div class="dropdown-content" *ngIf="isUsertype == 2">
+                      <div class="loged_usertitle">
+                        <span>
+                          Hello, <span>{{ logedname }} </span></span
+                        >
+                        <a href="/my-profile">View and edit profile</a>
+                      </div>
+                      <div class="divider"></div>
+                      <a href="/myaccount"
+                        ><i class="fa fa-id-card-o"></i> My Account</a
+                      >
+                      <a href="/add-business"
+                        ><i class="fa fa-plus"></i> Add Business</a
+                      >
+                      <a href="/add-promotion"
+                        ><i class="fa fa-plus"></i> Add Promotion</a
+                      >
+                      <a href="/plans"><i class="fa fa-plus"></i> Renewal</a>
+                      <div class="divider"></div>
+                      <a href="/how-it-works"
+                        ><i class="fa fa-question-circle-o"></i> Help</a
+                      >
+                      <a href="/settings"><i class="fa fa-cog"></i> Settings</a>
+                      <div class="divider"></div>
+                      <a href="/logout"><i class="fa fa-sign-in"></i> Logout</a>
+                    </div>
+                 
+                 
+                    <a href="/agent" *ngIf="isUsertype == 3"
+                      ><div
+                        class="circle-prof"
+                        style="background-image:url('assets/images/icon/profile.jpg')"
+                      ></div>
+                      My Account <i class="fa fa-angle-down"></i
+                    ></a>
+                    <div class="dropdown-content" *ngIf="isUsertype == 3">
+                      <div class="loged_usertitle">
+                        <span>
+                          Hello, <span>{{ logedname }} </span></span
+                        >
+                        <a href="/agent/profile">View and edit profile</a>
+                      </div>
+                      <div class="divider"></div>
+                      <a href="/agent"
+                        ><i class="fa fa-id-card-o"></i> My Account</a
+                      >
+                      <a href="/agent/customers"
+                        ><i class="fa fa-users"></i> My Customers</a
+                      >
+                      <a href="/agent/ommissions"
+                        ><i class="fa fa-money"></i> Commissions</a
+                      >
+
+                      <div class="divider"></div>
+                      <a href="/logout"><i class="fa fa-sign-in"></i> Logout</a>
+                    </div>
+                  
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!--MOBILE MENU ICON:IT'S ONLY SHOW ON MOBILE & TABLET VIEW-->
+          <div class="ts-menu-5">
+            <span><i class="fa fa-bars" aria-hidden="true"></i></span>
+          </div>
+          <!--MOBILE MENU CONTAINER:IT'S ONLY SHOW ON MOBILE & TABLET VIEW-->
+          <div class="mob-right-nav" data-wow-duration="0.5s">
+            <div class="mob-right-nav-close">
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <h5>Walldirectory</h5>
+            <ul class="mob-menu-icon" *ngIf="!isLoggedIn">
+              <li>
+                <a href="/add-business"
+                  ><i class="fa fa-plus"></i> Add Business</a
+                >
+              </li>
+              <li>
+                <a href="/plans"><i class="fa fa-plus"></i> Renewal</a>
+              </li>
+              <li>
+                <a href="/register"><i class="fa fa-sign-in"></i> Register</a>
+              </li>
+              <li>
+                <a href="/login"><i class="fa fa-sign-in"></i> Sign In</a>
+              </li>
+              <li>
+                <a href="/myaccount"
+                  ><i class="fa fa-id-card-o"></i> My Account</a
+                >
+              </li>
+            </ul>
+            <ul class="mob-menu-icon" *ngIf="isLoggedIn">
+              <li>
+                
+                  <a href="/myaccount" *ngIf="isUsertype == 2"
+                    ><div
+                      class="circle-prof"
+                      style="background-image:url('assets/images/icon/profile.jpg')"
+                    ></div>
+                    My Account <i class="fa fa-angle-down"></i
+                  ></a>
+                  <div class="dropdown-content" *ngIf="isUsertype == 2">
+                    <div class="loged_usertitle">
+                      <span>
+                        Hello, <span>{{ logedname }} </span></span
+                      >
+                      <a href="/my-profile">View and edit profile</a>
+                    </div>
+                    <div class="divider"></div>
+                    <a href="/myaccount"
+                      ><i class="fa fa-id-card-o"></i> My Account</a
+                    >
+                    <a href="/add-business"
+                      ><i class="fa fa-plus"></i> Add Business</a
+                    >
+                    <a href="/add-promotion"
+                      ><i class="fa fa-plus"></i> Add Promotion</a
+                    >
+                    <a href="/plans"><i class="fa fa-plus"></i> Renewal</a>
+                    <div class="divider"></div>
+                    <a href="/how-it-works"
+                      ><i class="fa fa-question-circle-o"></i> Help</a
+                    >
+                    <a href="/settings"><i class="fa fa-cog"></i> Settings</a>
+                    <div class="divider"></div>
+                    <a href="/logout"><i class="fa fa-sign-in"></i> Logout</a>
+                  </div>
+               
+               
+                  <a href="/agent"  *ngIf="isUsertype == 3"
+                    ><div
+                      class="circle-prof"
+                      style="background-image:url('assets/images/icon/profile.jpg')"
+                    ></div>
+                    My Account <i class="fa fa-angle-down"></i
+                  ></a>
+                  <div class="dropdown-content"  *ngIf="isUsertype == 3">
+                    <div class="loged_usertitle">
+                      <span>
+                        Hello, <span>{{ logedname }} </span></span
+                      >
+                      <a href="/agent/profile">View and edit profile</a>
+                    </div>
+                    <div class="divider"></div>
+                    <a href="/agent"
+                      ><i class="fa fa-id-card-o"></i> My Account</a
+                    >
+                    <a href="/agent/customers"
+                      ><i class="fa fa-users"></i> My Customers</a
+                    >
+                    <a href="/agent/commissions"
+                      ><i class="fa fa-money"></i> Commissions</a
+                    >
+
+                    <div class="divider"></div>
+                    <a href="/logout"><i class="fa fa-sign-in"></i> Logout</a>
+                  </div>
+               
+              </li>
+            </ul>
+            <h5>All Categories</h5>
+            <ul>
+              <li><a href="/listing-category/auto" title="auto">Auto</a></li>
+              <li>
+                <a href="/listing-category/education" title="Education"
+                  >Education</a
+                >
+              </li>
+              <li>
+                <a href="/listing-category/entertainment" title="Entertainment"
+                  >Entertainment</a
+                >
+              </li>
+              <li>
+                <a href="/listing-category/family" title="Family">Family</a>
+              </li>
+              <li>
+                <a href="/listing-category/fashion" title="Fashion">Fashion</a>
+              </li>
+              <li>
+                <a href="/listing-category/financial" title="Financial"
+                  >Financial</a
+                >
+              </li>
+              <li>
+                <a href="/listing-category/food-drink" title="Food & Drink"
+                  >Food & Drink</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/listing-category/health-beauty"
+                  title="Health & Beauty"
+                  >Health & Beauty</a
+                >
+              </li>
+              <li>
+                <a href="/listing-category/home-garden" title="Home & Garden"
+                  >Home & Garden</a
+                >
+              </li>
+              <li>
+                <a href="/listing-category/insurance" title="Insurance"
+                  >Insurance</a
+                >
+              </li>
+              <li><a href="/listing-category/legal" title="Legal">Legal</a></li>
+              <li>
+                <a href="/listing-category/medical" title="Medical">Medical</a>
+              </li>
+              <li>
+                <a href="/listing-category/real-estate" title="Real Estate"
+                  >Real Estate</a
+                >
+              </li>
+              <li>
+                <a href="/listing-category/technology" title="Technology"
+                  >Technology</a
+                >
+              </li>
+              <li>
+                <a href="/listing-category/travel" title="Travel">Travel</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<ng-template #otherPage>
+  <section class="bottomMenu dir-il-top-fix">
+    <div class="container top-search-main">
+      <div class="row">
+        <div class="ts-menu">
+          <!--SECTION: LOGO-->
+          <div class="ts-menu-1">
+            <a href="https://walldirectory.com"
+              ><img
+                src="favicon.png"
+                alt="walldirectory"
+                width="32"
+                height="32"
+              />
+            </a>
+          </div>
+          <!--SECTION: BROWSE CATEGORY(NOTE:IT'S HIDE ON MOBILE & TABLET VIEW)-->
+          <div class="ts-menu-2">
+            <a href="javascript:void(0)" class="t-bb"
+              >Start Here <i class="fa fa-angle-down" aria-hidden="true"></i
+            ></a>
+            <!--SECTION: BROWSE CATEGORY-->
+            <div class="cat-menu cat-menu-1">
+              <div class="dz-menu">
+                <div class="dz-menu-inn">
+                  <h4>I Want to:</h4>
+                  <ul>
+                    <li><a href="/add-business"> Add Business</a></li>
+                    <li><a href="/add-promotion">Create Promotion</a></li>
+                    <li><a href="/explore">Explore</a></li>
+                    <li><a href="/engage">Engage</a></li>
+                    <li><a href="/shop">Shop</a></li>
+                    <li><a href="/review">Reviews</a></li>
+                    <li><a href="/owners">Owners</a></li>
+                    <li><a href="/claim-your-business">Claim Business</a></li>
+                  </ul>
+                </div>
+                <div class="dz-menu-inn double_col">
+                  <h4>My Interest</h4>
+                  <ul>
+                    <li>
+                      <a href="/listing-category/auto" title="auto">Auto</a>
+                    </li>
+                    <li>
+                      <a href="/listing-category/education" title="Education"
+                        >Education</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/listing-category/entertainment"
+                        title="Entertainment"
+                        >Entertainment</a
+                      >
+                    </li>
+                    <li>
+                      <a href="/listing-category/family" title="Family"
+                        >Family</a
+                      >
+                    </li>
+                    <li>
+                      <a href="/listing-category/fashion" title="Fashion"
+                        >Fashion</a
+                      >
+                    </li>
+                    <li>
+                      <a href="/listing-category/financial" title="Financial"
+                        >Financial</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/listing-category/food-drink"
+                        title="Food & Drink"
+                        >Food & Drink</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/listing-category/health-beauty"
+                        title="Health & Beauty"
+                        >Health & Beauty</a
+                      >
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <a
+                        href="/listing-category/home-garden"
+                        title="Home & Garden"
+                        >Home & Garden</a
+                      >
+                    </li>
+                    <li>
+                      <a href="/listing-category/insurance" title="Insurance"
+                        >Insurance</a
+                      >
+                    </li>
+                    <li>
+                      <a href="/listing-category/legal" title="Legal">Legal</a>
+                    </li>
+                    <li>
+                      <a href="/listing-category/medical" title="Medical"
+                        >Medical</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="/listing-category/real-estate"
+                        title="Real Estate"
+                        >Real Estate</a
+                      >
+                    </li>
+                    <li>
+                      <a href="/listing-category/technology" title="Technology"
+                        >Technology</a
+                      >
+                    </li>
+                    <li>
+                      <a href="/listing-category/travel" title="Travel"
+                        >Travel</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="dz-menu-inn">
+                  <h4>Quick Links</h4>
+                  <ul>
+                    <li><a href="/messages">Messages</a></li>
+                    <li><a href="/about-us"> About us</a></li>
+                    <li><a href="/how-it-works"> How It Works </a></li>
+                    <li><a href="/career">Careers</a></li>
+                    <li><a href="/contact-us">Contact us</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="https://blog.walldirectory.com">Blog</a></li>
+                  </ul>
+                </div>
+                <div class="dz-menu-inn lat-menu">
+                  <h4>My Account</h4>
+                  <ul>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/register">Register</a></li>
+                    <li><a href="/myaccount">Dashboard</a></li>
+                    <li><a href="/all-business">My Business</a></li>
+                    <li><a href="/my-profile">Edit Profile</a></li>
+                    <li><a href="/billing">Billing Details</a></li>
+                    <li><a href="/list-of-joiners">Our Joiners </a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="dir-home-nav-bot">
+                <ul>
+                  <li>
+                    A few reasons you’ll love Online Business Directory
+                    <span>Enquiry on: support@walldirectory.com</span>
+                  </li>
+                  <li>
+                    <a
+                      href="/add-business"
+                      class="waves-effect waves-light btn-large"
+                      ><i class="fa fa-bullhorn"></i> Add your Business</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/add-promotion"
+                      class="waves-effect waves-light btn-large"
+                      ><i class="fa fa-bookmark"></i> Add your Promotion</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!--SECTION: SEARCH BOX-->
+          <div class="ts-menu-3">
+            <div class="">
+              <form
+                class="tourz-search-form tourz-top-search-form"
+                [formGroup]="sr1Form"
+              >
+                <div class="input-field">
+                  <!--  <input type="text" id="top-select-city" class="autocomplete" formControlName="loc">
+                      <label for="top-select-city">Location</label> -->
+                  <select
+                    class="basic-cate"
+                    name="select-city"
+                    id="top-select-city"
+                    formControlName="loc"
+                  >
+                    <option value="">Location</option>
+                    <option
+                      value="{{ lstate?.slug }}"
+                      *ngFor="let lstate of listofregion; let i = index"
+                      innerHtml="{{ lstate?.name }}"
+                    ></option>
+                  </select>
+                </div>
+                <div class="input-field">
+                  <input
+                    type="text"
+                    id="top-select-search"
+                    class="autocomplete"
+                    formControlName="keyword"
+                  />
+                  <label for="top-select-search" class="search-hotel-type"
+                    >Search your services
+                  </label>
+                </div>
+                <div class="input-field">
+                  <button
+                    type="submit"
+                    (click)="ontopSearch($event)"
+                    class="waves-effect waves-light tourz-top-sear-btn"
+                  >
+                    Search
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!--SECTION: REGISTER,SIGNIN AND ADD YOUR BUSINESS-->
+          <div class="ts-menu-4">
+            <div class="v3-top-ri">
+              <ul>
+                <li *ngIf="!isLoggedIn">
+                  <a href="/login" class="v3-menu-sign"
+                    ><i class="fa fa-sign-in"></i> Sign In</a
+                  >
+                </li>
+                <!-- <li *ngIf="isLoggedIn"><a href="/logout" class="v3-menu-sign"><i class="fa fa-sign-in"></i> Logout</a> </li>-->
+                <li *ngIf="!isLoggedIn">
+                  <a href="/plans" class="v3-add-bus"
+                    ><i class="fa fa-plus" aria-hidden="true"></i> Add
+                    Business</a
+                  >
+                </li>
+
+                <li class="mydropdown" *ngIf="isLoggedIn">
+                  <div *ngIf="isUsertype == 2">
+                    <a href="/myaccount"
+                      ><div
+                        class="circle-prof"
+                        style="background-image:url('assets/images/icon/profile.jpg')"
+                      ></div>
+                      My Account <i class="fa fa-angle-down"></i
+                    ></a>
+                    <div class="dropdown-content">
+                      <div class="loged_usertitle">
+                        <span>
+                          Hello, <span>{{ logedname }} </span></span
+                        >
+                        <a href="/my-profile">View and edit profile</a>
+                      </div>
+                      <div class="divider"></div>
+                      <a href="/myaccount"
+                        ><i class="fa fa-id-card-o"></i> My Account</a
+                      >
+                      <a href="/add-business"
+                        ><i class="fa fa-plus"></i> Add Business</a
+                      >
+                      <a href="/add-promotion"
+                        ><i class="fa fa-plus"></i> Add Promotion</a
+                      >
+                      <a href="/plans"><i class="fa fa-plus"></i> Renewal</a>
+                      <div class="divider"></div>
+                      <a href="/how-it-works"
+                        ><i class="fa fa-question-circle-o"></i> Help</a
+                      >
+                      <a href="/settings"><i class="fa fa-cog"></i> Settings</a>
+                      <div class="divider"></div>
+                      <a href="/logout"><i class="fa fa-sign-in"></i> Logout</a>
+                    </div>
+                  </div>
+                  <div *ngIf="isUsertype == 3">
+                    <a href="/agent"
+                      ><div
+                        class="circle-prof"
+                        style="background-image:url('assets/images/icon/profile.jpg')"
+                      ></div>
+                      My Account <i class="fa fa-angle-down"></i
+                    ></a>
+                    <div class="dropdown-content">
+                      <div class="loged_usertitle">
+                        <span>
+                          Hello, <span>{{ logedname }} </span></span
+                        >
+                        <a href="/agent/profile">View and edit profile</a>
+                      </div>
+                      <div class="divider"></div>
+                      <a href="/agent"
+                        ><i class="fa fa-id-card-o"></i> My Account</a
+                      >
+                      <a href="/agent/customers"
+                        ><i class="fa fa-users"></i> My Customers</a
+                      >
+                      <a href="/agent/commissions"
+                        ><i class="fa fa-money"></i> Commissions</a
+                      >
+
+                      <div class="divider"></div>
+                      <a href="/logout"><i class="fa fa-sign-in"></i> Logout</a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!--MOBILE MENU ICON:IT'S ONLY SHOW ON MOBILE & TABLET VIEW-->
+          <div class="ts-menu-5">
+            <span><i class="fa fa-bars" aria-hidden="true"></i></span>
+          </div>
+          <!--MOBILE MENU CONTAINER:IT'S ONLY SHOW ON MOBILE & TABLET VIEW-->
+          <div class="mob-right-nav" data-wow-duration="0.5s">
+            <div class="mob-right-nav-close">
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <h5>Walldirectory</h5>
+            <ul class="mob-menu-icon" *ngIf="!isLoggedIn">
+              <li>
+                <a href="/add-business"
+                  ><i class="fa fa-plus"></i> Add Business</a
+                >
+              </li>
+              <li>
+                <a href="/plans"><i class="fa fa-plus"></i> Renewal</a>
+              </li>
+              <li>
+                <a href="/register"><i class="fa fa-sign-in"></i> Register</a>
+              </li>
+              <li>
+                <a href="/login"><i class="fa fa-sign-in"></i> Sign In</a>
+              </li>
+              <li>
+                <a href="/myaccount"
+                  ><i class="fa fa-id-card-o"></i> My Account</a
+                >
+              </li>
+            </ul>
+            <ul class="mob-menu-icon" *ngIf="isLoggedIn">
+              <li>
+                <div *ngIf="isUsertype == 2">
+                  <a href="/myaccount"
+                    ><div
+                      class="circle-prof"
+                      style="background-image:url('assets/images/icon/profile.jpg')"
+                    ></div>
+                    My Account <i class="fa fa-angle-down"></i
+                  ></a>
+                  <div class="dropdown-content">
+                    <div class="loged_usertitle">
+                      <span>
+                        Hello, <span>{{ logedname }} </span></span
+                      >
+                      <a href="/my-profile">View and edit profile</a>
+                    </div>
+                    <div class="divider"></div>
+                    <a href="/myaccount"
+                      ><i class="fa fa-id-card-o"></i> My Account</a
+                    >
+                    <a href="/add-business"
+                      ><i class="fa fa-plus"></i> Add Business</a
+                    >
+                    <a href="/add-promotion"
+                      ><i class="fa fa-plus"></i> Add Promotion</a
+                    >
+                    <a href="/plans"><i class="fa fa-plus"></i> Renewal</a>
+                    <div class="divider"></div>
+                    <a href="/how-it-works"
+                      ><i class="fa fa-question-circle-o"></i> Help</a
+                    >
+                    <a href="/settings"><i class="fa fa-cog"></i> Settings</a>
+                    <div class="divider"></div>
+                    <a href="/logout"><i class="fa fa-sign-in"></i> Logout</a>
+                  </div>
+                </div>
+                <div *ngIf="isUsertype == 3">
+                  <a href="/agent"
+                    ><div
+                      class="circle-prof"
+                      style="background-image:url('assets/images/icon/profile.jpg')"
+                    ></div>
+                    My Account <i class="fa fa-angle-down"></i
+                  ></a>
+                  <div class="dropdown-content">
+                    <div class="loged_usertitle">
+                      <span>
+                        Hello, <span>{{ logedname }} </span></span
+                      >
+                      <a href="/my-profile">View and edit profile</a>
+                    </div>
+                    <div class="divider"></div>
+                    <a href="/agent"
+                      ><i class="fa fa-id-card-o"></i> My Account</a
+                    >
+                    <a href="/agent/customers"
+                      ><i class="fa fa-users"></i> My Customers</a
+                    >
+                    <a href="/agent/commissions"
+                      ><i class="fa fa-money"></i> Commissions</a
+                    >
+
+                    <div class="divider"></div>
+                    <a href="/logout"><i class="fa fa-sign-in"></i> Logout</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <h5>All Categories</h5>
+            <ul>
+              <li><a href="/listing-category/auto" title="auto">Auto</a></li>
+              <li>
+                <a href="/listing-category/education" title="Education"
+                  >Education</a
+                >
+              </li>
+              <li>
+                <a href="/listing-category/entertainment" title="Entertainment"
+                  >Entertainment</a
+                >
+              </li>
+              <li>
+                <a href="/listing-category/family" title="Family">Family</a>
+              </li>
+              <li>
+                <a href="/listing-category/fashion" title="Fashion">Fashion</a>
+              </li>
+              <li>
+                <a href="/listing-category/financial" title="Financial"
+                  >Financial</a
+                >
+              </li>
+              <li>
+                <a href="/listing-category/food-drink" title="Food & Drink"
+                  >Food & Drink</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/listing-category/health-beauty"
+                  title="Health & Beauty"
+                  >Health & Beauty</a
+                >
+              </li>
+              <li>
+                <a href="/listing-category/home-garden" title="Home & Garden"
+                  >Home & Garden</a
+                >
+              </li>
+              <li>
+                <a href="/listing-category/insurance" title="Insurance"
+                  >Insurance</a
+                >
+              </li>
+              <li><a href="/listing-category/legal" title="Legal">Legal</a></li>
+              <li>
+                <a href="/listing-category/medical" title="Medical">Medical</a>
+              </li>
+              <li>
+                <a href="/listing-category/real-estate" title="Real Estate"
+                  >Real Estate</a
+                >
+              </li>
+              <li>
+                <a href="/listing-category/technology" title="Technology"
+                  >Technology</a
+                >
+              </li>
+              <li>
+                <a href="/listing-category/travel" title="Travel">Travel</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</ng-template>

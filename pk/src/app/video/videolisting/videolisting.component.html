@@ -1,0 +1,118 @@
+<div class="container-fluid mt-5" id="videowrapper">
+  <div class="row mt-5">
+    <div class="col-md-9">
+      <div class="heading-wrap">
+        <h3>Business Videos</h3>
+      </div>
+
+      <div class="row">
+        <ng-container *ngFor="let list of collection; let i = index; ">
+          <div class="col-md-3 resent-grid recommended-grid">
+            <div class="resent-grid-img recommended-grid-img">
+              <a href="/video/{{list?.enc}}">
+                <img src="{{ list?.snippet?.thumbnails?.high?.url}}" alt="">
+              </a>
+              <div class="time small-time">
+                <p><i class="fa fa-clock-o" aria-hidden="true"></i> {{list?.contentDetails?.duration}}</p>
+              </div>
+            </div>
+            <div class="resent-grid-info recommended-grid-info video-info-grid">
+              <h5 title="{{list?.snippet?.localized?.title}}"><a href="/video/{{list?.enc}}"
+                  class="title">{{list?.snippet?.localized?.title}}</a></h5>
+              <ul>
+                <li>
+                  <p class="author author-info">
+                    <span class="author" *ngIf="list.user.first_name" innerHtml="{{list.user.first_name}}"></span>
+                    <span class="author" *ngIf="list.user.first_name==''" innerHtml="{{list.user.username}}"></span>
+
+                  </p>
+                </li>
+                <li class="right-list">
+                  <p class="views views-info">{{list?.statistics?.viewCount}} views</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-12" *ngIf="(i+1)%8===0">
+            <div class="gads mb-3">
+              <ng-adsense [adClient]="'ca-pub-7283079374771718'" [adSlot]="5010102535" [display]="'inline-block'"
+                [adFormat]="'horizontal'" [width]="728" [height]="90"></ng-adsense>
+            </div>
+          </div>
+        </ng-container>
+
+
+      </div>
+
+      <div class="mb-5 text-center" *ngIf="lscounts>0">
+        <!--  {{currentpage}} -->
+        <a href="javascript:void(0)" (click)="prevContent($event)" [attr.data-cpage]="0"
+          class="btn btn-nav btn-prev disable">Prev</a>
+        <a href="javascript:void(0)" (click)="nextContent($event)" [attr.data-cpage]="1"
+          class="btn btn-nav btn-next">Next</a>
+        <!--  <a href="javascript:void(0)" (click)="loadMore($event)" class="btn btn-loadmore" [attr.data-cpage]="1">Load
+          More</a> -->
+      </div>
+
+    </div>
+
+    <div class="col-md-3">
+      <div class="row ">
+        <div class="col-md-12">
+          <div class="heading-wrap">
+            <h3>MORE FROM Categories</h3>
+          </div>
+          <ul class="video_list_cate">
+            <li><a href="/video-category/auto"><i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                Auto</a></li>
+            <li><a href="/video-category/education"><i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                Education</a></li>
+            <li><a href="/video-category/entertainment"><i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                Entertainment</a></li>
+            <li><a href="/video-category/family"><i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                Family</a></li>
+            <li><a href="/video-category/fashion"><i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                Fashion</a></li>
+            <li><a href="/video-category/financial"><i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                Financial</a></li>
+            <li><a href="/video-category/food-drink"><i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                Food & Drink</a></li>
+            <li><a href="/video-category/health-beauty"><i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                Health & Beauty</a></li>
+            <li><a href="/video-category/home-garden"><i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                Home & Garden</a></li>
+            <li><a href="/video-category/insurance"><i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                Insurance</a></li>
+            <li><a href="/video-category/legal"><i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                Legal</a></li>
+            <li><a href="/video-category/medical"><i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                Medical</a></li>
+            <li><a href="/video-category/real-estate"><i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                Real Estate</a></li>
+            <li><a href="/video-category/technology"><i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                Technology</a></li>
+            <li><a href="/video-category/travel"><i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                Travel</a></li>
+          </ul>
+          <div class="heading-wrap">
+            <h3>Walldirectory Videos</h3>
+          </div>
+          <ul class="wall_channel_list">
+            <ng-container *ngFor="let list of wall_videos | slice:0: 5; let i =index;">
+              <li>
+                <a href="https://www.youtube.com/watch?v={{list?.id?.videoId}}" target="_blank">
+                  <img src="{{list?.snippet?.thumbnails?.medium?.url}}" alt="{{list?.snippet?.title}}" />
+                  <h2 innerHtml="{{list?.snippet?.title}}"></h2>
+                </a>
+              </li>
+              <!--   <li class="mt-2 mb-2" *ngIf="(i+1)%2===0">
+                <ng-adsense [adClient]="'ca-pub-7283079374771718'" [adSlot]="5010102535" [display]="'inline-block'"
+                  [adFormat]="'horizontal'" [width]="728" [height]="90"></ng-adsense>
+              </li> -->
+            </ng-container>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

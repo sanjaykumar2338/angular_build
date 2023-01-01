@@ -1,0 +1,14 @@
+.btn {
+  margin-top: 150px;
+}
+.modal .modal-content {
+  border-radius: 0;
+}
+.modal-open .modal.in {
+  background: rgba(10, 10, 10, 0.78);
+}
+.utype {
+  display: block;
+  min-width: 150px;
+  margin: 10px auto;
+}

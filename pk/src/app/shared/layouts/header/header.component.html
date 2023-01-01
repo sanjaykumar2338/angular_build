@@ -1,0 +1,607 @@
+<div *ngIf="router.url === '/'; else otherPage">
+  <section id="myID" class="bottomMenu hom-top-menu">
+    <div class="container top-search-main">
+      <div class="row">
+        <div class="ts-menu">
+          <!--SECTION: LOGO-->
+          <div class="ts-menu-1">
+            <a href="https://walldirectory.com"><img src="favicon.png" alt="walldirectory" width="32" height="32" />
+            </a>
+          </div>
+          <!--SECTION: BROWSE CATEGORY(NOTE:IT'S HIDE ON MOBILE & TABLET VIEW)-->
+          <div class="ts-menu-2">
+            <a href="javascript:void(0)" class="t-bb">Start Here
+              <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+
+            <!--SECTION: BROWSE CATEGORY-->
+            <div class="cat-menu cat-menu-1">
+              <div class="dz-menu">
+                <div class="dz-menu-inn">
+                  <h4>I Want to:</h4>
+                  <ul>
+                    <li><a href="{{siteUrl2}}/add-business"> Add Business</a></li>
+                    <li><a href="{{siteUrl2}}/add-promotion">Create Promotion</a></li>
+                    <li><a href="{{siteUrl2}}/explore">Explore</a></li>
+                    <li><a href="{{siteUrl2}}/engage">Engage</a></li>
+                    <li><a href="{{siteUrl2}}/shop">Shop</a></li>
+                    <li><a href="{{siteUrl2}}/review">Reviews</a></li>
+                    <li><a href="{{siteUrl2}}/owners">Owners</a></li>
+                    <li><a href="{{siteUrl2}}/claim-your-business">Claim Business</a></li>
+                  </ul>
+                </div>
+                <div class="dz-menu-inn double_col">
+                  <h4>My Interest</h4>
+                  <ul>
+                    <li>
+                      <a href="{{siteUrl2}}/listing-category/auto" title="auto">Auto</a>
+                    </li>
+                    <li>
+                      <a href="{{siteUrl2}}/listing-category/education" title="Education">Education</a>
+                    </li>
+                    <li>
+                      <a href="{{siteUrl2}}/listing-category/entertainment" title="Entertainment">Entertainment</a>
+                    </li>
+                    <li>
+                      <a href="{{siteUrl2}}/listing-category/family" title="Family">Family</a>
+                    </li>
+                    <li>
+                      <a href="{{siteUrl2}}/listing-category/fashion" title="Fashion">Fashion</a>
+                    </li>
+                    <li>
+                      <a href="{{siteUrl2}}/listing-category/financial" title="Financial">Financial</a>
+                    </li>
+                    <li>
+                      <a href="{{siteUrl2}}/listing-category/food-drink" title="Food & Drink">Food & Drink</a>
+                    </li>
+                    <li>
+                      <a href="{{siteUrl2}}/listing-category/health-beauty" title="Health & Beauty">Health & Beauty</a>
+                    </li>
+                  </ul>
+
+                  <ul>
+                    <li>
+                      <a href="{{siteUrl2}}/listing-category/home-garden" title="Home & Garden">Home & Garden</a>
+                    </li>
+                    <li>
+                      <a href="{{siteUrl2}}/listing-category/insurance" title="Insurance">Insurance</a>
+                    </li>
+                    <li>
+                      <a href="{{siteUrl2}}/listing-category/legal" title="Legal">Legal</a>
+                    </li>
+                    <li>
+                      <a href="{{siteUrl2}}/listing-category/medical" title="Medical">Medical</a>
+                    </li>
+                    <li>
+                      <a href="{{siteUrl2}}/listing-category/real-estate" title="Real Estate">Real Estate</a>
+                    </li>
+                    <li>
+                      <a href="{{siteUrl2}}/listing-category/technology" title="Technology">Technology</a>
+                    </li>
+                    <li>
+                      <a href="{{siteUrl2}}/listing-category/travel" title="Travel">Travel</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="dz-menu-inn">
+                  <h4>Quick Links</h4>
+                  <ul>
+                    <li><a href="{{siteUrl2}}/messages">Messages</a></li>
+                    <li><a href="{{siteUrl2}}/about-us"> About us</a></li>
+                    <li><a href="/how-it-works"> How It Works </a></li>
+                    <li><a href="{{siteUrl2}}/career">Careers</a></li>
+                    <li><a href="{{siteUrl2}}/contact-us">Contact us</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="https://blog.walldirectory.com">Blog</a></li>
+                    <li><a href="{{siteUrl2}}/video">Videos</a></li>
+                  </ul>
+                </div>
+                <div class="dz-menu-inn lat-menu">
+                  <h4>My Account</h4>
+                  <ul>
+                    <li><a href="{{siteUrl2}}/login">Login</a></li>
+                    <li><a href="{{siteUrl2}}/register">Register</a></li>
+                    <li><a href="{{siteUrl2}}/myaccount">Dashboard</a></li>
+                    <li><a href="{{siteUrl2}}/all-business">My Business</a></li>
+                    <li><a href="{{siteUrl2}}/my-profile">Edit Profile</a></li>
+                    <li><a href="{{siteUrl2}}/billing">Billing Details</a></li>
+                    <li><a href="{{siteUrl2}}/list-of-joiners">Our Joiners </a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="dir-home-nav-bot">
+                <ul>
+                  <li>
+                    A few reasons you’ll love Online Business Directory
+                    <span>Enquiry on: support@walldirectory.com</span>
+                  </li>
+                  <li>
+                    <a href="{{siteUrl2}}/add-business" class="waves-effect waves-light btn-large"><i
+                        class="fa fa-bullhorn"></i>
+                      Add your Business</a>
+                  </li>
+                  <li>
+                    <a href="{{siteUrl2}}/add-promotion" class="waves-effect waves-light btn-large"><i
+                        class="fa fa-bookmark"></i>
+                      Add your Promotion</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!--SECTION: SEARCH BOX-->
+          <div class="ts-menu-3">
+            <div class="">
+              <form class="tourz-search-form tourz-top-search-form" [formGroup]="sr1Form">
+                <div class="input-field">
+                  <!--   <input type="text" id="top-select-city" class="autocomplete" formControlName="loc">
+                      <label for="top-select-city">Location</label> -->
+
+                  <select class="basic-cate" name="select-city" id="top-select-city" formControlName="loc">
+                    <option value="">Location</option>
+                    <option value="{{ lstate?.slug }}" *ngFor="let lstate of listofregion; let i = index"
+                      innerHtml="{{ lstate?.name }}"></option>
+                  </select>
+                </div>
+                <div class="input-field">
+                  <input type="text" id="top-select-search" class="autocomplete" formControlName="keyword" />
+                  <label for="top-select-search" class="search-hotel-type">Search your services
+                  </label>
+                </div>
+                <div class="input-field">
+                  <button type="submit" (click)="ontopSearch($event)"
+                    class="waves-effect waves-light tourz-top-sear-btn">
+                    Search
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!--SECTION: REGISTER,SIGNIN AND ADD YOUR BUSINESS-->
+          <div class="ts-menu-4">
+            <div class="v3-top-ri">
+              <ul>
+                <li *ngIf="!isLoggedIn">
+                  <a href="{{siteUrl2}}/login" class="v3-menu-sign"><i class="fa fa-sign-in"></i> Sign In</a>
+                </li>
+                <!-- <li *ngIf="isLoggedIn"><a href="/logout" class="v3-menu-sign"><i class="fa fa-sign-in"></i> Logout</a> </li>-->
+                <li *ngIf="!isLoggedIn">
+                  <a href="{{siteUrl2}}/plans" class="v3-add-bus"><i class="fa fa-plus" aria-hidden="true"></i> Add
+                    Business</a>
+                </li>
+
+                <li class="mydropdown" *ngIf="usertype == 3">
+                  <a href="{{siteUrl2}}/agent">
+                    <div class="circle-prof" style="background-image:url('assets/images/icon/profile.jpg')"></div>
+                    My Account <i class="fa fa-angle-down"></i>
+                  </a>
+                  <div class="dropdown-content">
+                    <div class="loged_usertitle">
+                      <span>
+                        Hello, <span>{{ logedname }}</span></span>
+                      <a href="{{siteUrl2}}/agent/profile">View and edit profile</a>
+                    </div>
+                    <div class="divider"></div>
+                    <a href="{{siteUrl2}}/agent"><i class="fa fa-id-card-o"></i> My Account</a>
+                    <a href="{{siteUrl2}}/agent/customers"><i class="fa fa-users"></i> My Customers</a>
+                    <a href="{{siteUrl2}}/agent/commissions"><i class="fa fa-money"></i> Commissions</a>
+                    <div class="divider"></div>
+                    <a routerLink="/logout"><i class="fa fa-sign-in"></i> Logout</a>
+                  </div>
+                </li>
+                <li class="mydropdown" *ngIf="usertype == 2">
+                  <a href="{{siteUrl2}}/myaccount">
+                    <div class="circle-prof" style="background-image:url('assets/images/icon/profile.jpg')"></div>
+                    My Account <i class="fa fa-angle-down"></i>
+                  </a>
+                  <div class="dropdown-content">
+                    <div class="loged_usertitle">
+                      <span>
+                        Hello, <span>{{ logedname }}</span></span>
+                      <a href="{{siteUrl2}}/my-profile">View and edit profile</a>
+                    </div>
+                    <div class="divider"></div>
+                    <a href="{{siteUrl2}}/myaccount"><i class="fa fa-id-card-o"></i> My Account</a>
+                    <a href="{{siteUrl2}}/add-business"><i class="fa fa-plus"></i> Add Business</a>
+                    <a href="{{siteUrl2}}/add-promotion"><i class="fa fa-plus"></i> Add Promotion</a>
+                    <a href="{{siteUrl2}}/plans"><i class="fa fa-plus"></i> Renewal</a>
+                    <div class="divider"></div>
+                    <a href="{{siteUrl2}}/how-it-works"><i class="fa fa-question-circle-o"></i> Help</a>
+                    <a href="{{siteUrl2}}/settings"><i class="fa fa-cog"></i> Settings</a>
+                    <div class="divider"></div>
+                    <a routerLink="/logout"><i class="fa fa-sign-in"></i> Logout</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!--MOBILE MENU ICON:IT'S ONLY SHOW ON MOBILE & TABLET VIEW-->
+          <div class="ts-menu-5">
+            <span><i class="fa fa-bars" aria-hidden="true"></i></span>
+          </div>
+          <!--MOBILE MENU CONTAINER:IT'S ONLY SHOW ON MOBILE & TABLET VIEW-->
+          <div class="mob-right-nav" data-wow-duration="0.5s">
+            <div class="mob-right-nav-close">
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div class='uprof' *ngIf="isLoggedIn"><span>
+                <div class="circle-prof" style="background-image:url('assets/images/icon/profile.jpg')"></div> Hello,
+                <span>{{ logedname }} </span>
+              </span></div>
+            <ul>
+              <li>
+                <a href="javascript:void(0);" [ngClass]="{'my-class': parent === 'tb1'}" (click)="menuopen('tb1')">I
+                  WANT
+                  TO
+                  <i class="fa fa-angle-down" *ngIf="!menutoggle?.tb1"></i>
+                  <i class=" fa fa-angle-up" *ngIf="menutoggle?.tb1"></i>
+                </a>
+                <ul class="mob-menu-icon" *ngIf="parent == 'tb1' || menutoggle?.tb1">
+                  <li><a href="{{siteUrl2}}/add-business"> Add Business</a></li>
+                  <li><a href="{{siteUrl2}}/add-promotion">Create Promotion</a></li>
+                  <li><a href="{{siteUrl2}}/explore">Explore</a></li>
+                  <li><a href="{{siteUrl2}}/engage">Engage</a></li>
+                  <li><a href="{{siteUrl2}}/shop">Shop</a></li>
+                  <li><a href="{{siteUrl2}}/review">Reviews</a></li>
+                  <li><a href="{{siteUrl2}}/owners">Owners</a></li>
+                  <li><a href="{{siteUrl2}}/claim-your-business">Claim Business</a></li>
+                </ul>
+              </li>
+              <li><a href="javascript:void(0);" [ngClass]="{ open: parent == 'tb2' }" (click)="menuopen('tb2')">MY
+                  INTEREST <i class="fa fa-angle-down" *ngIf="!menutoggle?.tb2"></i>
+                  <i class=" fa fa-angle-up" *ngIf="menutoggle?.tb2"></i></a>
+                <ul class="mob-menu-icon" *ngIf="parent == 'tb2' || menutoggle?.tb2">
+                  <li><a href="{{siteUrl2}}/listing-category/auto" title="auto">Auto</a></li>
+                  <li><a href="{{siteUrl2}}/listing-category/education" title="Education">Education</a></li>
+                  <li><a href="{{siteUrl2}}/listing-category/entertainment" title="Entertainment">Entertainment</a></li>
+                  <li><a href="{{siteUrl2}}/listing-category/family" title="Family">Family</a></li>
+                  <li><a href="{{siteUrl2}}/listing-category/fashion" title="Fashion">Fashion</a></li>
+                  <li><a href="{{siteUrl2}}/listing-category/financial" title="Financial">Financial</a></li>
+                  <li><a href="{{siteUrl2}}/listing-category/food-drink" title="Food & Drink">Food & Drink</a></li>
+                  <li><a href="{{siteUrl2}}/listing-category/health-beauty" title="Health & Beauty">Health & Beauty</a>
+                  </li>
+                  <li><a href="{{siteUrl2}}/listing-category/home-garden" title="Home & Garden">Home & Garden</a></li>
+                  <li><a href="{{siteUrl2}}/listing-category/insurance" title="Insurance">Insurance</a></li>
+                  <li><a href="{{siteUrl2}}/listing-category/legal" title="Legal">Legal</a></li>
+                  <li><a href="{{siteUrl2}}/listing-category/medical" title="Medical">Medical</a></li>
+                  <li><a href="{{siteUrl2}}/listing-category/real-estate" title="Real Estate">Real Estate</a></li>
+                  <li><a href="{{siteUrl2}}/listing-category/technology" title="Technology">Technology</a></li>
+                  <li><a href="{{siteUrl2}}/listing-category/travel" title="Travel">Travel</a></li>
+                </ul>
+              </li>
+              <li><a href="javascript:void(0);" [ngClass]="{ open: parent == 'tb3' }" (click)="menuopen('tb3')">QUICK
+                  LINKS <i class="fa fa-angle-down" *ngIf="!menutoggle?.tb3"></i>
+                  <i class=" fa fa-angle-up" *ngIf="menutoggle?.tb3"></i></a>
+                <ul class="mob-menu-icon" *ngIf="parent == 'tb3' || menutoggle?.tb3">
+                  <li><a href="{{siteUrl2}}/messages">Messages</a></li>
+                  <li><a href="{{siteUrl2}}/about-us"> About us</a></li>
+                  <li><a href="{{siteUrl2}}/how-it-works"> How It Works </a></li>
+                  <li><a href="{{siteUrl2}}/career">Careers</a></li>
+                  <li><a href="{{siteUrl2}}/contact-us">Contact us</a></li>
+                  <li><a href="#">Support</a></li>
+                  <li><a href="https://blog.walldirectory.com">Blog</a></li>
+                </ul>
+              </li>
+              <li><a href="javascript:void(0);" [ngClass]="{ open: parent == 'tb4' }" (click)="menuopen('tb4')">MY
+                  ACCOUNT <i class="fa fa-angle-down" *ngIf="!menutoggle?.tb4"></i>
+                  <i class=" fa fa-angle-up" *ngIf="menutoggle?.tb4"></i></a>
+                <ul class="mob-menu-icon" *ngIf="parent == 'tb4' || menutoggle?.tb4">
+                  <li *ngIf="!isLoggedIn"><a href="{{siteUrl2}}/login">Login</a></li>
+                  <li *ngIf="isLoggedIn"><a routerLink="/logout">Logout</a></li>
+                  <li *ngIf="!isLoggedIn"><a href="{{siteUrl2}}/register">Register</a></li>
+                  <li><a href="{{siteUrl2}}/myaccount">Dashboard</a></li>
+                  <li><a href="{{siteUrl2}}/all-business">My Business</a></li>
+                  <li><a href="{{siteUrl2}}/my-profile">Edit Profile</a></li>
+                  <li><a href="{{siteUrl2}}/billing">Billing Details</a></li>
+                  <li><a href="{{siteUrl2}}/list-of-joiners">Our Joiners </a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<ng-template #otherPage>
+  <section class="bottomMenu dir-il-top-fix">
+    <div class="container top-search-main">
+      <div class="row">
+        <div class="ts-menu">
+          <!--SECTION: LOGO-->
+          <div class="ts-menu-1">
+            <a href="https://walldirectory.com"><img src="favicon.png" alt="walldirectory" width="32" height="32" />
+            </a>
+          </div>
+          <!--SECTION: BROWSE CATEGORY(NOTE:IT'S HIDE ON MOBILE & TABLET VIEW)-->
+          <div class="ts-menu-2">
+            <a href="javascript:void(0)" class="t-bb" (mouseenter) ="mouseEnter()" >Start Here
+              <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+            <!--SECTION: BROWSE CATEGORY-->
+            <div class="cat-menu cat-menu-1" (mouseleave) ="mouseLeave()">
+              <div class="dz-menu">
+                <div class="dz-menu-inn">
+                  <h4>I Want to:</h4>
+                  <ul>
+                    <li><a href="{{siteUrl2}}/add-business"> Add Business</a></li>
+                    <li><a href="{{siteUrl2}}/add-promotion">Create Promotion</a></li>
+                    <li><a href="{{siteUrl2}}/explore">Explore</a></li>
+                    <li><a href="{{siteUrl2}}/engage">Engage</a></li>
+                    <li><a href="{{siteUrl2}}/shop">Shop</a></li>
+                    <li><a href="{{siteUrl2}}/review">Reviews</a></li>
+                    <li><a href="{{siteUrl2}}/owners">Owners</a></li>
+                    <li><a href="{{siteUrl2}}/claim-your-business">Claim Business</a></li>
+                  </ul>
+                </div>
+                <div class="dz-menu-inn double_col">
+                  <h4>My Interest</h4>
+                  <ul>
+                    <li>
+                      <a href="{{siteUrl2}}/listing-category/auto" title="auto">Auto</a>
+                    </li>
+                    <li>
+                      <a href="{{siteUrl2}}/listing-category/education" title="Education">Education</a>
+                    </li>
+                    <li>
+                      <a href="{{siteUrl2}}/listing-category/entertainment" title="Entertainment">Entertainment</a>
+                    </li>
+                    <li>
+                      <a href="{{siteUrl2}}/listing-category/family" title="Family">Family</a>
+                    </li>
+                    <li>
+                      <a href="{{siteUrl2}}/listing-category/fashion" title="Fashion">Fashion</a>
+                    </li>
+                    <li>
+                      <a href="{{siteUrl2}}/listing-category/financial" title="Financial">Financial</a>
+                    </li>
+                    <li>
+                      <a href="{{siteUrl2}}/listing-category/food-drink" title="Food & Drink">Food & Drink</a>
+                    </li>
+                    <li>
+                      <a href="{{siteUrl2}}/listing-category/health-beauty" title="Health & Beauty">Health & Beauty</a>
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <a href="{{siteUrl2}}/listing-category/home-garden" title="Home & Garden">Home & Garden</a>
+                    </li>
+                    <li>
+                      <a href="{{siteUrl2}}/listing-category/insurance" title="Insurance">Insurance</a>
+                    </li>
+                    <li>
+                      <a href="{{siteUrl2}}/listing-category/legal" title="Legal">Legal</a>
+                    </li>
+                    <li>
+                      <a href="{{siteUrl2}}/listing-category/medical" title="Medical">Medical</a>
+                    </li>
+                    <li>
+                      <a href="{{siteUrl2}}/listing-category/real-estate" title="Real Estate">Real Estate</a>
+                    </li>
+                    <li>
+                      <a href="{{siteUrl2}}/listing-category/technology" title="Technology">Technology</a>
+                    </li>
+                    <li>
+                      <a href="{{siteUrl2}}/listing-category/travel" title="Travel">Travel</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="dz-menu-inn">
+                  <h4>Quick Links</h4>
+                  <ul>
+                    <li><a href="{{siteUrl2}}/messages">Messages</a></li>
+                    <li><a href="{{siteUrl2}}/about-us"> About us</a></li>
+                    <li><a href="{{siteUrl2}}/how-it-works"> How It Works </a></li>
+                    <li><a href="{{siteUrl2}}/career">Careers</a></li>
+                    <li><a href="{{siteUrl2}}/contact-us">Contact us</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="https://blog.walldirectory.com">Blog</a></li>
+                  </ul>
+                </div>
+                <div class="dz-menu-inn lat-menu">
+                  <h4>My Account</h4>
+                  <ul>
+                    <li><a href="{{siteUrl2}}/login">Login</a></li>
+                    <li><a href="{{siteUrl2}}/register">Register</a></li>
+                    <li><a href="{{siteUrl2}}/myaccount">Dashboard</a></li>
+                    <li><a href="{{siteUrl2}}/all-business">My Business</a></li>
+                    <li><a href="{{siteUrl2}}/my-profile">Edit Profile</a></li>
+                    <li><a href="{{siteUrl2}}/billing">Billing Details</a></li>
+                    <li><a href="{{siteUrl2}}/list-of-joiners">Our Joiners </a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="dir-home-nav-bot">
+                <ul>
+                  <li>
+                    A few reasons you’ll love Online Business Directory
+                    <span>Enquiry on: support@walldirectory.com</span>
+                  </li>
+                  <li>
+                    <a href="{{siteUrl2}}/add-business" class="waves-effect waves-light btn-large"><i
+                        class="fa fa-bullhorn"></i>
+                      Add your Business</a>
+                  </li>
+                  <li>
+                    <a href="{{siteUrl2}}/add-promotion" class="waves-effect waves-light btn-large"><i
+                        class="fa fa-bookmark"></i>
+                      Add your Promotion</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!--SECTION: SEARCH BOX-->
+          <div class="ts-menu-3">
+            <div class="">
+              <form class="tourz-search-form tourz-top-search-form" [formGroup]="sr1Form">
+                <div class="input-field">
+                  <!--  <input type="text" id="top-select-city" class="autocomplete" formControlName="loc">
+                      <label for="top-select-city">Location</label> -->
+                  <select class="basic-cate" name="select-city" id="top-select-city" formControlName="loc">
+                    <option value="">Location</option>
+                    <option value="{{ lstate?.slug }}" *ngFor="let lstate of listofregion; let i = index"
+                      innerHtml="{{ lstate?.name }}"></option>
+                  </select>
+                </div>
+                <div class="input-field">
+                  <input type="text" id="top-select-search" class="autocomplete" formControlName="keyword" />
+                  <label for="top-select-search" class="search-hotel-type">Search your services
+                  </label>
+                </div>
+                <div class="input-field">
+                  <button type="submit" (click)="ontopSearch($event)"
+                    class="waves-effect waves-light tourz-top-sear-btn">
+                    Search
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!--SECTION: REGISTER,SIGNIN AND ADD YOUR BUSINESS-->
+          <div class="ts-menu-4">
+            <div class="v3-top-ri">
+              <ul>
+                <li *ngIf="!isLoggedIn">
+                  <a href="{{siteUrl2}}/login" class="v3-menu-sign"><i class="fa fa-sign-in"></i> Sign In</a>
+                </li>
+                <!-- <li *ngIf="isLoggedIn"><a href="/logout" class="v3-menu-sign"><i class="fa fa-sign-in"></i> Logout</a> </li>-->
+                <li *ngIf="!isLoggedIn">
+                  <a href="{{siteUrl2}}/plans" class="v3-add-bus"><i class="fa fa-plus" aria-hidden="true"></i> Add
+                    Business</a>
+                </li>
+
+                <li class="mydropdown" *ngIf="usertype == 3">
+                  <a href="{{siteUrl2}}/agent">
+                    <div class="circle-prof" style="background-image:url('assets/images/icon/profile.jpg')"></div>
+                    My Account <i class="fa fa-angle-down"></i>
+                  </a>
+                  <div class="dropdown-content">
+                    <div class="loged_usertitle">
+                      <span>
+                        Hello, <span>{{ logedname }}</span></span>
+                      <a href="{{siteUrl2}}/agent/profile">View and edit profile</a>
+                    </div>
+                    <div class="divider"></div>
+                    <a href="{{siteUrl2}}/agent"><i class="fa fa-id-card-o"></i> My Account</a>
+                    <a href="{{siteUrl2}}/agent/customers"><i class="fa fa-users"></i> My Customers</a>
+                    <a href="{{siteUrl2}}/agent/commissions"><i class="fa fa-money"></i> Commissions</a>
+                    <div class="divider"></div>
+                    <a routerLink="/logout"><i class="fa fa-sign-in"></i> Logout</a>
+                  </div>
+                </li>
+                <li class="mydropdown" *ngIf="usertype == 2">
+                  <a href="{{siteUrl2}}/myaccount">
+                    <div class="circle-prof" style="background-image:url('assets/images/icon/profile.jpg')"></div>
+                    My Account <i class="fa fa-angle-down"></i>
+                  </a>
+                  <div class="dropdown-content">
+                    <div class="loged_usertitle">
+                      <span>
+                        Hello, <span>{{ logedname }}</span></span>
+                      <a href="{{siteUrl2}}/my-profile">View and edit profile</a>
+                    </div>
+                    <div class="divider"></div>
+                    <a href="{{siteUrl2}}/myaccount"><i class="fa fa-id-card-o"></i> My Account</a>
+                    <a href="{{siteUrl2}}/add-business"><i class="fa fa-plus"></i> Add Business</a>
+                    <a href="{{siteUrl2}}/add-promotion"><i class="fa fa-plus"></i> Add Promotion</a>
+                    <a href="{{siteUrl2}}/plans"><i class="fa fa-plus"></i> Renewal</a>
+                    <div class="divider"></div>
+                    <a href="{{siteUrl2}}/how-it-works"><i class="fa fa-question-circle-o"></i> Help</a>
+                    <a href="{{siteUrl2}}/settings"><i class="fa fa-cog"></i> Settings</a>
+                    <div class="divider"></div>
+                    <a routerLink="/logout"><i class="fa fa-sign-in"></i> Logout</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!--MOBILE MENU ICON:IT'S ONLY SHOW ON MOBILE & TABLET VIEW-->
+          <div class="ts-menu-5" (click)="mobshow()">
+            <span><i class="fa fa-bars" aria-hidden="true"></i></span>
+          </div>
+          <!--MOBILE MENU CONTAINER:IT'S ONLY SHOW ON MOBILE & TABLET VIEW-->
+          <div class="mob-right-nav" data-wow-duration="0.5s">
+            <div class="mob-right-nav-close" (click)="mobhide()">
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div class='uprof' *ngIf="isLoggedIn"><span>
+                <div class="circle-prof" style="background-image:url('assets/images/icon/profile.jpg')"></div> Hello,
+                <span>{{ logedname }} </span>
+              </span></div>
+            <ul>
+              <li>
+                <a href="javascript:void(0);" [ngClass]="{'my-class': parent === 'tb1'}" (click)="menuopen('tb1')">I
+                  WANT
+                  TO
+                  <i class="fa fa-angle-down" *ngIf="!menutoggle?.tb1"></i>
+                  <i class=" fa fa-angle-up" *ngIf="menutoggle?.tb1"></i>
+                </a>
+                <ul class="mob-menu-icon" *ngIf="parent == 'tb1' || menutoggle?.tb1">
+                  <li><a href="{{siteUrl2}}/add-business"> Add Business</a></li>
+                  <li><a href="{{siteUrl2}}/add-promotion">Create Promotion</a></li>
+                  <li><a href="{{siteUrl2}}/explore">Explore</a></li>
+                  <li><a href="{{siteUrl2}}/engage">Engage</a></li>
+                  <li><a href="{{siteUrl2}}/shop">Shop</a></li>
+                  <li><a href="{{siteUrl2}}/review">Reviews</a></li>
+                  <li><a href="{{siteUrl2}}/owners">Owners</a></li>
+                  <li><a href="{{siteUrl2}}/claim-your-business">Claim Business</a></li>
+                </ul>
+              </li>
+              <li><a href="javascript:void(0);" [ngClass]="{ open: parent == 'tb2' }" (click)="menuopen('tb2')">MY
+                  INTEREST <i class="fa fa-angle-down" *ngIf="!menutoggle?.tb2"></i>
+                  <i class=" fa fa-angle-up" *ngIf="menutoggle?.tb2"></i></a>
+                <ul class="mob-menu-icon" *ngIf="parent == 'tb2' || menutoggle?.tb2">
+                  <li><a href="{{siteUrl2}}/listing-category/auto" title="auto">Auto</a></li>
+                  <li><a href="{{siteUrl2}}/listing-category/education" title="Education">Education</a></li>
+                  <li><a href="{{siteUrl2}}/listing-category/entertainment" title="Entertainment">Entertainment</a></li>
+                  <li><a href="{{siteUrl2}}/listing-category/family" title="Family">Family</a></li>
+                  <li><a href="{{siteUrl2}}/listing-category/fashion" title="Fashion">Fashion</a></li>
+                  <li><a href="{{siteUrl2}}/listing-category/financial" title="Financial">Financial</a></li>
+                  <li><a href="{{siteUrl2}}/listing-category/food-drink" title="Food & Drink">Food & Drink</a></li>
+                  <li><a href="{{siteUrl2}}/listing-category/health-beauty" title="Health & Beauty">Health & Beauty</a>
+                  </li>
+                  <li><a href="{{siteUrl2}}/listing-category/home-garden" title="Home & Garden">Home & Garden</a></li>
+                  <li><a href="{{siteUrl2}}/listing-category/insurance" title="Insurance">Insurance</a></li>
+                  <li><a href="{{siteUrl2}}/listing-category/legal" title="Legal">Legal</a></li>
+                  <li><a href="{{siteUrl2}}/listing-category/medical" title="Medical">Medical</a></li>
+                  <li><a href="{{siteUrl2}}/listing-category/real-estate" title="Real Estate">Real Estate</a></li>
+                  <li><a href="{{siteUrl2}}/listing-category/technology" title="Technology">Technology</a></li>
+                  <li><a href="{{siteUrl2}}/listing-category/travel" title="Travel">Travel</a></li>
+                </ul>
+              </li>
+              <li><a href="javascript:void(0);" [ngClass]="{ open: parent == 'tb3' }" (click)="menuopen('tb3')">QUICK
+                  LINKS <i class="fa fa-angle-down" *ngIf="!menutoggle?.tb3"></i>
+                  <i class=" fa fa-angle-up" *ngIf="menutoggle?.tb3"></i></a>
+                <ul class="mob-menu-icon" *ngIf="parent == 'tb3' || menutoggle?.tb3">
+                  <li><a href="{{siteUrl2}}/messages">Messages</a></li>
+                  <li><a href="{{siteUrl2}}/about-us"> About us</a></li>
+                  <li><a href="{{siteUrl2}}/how-it-works"> How It Works </a></li>
+                  <li><a href="{{siteUrl2}}/career">Careers</a></li>
+                  <li><a href="{{siteUrl2}}/contact-us">Contact us</a></li>
+                  <li><a href="#">Support</a></li>
+                  <li><a href="https://blog.walldirectory.com">Blog</a></li>
+                </ul>
+              </li>
+              <li><a href="javascript:void(0);" [ngClass]="{ open: parent == 'tb4' }" (click)="menuopen('tb4')">MY
+                  ACCOUNT <i class="fa fa-angle-down" *ngIf="!menutoggle?.tb4"></i>
+                  <i class=" fa fa-angle-up" *ngIf="menutoggle?.tb4"></i></a>
+                <ul class="mob-menu-icon" *ngIf="parent == 'tb4' || menutoggle?.tb4">
+                  <li *ngIf="!isLoggedIn"><a href="{{siteUrl2}}/login">Login</a></li>
+                  <li *ngIf="isLoggedIn"><a routerLink="/logout">Logout</a></li>
+                  <li *ngIf="!isLoggedIn"><a href="{{siteUrl2}}/register">Register</a></li>
+                  <li><a href="{{siteUrl2}}/myaccount">Dashboard</a></li>
+                  <li><a href="{{siteUrl2}}/all-business">My Business</a></li>
+                  <li><a href="{{siteUrl2}}/my-profile">Edit Profile</a></li>
+                  <li><a href="{{siteUrl2}}/billing">Billing Details</a></li>
+                  <li><a href="{{siteUrl2}}/list-of-joiners">Our Joiners </a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</ng-template>

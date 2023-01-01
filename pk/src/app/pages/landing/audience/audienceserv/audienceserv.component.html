@@ -1,0 +1,71 @@
+<div class="scroll_txt text-center">
+  <a routerLink="/audience-interest" class="clocat">
+    <i class="fa fa-angle-double-left"></i> Change Location
+  </a>
+  | {{ content.sec1 }}
+</div>
+
+<div class="city_head banner-frm text-center pb-0">
+  <h2>{{ content.sec2 }}</h2>
+  <p>{{ content.sec2a }}</p>
+</div>
+
+<section class="" id="qualifier">
+  <div class="container">
+    <div class="row align-item-center justify-content-center ">
+      <div class="col-lg-8 col-md-8 col-sm-12 mt-4">
+        <app-funnelfrm2></app-funnelfrm2>
+
+        <div class="cmp_text">
+          <h3 class="text-center mt-2 mb-2">{{ content.sec3 }}</h3>
+          <div [innerHtml]="content.sec3_desc"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class=" text-center com-mar-top-20">
+      <app-unit4></app-unit4>
+    </div>
+  </div>
+</section>
+
+<section class="sec blue-wrapper mar6040 mb-0 city_ads">
+  <div class="container">
+    <div class="row freetry">
+      <div class="col-md-6 text-center">
+        <div class="h1">Try WallDirectory For Free:</div>
+
+        <div class="start-promt">
+          <a href="/register">
+            <h3>
+              Start Your Free Promotions
+              <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            </h3>
+            <h5>Drive Traffic to Website for FREE Right Now</h5>
+          </a>
+        </div>
+
+        <p class="font-italic font-dark">
+          No obligation, no contract, cancel anytime, 100% free.
+        </p>
+      </div>
+
+      <div class="col-md-6">
+        <ul class="single-cityli">
+          <li><i class="fa fa-check"></i> Market your website</li>
+          <li><i class="fa fa-check"></i> Market your pages</li>
+          <li><i class="fa fa-check"></i> Connect with leads</li>
+          <li><i class="fa fa-check"></i> Improve online reputation</li>
+          <li><i class="fa fa-check"></i> Track visitors</li>
+        </ul>
+      </div>
+
+      <div class="col-md-12 single-city sp-note text-center font-weight-bold mt-md-3 mt-sm-2">
+        <h1 class="mb-0">
+          {{ content.sec4 }}
+        </h1>
+      </div>
+    </div>
+  </div>
+  <app-unit4></app-unit4>
+</section>

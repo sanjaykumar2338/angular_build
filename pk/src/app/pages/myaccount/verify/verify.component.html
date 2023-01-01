@@ -1,0 +1,122 @@
+<section>
+  <div class="tz">
+    <!--LEFT SECTION-->
+    <app-dashmenu class="desk_dashnav"></app-dashmenu>
+
+    <!--CENTER SECTION-->
+    <div class="tz-2 message_nodify">
+      <div class="tz-2-com tz-2-main">
+        <h4>Verify Your Business</h4>
+        <div class="tz-2-main-com">
+          <div class="hom-cre-acc-left hom-cre-acc-right">
+            <div class="alert alert-danger" *ngIf="mylists.length == 0">
+              No Business Found.
+            </div>
+
+            <form [formGroup]="verifyForm" *ngIf="mylists.length > 0">
+              <div class="row">
+                <div class="input-field col s12">
+                  <select formControlName="listname">
+                    <option value="" selected>Listing</option>
+                    <option *ngFor="let listings of mylists" [value]="listings.id" [innerHtml]="listings.title">
+                    </option>
+                  </select>
+                  <span *ngIf="
+                      !verifyForm.get('listname').valid &&
+                      verifyForm.get('listname').touched
+                    " class="help-block">Field required.</span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="fname" class="validate" formControlName="fname" />
+                  <label for="fname" [ngClass]="prof_fname ? 'active' : ''">First Name*</label>
+                  <span *ngIf="
+                      !verifyForm.get('fname').valid &&
+                      verifyForm.get('fname').touched
+                    " class="help-block">Enter your firstname.</span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="lname" class="validate" formControlName="lname" />
+                  <label for="lname" [ngClass]="prof_lname ? 'active' : ''">Last Name*</label>
+                  <span *ngIf="
+                      !verifyForm.get('lname').valid &&
+                      verifyForm.get('lname').touched
+                    " class="help-block">Enter your lastname.</span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="cont" class="validate" formControlName="cont" />
+                  <label for="cont">Your Contact No.*</label>
+                  <span *ngIf="
+                      verifyForm.get('cont').value == '' &&
+                      verifyForm.get('cont').touched
+                    " class="help-block">Field required.</span>
+                  <span *ngIf="
+                      !verifyForm.get('cont').valid &&
+                      verifyForm.controls['cont'].hasError('pattern')
+                    " class="help-block">Enter digits char.</span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="email" name="email" class="validate" formControlName="email" />
+                  <label for="email" [ngClass]="prof_email ? 'active' : ''">Your Email*</label>
+                  <span *ngIf="
+                      !verifyForm.get('email').valid &&
+                      verifyForm.get('email').touched
+                    " class="help-block">Enter vaild email</span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea type="text" name="msg" class="validate" formControlName="msg"></textarea>
+                  <label>Your Message*</label>
+                  <span *ngIf="
+                      !verifyForm.get('msg').valid &&
+                      verifyForm.get('msg').touched
+                    " class="help-block">Enter claim message</span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12 v2-mar-top-40">
+                  <button type="submit" class="waves-effect waves-light btn-large full-btn" (click)="onSubmit()">
+                    Verify Now
+                  </button>
+                </div>
+              </div>
+
+              <div class="alert alert-success text-center mt-2" *ngIf="successmsg">
+                <h5>
+                  Your request has been submitted.
+                  <br />Your listing will get verified soon. <br />To verify:
+                  Your Facebook business page has to be verified.
+                </h5>
+              </div>
+
+              <div class="alert alert-danger text-center mt-2" *ngIf="errormsg">
+                <h5>{{ errormsg }}</h5>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="mt-2 mb-1">
+          <app-unit5></app-unit5>
+        </div>
+      </div>
+    </div>
+
+    <!--Right SECTION-->
+    <app-dashmenu class="mobile_dashnav"></app-dashmenu>
+    <app-dashmsg></app-dashmsg>
+  </div>
+</section>

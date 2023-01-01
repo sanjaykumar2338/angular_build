@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="22px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>icon_check-mark</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Screens-Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="mock-up_enterprise-signup_desktop" transform="translate(-818.000000, -575.000000)" fill="#F38020">
+            <g id="Content-Right" transform="translate(818.000000, 180.000000)">
+                <g id="Bullet-List" transform="translate(0.000000, 112.500000)">
+                    <g id="Check-Marks" transform="translate(0.000000, 2.500000)">
+                        <path d="M8.01028079,292.812598 C7.90812658,292.932402 7.75890655,293.000862 7.60273362,293.000862 C7.58829297,293.000862 7.57385233,293.000327 7.55887684,292.999257 C7.38719358,292.984282 7.23316001,292.88908 7.14437676,292.74093 L4.77129698,288.786332 L5.68854554,288.235448 L7.67868073,291.552518 L12.9040559,285.417917 L13.7186154,286.112138 L8.01028079,292.812598 Z M9.00026742,280 C4.02947556,280 0,284.03001 0,289.000267 C0,293.971059 4.02947556,298 9.00026742,298 C13.9710593,298 18,293.971059 18,289.000267 C18,284.03001 13.9710593,280 9.00026742,280 L9.00026742,280 Z" id="icon_check-mark"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

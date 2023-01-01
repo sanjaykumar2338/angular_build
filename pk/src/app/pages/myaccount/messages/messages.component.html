@@ -1,0 +1,82 @@
+<section>
+  <div class="tz">
+    <!--LEFT SECTION-->
+    <app-dashmenu class="desk_dashnav"></app-dashmenu>
+
+    <!--CENTER SECTION-->
+    <div class="tz-2 message_nodify">
+      <div class="tz-2-com tz-2-main">
+        <h4>Messages / Notifications</h4>
+        <div class="db-list-com tz-db-table">
+          <div class="ds-boar-title">
+            <p>
+              Here are new prospects interested in what you are offering and
+              want your attention. Send them a quote now!
+            </p>
+          </div>
+        </div>
+
+        <div class="tz-2-main-com">
+          <div class="tz-mess">
+            <ul>
+              <li class="view-msg" *ngFor="
+                  let msg of collection
+                    | paginate
+                      : {
+                          itemsPerPage: config.itemsPerPage,
+                          currentPage: p,
+                          totalItems: tot
+                        };
+                  let i = index
+                " [attr.data-list-id]="msg?.id">
+                <a href="/single-message/{{ msg?.id }}" class="p0">
+                  <h5><i class="fa fa-angle-double-right"></i> {{ msg?.title }}</h5>
+                </a>
+                <div class="msgdate">
+                  <em>{{ msg?.created_at | date: "LLL dd, yyyy" }}</em>
+                </div>
+                <p>{{ msg?.description }} </p>
+                <a href="/customer-requests" class="btn" *ngIf="msg.title=='New Request'">View
+                  Detail</a>
+                <!--<div class="hid-msg"><a href="#"><i class="fa fa-eye" title="view"></i></a><a href="#"><i class="fa fa-trash" title="delete"></i></a>-->
+              </li>
+
+              <li class="view-msg" *ngIf="msgcounts == 0">
+                <div class="alert-danger">
+                  <h5>No Message Found.</h5>
+                </div>
+              </li>
+            </ul>
+
+            <!-- <div
+              class="listings-cate"
+              *ngFor="
+                let list of collection
+                  | paginate
+                    : {
+                        itemsPerPage: config.itemsPerPage,
+                        currentPage: p,
+                        totalItems: tot
+                      };
+                let i = index
+              "
+            >
+              {{ list.id }}
+            </div> -->
+          </div>
+        </div>
+
+        <div class="mt-3 mb-5">
+          <pagination-controls class="category-pagination" (pageChange)="pageChange($event)"></pagination-controls>
+        </div>
+      </div>
+      <div class="mt-2 mb-1">
+        <app-unit5></app-unit5>
+      </div>
+    </div>
+
+    <!--Right SECTION-->
+    <app-dashmenu class="mobile_dashnav"></app-dashmenu>
+    <app-dashmsg></app-dashmsg>
+  </div>
+</section>

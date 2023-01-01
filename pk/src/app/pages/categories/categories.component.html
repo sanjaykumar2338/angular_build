@@ -1,0 +1,75 @@
+<section class="inn-page-bg">
+  <div class="container">
+    <div class="row">
+      <div class="inn-pag-ban">
+        <h1>Categories</h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="p-about com-padd com-padd-redu-bot1">
+  <div class="container">
+    <div class="row listing_categories">
+      <ng-container *ngFor="let catels of cateList; let i = index">
+        <div class="col-md-3 col-sm-6">
+          <div class="cate_li_wrap">
+            <div class="cate_li_thumb">
+              <img src="{{ imgPath }}uploads/categories/medium-{{
+                (catels?.thumbnail.split('uploads/categories/'))[1]
+              }}" alt="{{ catels?.alt_text || catels?.name }}" title="{{ catels?.title || catels?.name }}"
+                *ngIf="catels?.thumbnail" />
+              <img src="assets/images/noimage.png" alt="{{ catels?.alt_text || catels?.name }}"
+                title="{{ catels?.title || catels?.name }}"
+                *ngIf="catels?.thumbnail == '' || catels?.thumbnail == 'null'" />
+            </div>
+            <div class="subcategory">
+              <h4><i class="fa {{ catels?.category_icon }}"></i></h4>
+              <div class="text-center cate-title  mt-1  mb-1">
+                <a routerLink="/listing-category/{{ catels?.slug }}" title="{{ catels?.name }}">
+                  <h3 innerHtml="{{ catels?.name }}"></h3>
+                </a>
+              </div>
+              <ul>
+                <li *ngFor="
+                  let childls of catels?.children | slice: 0:4;
+                  let c = index
+                ">
+                  <a routerLink="/listing-category/{{ catels?.slug }}/{{
+                    childls?.slug
+                  }}" title="{{ childls?.name }}">
+                    <span class="tax_name"><span innerHtml="{{ childls?.name }}"></span></span>
+                    <span class="tax_count">({{ childls?.listingcategories?.length }})</span>
+                  </a>
+                </li>
+                <ul class="hidechildcate showmores_{{ catels?.id }}">
+                  <li *ngFor="
+                    let childls of catels?.children | slice: 4;
+                    let c = index
+                  ">
+                    <a routerLink="/listing-category/{{ catels?.slug }}/{{
+                      childls?.slug
+                    }}" title="{{ childls?.name }}">
+                      <span class="tax_name"><span innerHtml="{{ childls?.name }}"></span></span>
+                      <span class="tax_count">({{ childls?.listingcategories?.length }})</span>
+                    </a>
+                  </li>
+                </ul>
+                <li *ngIf="catels?.children.length > 4">
+                  <a href="javascript:void(0)" class="showcate" (click)="shows($event)" id="{{ catels?.id }}">Show
+                    more</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 mt-2 mb-2 text-center" *ngIf="(i+1)%8==0">
+          <app-unit4></app-unit4>
+        </div>
+      </ng-container>
+      <div class="col-md-12 mt-2 mb-2 text-center">
+        <app-unit4></app-unit4>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,89 @@
+<section>
+  <div class="tz">
+    <!--LEFT SECTION-->
+    <app-dashmenu class="desk_dashnav"></app-dashmenu>
+
+    <!--CENTER SECTION-->
+    <div class="tz-2">
+      <div class="tz-2-com tz-2-main">
+        <h4>Customer Requests</h4>
+        <div class="db-list-com tz-db-table table-responsive">
+          <div class="text-center mt-2" *ngIf="!nopack && userplan.plan_id == 766">
+            <div class="alert alert-warning">
+              You need customer request ?
+              <a href="/plans" class="btn btn-danger"> UPGRADE YOUR PACKAGE </a>
+            </div>
+          </div>
+
+          <div class="text-center mt-2" *ngIf="nopack">
+            <div class="alert alert-warning">
+              You have not Purchase Subscription , You need customer request ?
+              <a href="/plans" class="btn btn-danger">
+                Purchase Subscription
+              </a>
+            </div>
+          </div>
+          <!--paid user only view the owner response-->
+          <div *ngIf="!nopack && userplan.plan_id != 766">
+            <h3 class="mt-2">Customer requests from your relevant service</h3>
+            <table class="mt-2 table table-striped table-bordered">
+              <tr>
+                <th>Sno</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Message</th>
+              </tr>
+              <tr *ngIf="!categoryreq.length">
+                <td colspan="5">
+                  <h5>No customer request found</h5>
+                </td>
+              </tr>
+              <tr *ngFor="let cust_req of categoryreq; let i = index">
+                <td>
+                  {{ i + 1 }}
+                </td>
+                <td>
+                  {{ cust_req.user.first_name }} {{ cust_req.user.last_name }}
+                </td>
+                <td>{{ cust_req.user.email }}</td>
+                <td>{{ cust_req.mobile }}</td>
+                <td>{{ cust_req.message }}</td>
+              </tr>
+            </table>
+
+            <h3 class="mt-2">Quick service requests</h3>
+            <table class="mt-2  table table-striped table-bordered">
+              <tr>
+                <th>Sno</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Message</th>
+              </tr>
+              <tr *ngIf="!homeserreq.length">
+                <td colspan="5">
+                  <h5>No customer request found</h5>
+                </td>
+              </tr>
+              <tr *ngFor="let ser_req of homeserreq; let i = index">
+                <th>{{ i + 1 }}</th>
+                <td>{{ ser_req.first_name }} {{ ser_req.last_name }}</td>
+                <td>{{ ser_req.email }}</td>
+                <td>{{ ser_req.mobile }}</td>
+                <td>{{ ser_req.message }}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="mt-2 mb-1">
+          <app-unit5></app-unit5>
+        </div>
+      </div>
+    </div>
+
+    <!--Right SECTION-->
+    <app-dashmenu class="mobile_dashnav"></app-dashmenu>
+    <app-dashmsg></app-dashmsg>
+  </div>
+</section>
