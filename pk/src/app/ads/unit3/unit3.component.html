@@ -1,0 +1,15 @@
+<div class="p-2 text-center mt-1 mb-1" *ngIf="screenWidth>727">
+  <ng-adsense [adClient]="'ca-pub-7283079374771718'" [adSlot]="7045914957" [display]="'inline-block'"
+    [adFormat]="'horizontal'" [width]="320" [height]="50"></ng-adsense>
+</div>
+
+<div class="p-2  text-center  mt-1 mb-1 " *ngIf="screenWidth<=728 && screenWidth>467">
+  <ng-adsense [adClient]="'ca-pub-7283079374771718'" [adSlot]="7045914957" [display]="'inline-block'"
+    [adFormat]="'horizontal'" [width]="320" [height]="50"></ng-adsense>
+</div>
+
+
+<div class="p-2  text-center  mt-1 mb-1 " *ngIf="screenWidth<=468 && screenWidth>0">
+  <ng-adsense [adClient]="'ca-pub-7283079374771718'" [adSlot]="1338486221" [display]="'inline-block'"
+    [adFormat]="'horizontal'" [width]="250" [height]="250"></ng-adsense>
+</div>

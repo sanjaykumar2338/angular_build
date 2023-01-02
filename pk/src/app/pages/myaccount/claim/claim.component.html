@@ -1,0 +1,121 @@
+<section>
+  <div class="tz">
+    <!--LEFT SECTION-->
+    <app-dashmenu class="desk_dashnav"></app-dashmenu>
+
+    <!--CENTER SECTION-->
+    <div class="tz-2 message_nodify">
+      <div class="tz-2-com tz-2-main">
+        <h4>Claim Your Business</h4>
+        <div class="tz-2-main-com">
+          <div class="hom-cre-acc-left hom-cre-acc-right">
+            <div class="alert alert-danger" *ngIf="!mylists">
+              No Business Found.
+            </div>
+
+            <form [formGroup]="claimForm" *ngIf="mylists">
+              <div class="row">
+                <div class="input-field col s12">
+                  <select formControlName="listname">
+                    <option value="" selected>Listing</option>
+                    <option *ngFor="let listings of mylists" [value]="listings.id" [innerHtml]="listings.title">
+                    </option>
+                  </select>
+                  <span *ngIf="
+                      !claimForm.get('listname').valid &&
+                      claimForm.get('listname').touched
+                    " class="help-block">Field required.</span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="claim_fname" id="claim_fname" formControlName="claim_fname" />
+                  <label for="claim_fname" [ngClass]="prof_fname ? 'active' : ''">First Name*</label>
+                  <span *ngIf="
+                      !claimForm.get('claim_fname').valid &&
+                      claimForm.get('claim_fname').touched
+                    " class="help-block">Enter your firstname.</span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="claim_lname" class="validate" formControlName="claim_lname" />
+                  <label for="prof_lname" [ngClass]="prof_lname ? 'active' : ''">Last Name*</label>
+                  <span *ngIf="
+                      !claimForm.get('claim_lname').valid &&
+                      claimForm.get('claim_lname').touched
+                    " class="help-block">Enter your lastname.</span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="claim_cont" class="validate" formControlName="claim_cont" />
+                  <label>Your Contact No.*</label>
+                  <span *ngIf="
+                      claimForm.get('claim_cont').value == '' &&
+                      claimForm.get('claim_cont').touched
+                    " class="help-block">Field required.</span>
+                  <span *ngIf="
+                      !claimForm.get('claim_cont').valid &&
+                      claimForm.controls['claim_cont'].hasError('pattern')
+                    " class="help-block">Enter digits char.</span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="email" name="claim_email" class="validate" formControlName="claim_email" />
+                  <label for="prof_email" [ngClass]="prof_email ? 'active' : ''">Your Email*</label>
+                  <span *ngIf="
+                      !claimForm.get('claim_email').valid &&
+                      claimForm.get('claim_email').touched
+                    " class="help-block">Enter vaild email</span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea type="text" name="claim_msg" class="validate" formControlName="claim_msg"></textarea>
+                  <label>Your Message*</label>
+                  <span *ngIf="
+                      !claimForm.get('claim_msg').valid &&
+                      claimForm.get('claim_msg').touched
+                    " class="help-block">Enter claim message</span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12 v2-mar-top-40">
+                  <button type="submit" class="waves-effect waves-light btn-large full-btn" (click)="onSubmit()">
+                    Claim Now
+                  </button>
+                </div>
+              </div>
+
+              <div class="alert alert-success text-center mt-2" *ngIf="successmsg">
+                <h5>
+                  Your request has been successfully submitted to us. We will
+                  contact you soon.
+                </h5>
+              </div>
+
+              <div class="alert alert-danger text-center mt-2" *ngIf="errormsg">
+                <h5>{{ errormsg }}</h5>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="mt-2 mb-1">
+          <app-unit5></app-unit5>
+        </div>
+      </div>
+    </div>
+
+    <!--Right SECTION-->
+    <app-dashmenu class="mobile_dashnav"></app-dashmenu>
+    <app-dashmsg></app-dashmsg>
+  </div>
+</section>

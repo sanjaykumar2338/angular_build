@@ -1,0 +1,354 @@
+<section>
+    <div class="tz">
+      
+      <!--LEFT SECTION-->
+      <app-dashmenu class="desk_dashnav"></app-dashmenu>
+  
+      <!--CENTER SECTION-->
+      <div class="tz-2">
+        <div class="tz-2-com tz-2-main">
+          <h4>Edit Business details</h4>
+          <div class="db-list-com tz-db-table">
+            <div class="ds-boar-title">
+              <h2>Edit Business</h2>
+              <p>Edit your business details here.</p>
+            </div>
+            
+            
+        <div *ngIf="!curtype">
+          <div class="text-center alert alert-danger"><h5>Check Listing Status is Publish / Listing Type is Business</h5></div>
+        </div>
+        
+            <div class="hom-cre-acc-right" *ngIf="curtype">
+              <div>
+                <form [formGroup]="editlist">
+                 
+                <div class="row">
+                    <div class="db-v2-list-form-inn-tit">
+                      <h5 class="mt-0">Business Details: </h5>
+                      <p><span class="infonote">  *  Required Field  </span></p>
+                    </div>
+                </div>
+  
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="buss_name" type="text" title="Business Name" class="" formControlName="buss_name" (change)="OnTitle($event)">
+                    <label for="buss_name" [ngClass]="post_name ? 'active' : ''">Business Name <span>*</span></label>
+                    <span *ngIf="!editlist.get('buss_name').valid && editlist.get('buss_name').touched" class="help-block">Enter Name of Business</span>
+                    <span  class="help-block" *ngIf="title_valid">Business name already exits.</span>
+                    <span class="fa fa-spin fa-spinner titlechecker" *ngIf="titlechecker"></span>
+                  </div>
+                </div>
+  
+                <div class="row">
+                    <div class="input-field col s12">
+                      <select name="buss_cate" id="buss_cate" title="Business Category"  (change)="onSelect($event.target.value)" formControlName="buss_cate">
+                          <option value="" selected>Business Category *</option>
+                          <option *ngFor="let listcate of listCates" [value]="listcate.id" [innerHtml]="listcate.name">
+                          </option>
+                      </select>
+                      <span *ngIf="!editlist.get('buss_cate').valid && editlist.get('buss_cate').touched" class="help-block">Select Main Category</span>
+                    </div>
+                  </div>
+  
+                  <div class="row">
+                      <div class="input-field col s12">
+                          <div class="select-wrapper">
+                            <select name="buss_scate"  title="Category Relavent" id="buss_scate" formControlName="buss_scate">
+                                <option value="" [selected]="buss_cate == '' " >Category Relavent * </option>
+                                <option *ngFor="let listsubcate of subCates" [value]="listsubcate.id" [innerHtml]="listsubcate.name"></option>
+                            </select>
+                            <i class="fa fa-spin fa-spinner" *ngIf="cateloader"></i>
+                            <span *ngIf="!editlist.get('buss_scate').valid && editlist.get('buss_scate').touched" class="help-block">Select related Category</span>                    
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <select name="buss_loc" id="buss_loc" title="Business Location" formControlName="buss_loc" (change)="onLoc($event.target.value)" >
+                        <option value="" [selected]="buss_cate == '' "  >Business Location * </option>
+                        <option *ngFor="let listReg of listRegs"  [attr.selected]="post_loc===listReg.id ? true : null"  [value]="listReg.id" [innerHtml]="listReg.name"></option>
+                      </select>
+                      <span *ngIf="!editlist.get('buss_loc').valid && editlist.get('buss_loc').touched" class="help-block">Select Business State</span>
+                      <div class="loc_other  mt-1 mb-1 alert alert-danger" *ngIf="stateloc">
+                          <p class="text-center">Only PAID user can post business on OTHER location - Outside USA.</p>
+                          <p class="text-center">Please <a class="waves-effect waves-light btn green" href="/plan">UPGRADE</a></p>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="buss_add" type="text"  title="Business Address"  (keyup)="onKey($event)"  value="{{this.locatclick}}" class="validate" formControlName="buss_add">
+                      <input id="buss_add_selected" type="hidden"  value="{{this.selectedLoc}}"  formControlName="buss_add_selected">
+                    <label for="buss_add" [ngClass]=" post_add ? 'active' : ''">Business Address *</label>
+                    <span *ngIf="!editlist.get('buss_add').valid && editlist.get('buss_add').touched" class="help-block">Enter Business Location</span>
+                    
+                    <ul class="addFetch"  *ngIf="locatadd"> 
+                      <li *ngFor="let locatlist of locatadd" >
+                        <span (click)="getlocAdd($event); setlocAdd($event);" [attr.data-latlan]="locatlist.point.coordinates"  >{{locatlist.name}}</span>
+                      </li>
+                    </ul>
+                    </div>
+                  </div>  
+                  
+                  <div class="row">
+                    <div class="input-field col s12">
+                    <!-- <textarea id="buss_desc" title="Listing Descriptions"  class="materialize-textarea" formControlName="buss_desc"></textarea>
+                      <label for="buss_desc" [ngClass]=" post_desc ? 'active' : ''">Listing Descriptions</label> -->
+                    <angular-editor id="buss_desc" title="Business Description" class="materialize-textarea"  formControlName="buss_desc" [config]="config"></angular-editor>
+
+                      <span *ngIf="!editlist.get('buss_desc').valid && editlist.get('buss_desc').touched" class="help-block">Enter  Descriptions</span>
+                    </div>
+                  <!--   <div class="html" [(ngModel)]="buss_desc"> 
+                      test  {{ post_desc }}
+                      </div> -->
+                  </div>
+                  
+                  <div class="row">
+                      <div class="db-v2-list-form-inn-tit">
+                        <h5>Contact Details: </h5>
+                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="buss_email" type="email" title="Email Address" class="validate" formControlName="buss_email">
+                      <label for="buss_email" [ngClass]=" post_email ? 'active' : ''" >Email Address <span>*</span></label>
+                      <span *ngIf="!editlist.get('buss_email').valid && editlist.get('buss_email').touched" class="help-block">Enter business email</span>
+                    </div>
+                  </div>
+  
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="buss_phone" type="text" title="Phone Number" class="validate" formControlName="buss_phone">
+                      <label for="buss_phone"  [ngClass]=" post_phone ? 'active' : ''" >Phone Number  <span>*</span></label>
+                     <!-- <span *ngIf="!editlist.get('buss_phone').valid && editlist.get('buss_phone').touched" class="help-block">Enter business phone number</span>-->
+                      
+                      <span *ngIf="!editlist.get('buss_phone').valid && editlist.get('buss_phone').touched" class="help-block">Enter valid phone number. </span> 
+                    </div>
+                  </div>
+                  
+                  <div class="row">                 
+                   <!--  <div class="input-field col s3">
+                          
+                      <select id="buss_mob_cd"  class="validate" title="Prefix Code"  formControlName="buss_mob_cd">
+                        <option value="" selected>Prefix Code</option>
+                        <option *ngFor="let listcode of mobCodes" [value]="listcode.code">{{listcode.country}} - ({{listcode.code}}) </option>
+                      </select>
+                     
+                      <span *ngIf="editlist.get('buss_mobile').value!='' &&   editlist.get('buss_mob_cd').value=='' " class="help-block"> Select Prefix</span>
+  
+                    </div> -->
+  
+                    <div class="input-field col s12">
+                        <input id="buss_mobile" type="text" title="Mobile Number"  class="validate" minlength="10" maxlength="10"  formControlName="buss_mobile">
+                        <label for="buss_mobile" [ngClass]=" post_mobile ? 'active' : ''" >Mobile Number</label>
+                        <span *ngIf="editlist.controls['buss_mobile'].hasError('pattern')" class="help-block">Enter 10 digits no.</span>
+                     </div>
+                  </div>
+  
+                  <div class="row">
+                      <div class="input-field col s12">
+                        <input id="buss_web" type="url" title="Website Url"  class="validate" formControlName="buss_web" (change)="OnWebsite($event)">
+                        <label for="buss_web" [ngClass]=" post_web ? 'active' : ''" >Website Url <span>*</span></label>
+                        <!-- <span *ngIf="!editlist.get('buss_web').valid && editlist.get('buss_web').touched" class="help-block">Enter valid url </span> -->
+                        <span *ngIf="!editlist.get('buss_web').valid && editlist.get('buss_web').value!='' && editlist.get('buss_web').touched" class="help-block">Enter valid url </span>
+<span *ngIf="!editlist.get('buss_web').valid && editlist.get('buss_web').value=='' && editlist.get('buss_web').touched" class="help-block">Enter Website Url</span>
+                        <span class="infonote">Ex: http://websitename.com</span>
+                        <span  class="help-block" *ngIf="web_valid">Website already exits in listings.</span>
+                        <span class="fa fa-spin fa-spinner websitechecker" *ngIf="websitechecker"></span>
+                      </div>
+                  </div>
+  
+  
+                  <div class="row">
+                      <div class="db-v2-list-form-inn-tit">
+                        <h5>Social Media Informations:</h5>
+                      </div>
+                      <div class="col"> <p><em>Have at least ONE of the following</em></p></div>
+                    </div>
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input type="text" name="buss_fb" title="Facebook Url" class="validate" formControlName="buss_fb">
+                        <label for="buss_fb" [ngClass]=" post_fb ? 'active' : ''"  >https://www.facebook.com/business-name</label>
+                        <span *ngIf="!editlist.get('buss_fb').valid && editlist.get('buss_fb').touched" class="help-block">Enter valid url</span>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input type="text" name="buss_yt"   title="Youtube Url"  class="validate" formControlName="buss_yt">
+                        <label for="buss_yt" [ngClass]=" post_yt ? 'active' : ''" >https://www.youtube.com/business-name</label>
+                        <span *ngIf="!editlist.get('buss_yt').valid && editlist.get('buss_yt').touched" class="help-block">Enter valid url</span>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input type="text" name="buss_tw"  title="Twitter Url"   class="validate" formControlName="buss_tw">
+                        <label for="buss_tw" [ngClass]=" post_tw ? 'active' : ''" >https://www.twitter.com/business-name</label>
+                        <span *ngIf="!editlist.get('buss_tw').valid && editlist.get('buss_tw').touched" class="help-block">Enter valid url</span>
+                      </div>
+                    </div>	
+                    <div class="row">
+                        <div class="input-field col s12">
+                          <input type="text" name="buss_inst"    title="instagram Url"   class="validate" formControlName="buss_inst">
+                          <label for="buss_inst" [ngClass]=" post_inst ? 'active' : ''" >https://www.instagram.com/business-name</label>
+                          <span *ngIf="!editlist.get('buss_inst').valid && editlist.get('buss_inst').touched" class="help-block">Enter valid url</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                          <input type="text" name="buss_linked"    title="linkedin Url"   class="validate" formControlName="buss_linked">
+                          <label for="buss_linked" [ngClass]=" post_linked ? 'active' : ''" >https://www.linkedin.com/business-name</label>
+                          <span *ngIf="!editlist.get('buss_linked').valid && editlist.get('buss_linked').touched" class="help-block">Enter valid url</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                          <input type="text" name="buss_pint"  title="pinterest Url"  class="validate" formControlName="buss_pint">
+                          <label for="buss_pint" [ngClass]=" post_pint ? 'active' : ''" >https://www.pinterest.com/business-name</label>
+                          <span *ngIf="!editlist.get('buss_pint').valid && editlist.get('buss_pint').touched" class="help-block">Enter valid url</span>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="db-v2-list-form-inn-tit">
+                          <h5>Logo <sup>*</sup></h5><span class="v2-db-form-note">(image size 150x100):</span>
+                        </div>
+                    </div>
+                    <div class="row tz-file-upload">
+                        <div class="col s2" *ngIf="post_logo">
+                          <div class="input-field text-center">
+                              <img src="{{imgPath}}{{post_logo?.small}}" alt="logo">
+                             <!-- <a href="javascript:void(0)"><i class="fa fa-times"></i></a>-->
+                          </div>                          
+                        </div>
+                        <div class="col s10">
+                          <div class="file-field input-field">
+                            <div class="tz-up-btn"> <span>Upload Image</span>
+                              <input type="file" name="logo" title="logo" formControlName="buss_logo"  (change)="logoUpload($event)" accept="image/png, image/jpeg"> </div>
+                            <div class="file-path-wrapper db-v2-pg-inp">
+                              <input disabled class="file-path validate" type="text"> 
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="db-v2-list-form-inn-tit">
+                          <h5>Banner Image </h5><span class="v2-db-form-note">(image size 1350x500):</span>
+                        </div>
+                    </div>
+                    <div class="row tz-file-upload">
+                        <div class="col s2"  *ngIf="post_cover">
+                            <div class="input-field text-center">
+                              <img src="{{imgPath}}{{post_cover?.small}}" alt="cover image">
+                              <!--<a href="javascript:void(0)"><i class="fa fa-times"></i></a>-->
+                            </div>
+                        </div>
+                        <div class="col s10">
+                          <div class="file-field input-field">
+                            <div class="tz-up-btn"> <span>Upload Image</span>
+                              <input type="file" title="Cover Image" name="coverimage" (change)="coverUpload($event)" formControlName="buss_cimg" accept="image/png, image/jpeg"> </div>
+                            <div class="file-path-wrapper db-v2-pg-inp">
+                              <input disabled class="file-path validate" type="text"> 
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                     
+                    <div class="row">
+                        <div class="db-v2-list-form-inn-tit">
+                          <h5>Photo Gallery </h5><span class="v2-db-form-note">(upload multiple photos note:size 750x500):</span>
+                        </div>
+                    </div>
+                    <div class="row tz-file-upload">
+                      <div class="col s12">
+                        <div class="file-field input-field">
+                          <div class="tz-up-btn"> <span>Upload  Images</span>
+                            <input type="file" title="Galery multiple Image" formControlName="buss_gall" (change)="galleryUpload($event)" multiple  name="coverimage" accept="image/png, image/jpeg"> </div>
+                          <div class="file-path-wrapper db-v2-pg-inp">
+                            <input disabled class="file-path validate" type="text"> 
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col s12">
+                          <div class="input-field">
+                              <div class="col s2 text-center" *ngFor="let gallimg of post_gall">
+                                  <img src="{{imgPath}}{{gallimg?.attachment?.small}}" alt="gallery">
+                                  <!--<a href="javascript:void(0)"><i class="fa fa-times"></i></a>-->
+                              </div>
+                          </div>
+                      </div>
+                    </div>  
+                    
+                    <div class="row">
+                      <div class="db-v2-list-form-inn-tit">
+                        <h5>Video Url </h5><span class="v2-db-form-note">(Youtube / Vimeo) </span>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input type="text" title="Video Url" name="buss_vurl"  class="validate" formControlName="buss_vurl">
+                        <label for="buss_vurl" [ngClass]="post_vurl ? 'active' : ''" >Video Url </label>
+                        <span *ngIf="!editlist.get('buss_vurl').valid && editlist.get('buss_vurl').touched" class="help-block">Enter valid url</span>
+                      </div>
+                    </div>
+  
+                    <div class="row">
+                      <div class="db-v2-list-form-inn-tit">
+                          <h5>360 Degree Map (copy and paste your Embed a map code):</h5>
+                          <div class="note360"><a href="assets/images/360note.jpg" target="_blank"> Example: click here</a></div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input type="text" title="360 Degree iframe code" class="validate" formControlName="map">
+                        <label for="map" [ngClass]=" 'post_map' ? 'active' : ''" >Embed a map</label>
+                      </div>
+                    </div>
+  
+                    <div class="divider mt-2"></div>
+  
+                    <div class="row">
+                        <div class="input-field col s12 v2-mar-top-40"> 
+                          <input type="hidden" name="plan_id" formControlName="plan_id"/>
+                          <button type="submit" title="Update Business" class="waves-effect waves-light btn-large full-btn"  (click)="onSubmit()">
+                              Update Business <i class="fa fa-spinner fa-spin" *ngIf="loading"></i>
+                          </button>
+                        </div>
+                    </div>
+                    
+  
+                  <div class="alert alert-success" *ngIf="successmsg">
+                      <h3> Listing Updated.</h3>
+                  </div>
+        
+                  <div class="alert alert-danger" *ngIf="errormsg">
+                    <h3>{{errormsg}}</h3>
+                  </div>
+
+                  <div class="alert alert-warning" *ngIf="warningmsg">
+                    <h5>No change has been made / Required fields are missing. </h5>
+                  </div>
+
+                  <div class="loc_other  mt-1 mb-1 alert alert-danger" *ngIf="statelocsub">
+                    <p class="text-center">Only PAID user can post business on OTHER location - Outside USA.</p>
+                    <p class="text-center">Please <a class="waves-effect waves-light btn green" href="/plan">UPGRADE</a></p>
+                  </div>
+  
+                </form>
+              </div>
+            </div>
+  
+          </div>  
+        </div>
+      </div>
+  
+      <!--Right SECTION-->
+	  <app-dashmenu class="mobile_dashnav"></app-dashmenu>
+      <app-dashmsg></app-dashmsg>
+  
+    </div>
+  </section>
+  <!--END DASHBOARD-->

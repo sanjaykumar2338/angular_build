@@ -1,0 +1,412 @@
+<section>
+  <div class="tz">
+    
+  <!--LEFT SECTION-->
+  <app-dashmenu class="desk_dashnav"></app-dashmenu>
+
+  <!--CENTER SECTION-->
+  <div class="tz-2">
+    <div class="tz-2-com tz-2-main">
+      
+      <h4>Edit Your Promotion</h4>
+      <div class="db-list-com tz-db-table">
+        <div class="ds-boar-title">
+          <h2>Choose Promotion Objective</h2>
+          <p>Choose the purpose of this promotion now. What do you want your customers to do?.</p>          
+        </div>
+
+       
+        <div *ngIf="!curtype">
+          <div class="text-center alert alert-danger"><h5>Check Listing Status is Publish / Listing Type is Promotion</h5></div>
+        </div>
+
+        <div class="hom-cre-acc-right mt-3"  *ngIf="curtype">
+          <div class="row text-center">
+            <div class="col-md-3 col-sm-6">
+             
+              <!---Note: promotion(1317) subcategory(1312,1313,1314,1315) id added manually -->
+
+                <div [ngClass]=" flag1 ? 'active package-pro' : 'package-pro' " >                  
+                    <div class="mb-2"><img src="assets/images/icon/1.png"    alt="Explore Promotion" /></div>                     
+                    Explore<br> Promotion
+                  <a href="javascript:void(0)"  [attr.data-promo]="1312" (click)="type1($event)" ></a>
+                </div>
+                    
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+              <div [ngClass]=" flag2 ? 'active package-pro' : 'package-pro' ">
+                  <div class="mb-2"><img src="assets/images/icon/2.png" alt="Engage Promotion" /></div>
+                 Engage<br> Promotion
+                 <a href="javascript:void(0)"  [attr.data-promo]="1313" (click)="type2($event)" ></a>
+              </div>                  
+            </div> 
+
+            <div class="col-md-3 col-sm-6">
+                <div [ngClass]=" flag3 ? 'active package-pro' : 'package-pro' ">
+                  <div class="mb-2"><img src="assets/images/icon/3.png" alt="Shop Promotion" /></div>
+                  Shop<br> Promotion
+                  <a href="javascript:void(0)"  [attr.data-promo]="1314" (click)="type3($event)" ></a>
+              </div>                  
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div [ngClass]=" flag4 ? 'active package-pro' : 'package-pro' ">
+                   <div class="mb-2"><img src="assets/images/icon/7.png" alt="Review Promotion" /></div>
+                   Review<br> Promotion
+                   <a href="javascript:void(0)"  [attr.data-promo]="1315" (click)="type4($event)" ></a>
+                </div>                  
+            </div>
+          </div>
+        </div>
+
+      </div><!---link close-->
+
+      <div class="db-list-com tz-db-table promot-form"  *ngIf="curtype">
+          <div class="hom-cre-acc-right">
+              <form [formGroup]="editpromo">
+                  <div class="row">
+                      <div class="db-v2-list-form-inn-tit">
+                        <h5 class="mt-0">Promotion Details: </h5>
+                        <p><span class="infonote">  *  Required Field  </span></p>
+                      </div>
+                  </div>
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input id="promo_name" type="text" title="Promotion Title" class="validate" formControlName="promo_name">
+                        <label for="promo_name" [ngClass]="title ? 'active' : ''">Promotion Title <span>*</span></label>
+                        <span *ngIf="!editpromo.get('promo_name').valid && editpromo.get('promo_name').touched" class="help-block">Enter Promotion Title</span>
+                      </div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <select name="promo_type" id="promo_type"  title="Promotion Type" formControlName="promo_type">
+                            <option value="" selected>Promotion Type *</option>
+                            <option *ngFor="let typelist of typelist" [value]="typelist.id" [innerHtml]="typelist.name"></option>
+                        </select>
+                        
+                        <span *ngIf="!editpromo.get('promo_type').valid && editpromo.get('promo_type').touched" class="help-block">Select Promotion Type </span>
+                      </div>
+                    </div>
+
+                  <div class="row">
+                      <div class="input-field col s12">
+                          <input id="promo_url" type="text" title="Promotion Link" class="validate" formControlName="promo_url">
+                          <label for="promo_url" [ngClass]="promo_url ? 'active' : ''">Promotion Link *</label>
+                          <span *ngIf="!editpromo.get('promo_url').valid && editpromo.get('promo_url').touched" class="help-block">Enter valid url </span>
+                      </div>
+                    </div> 
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                          <div class="select-wrapper">
+                            <select name="promolabel" title="Promo Label" formControlName="promolabel" id="promolabel">
+                              <option value="">Select Promo Label</option>
+                              <option *ngFor="let listlabel of label_list" [value]="listlabel.id" [innerHtml]="listlabel.name"></option>                                
+                            </select>
+                            <span *ngIf="!editpromo.get('promolabel').valid && editpromo.get('promolabel').touched" class="help-block">Select Label </span>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <select name="promo_cate" id="promo_cate" title="Promotion Category" (change)="onSelect($event.target.value)" formControlName="promo_cate">
+                            <option value="" selected>Promotion Category *</option>
+                            <option *ngFor="let listcate of listCates" [value]="listcate.id" [innerHtml]="listcate.name"></option>
+                        </select>
+                        <span *ngIf="!editpromo.get('promo_cate').valid && editpromo.get('promo_cate').touched" class="help-block">Select Promotion Category </span>
+                      </div>
+                    </div>
+      
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <div class="select-wrapper">
+                            <select name="promo_scate" id="promo_scate" title="Promotion Sub-Category" formControlName="promo_scate">
+                                <option value="" selected>Promotion Sub-Category *</option>
+                                <option *ngFor="let listsubcate of subCates" [value]="listsubcate.id" [innerHtml]="listsubcate.name"></option>
+                            </select>
+                            <i class="fa fa-spin fa-spinner" *ngIf="cateloader"></i>
+                            <span *ngIf="!editpromo.get('promo_scate').valid && editpromo.get('promo_scate').touched" class="help-block">Select Promotion Sub-Category </span>
+                          </div>                      
+                        </div>
+                      </div>
+                      
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <select name="promo_loc" id="promo_loc" title="Promotion Location" formControlName="promo_loc" (change)="onLoc($event.target.value)">
+                            <option value="" selected="selected">Promotion Location * </option>
+                            <option *ngFor="let listReg of listRegs" [value]="listReg.id" [innerHtml]="listReg.name"></option>
+                          </select>
+                          <span *ngIf="
+                                !editpromo.get('promo_loc').valid && editpromo.get('promo_loc').touched" class="help-block">Select State</span>
+                        <div class="loc_other  mt-1 mb-1 alert alert-danger" *ngIf="stateloc">
+                            <p class="text-center">Only PAID user can post business on OTHER location - Outside USA.</p>
+                            <p class="text-center">Please <a class="waves-effect waves-light btn green" href="/plan">UPGRADE</a></p>
+                        </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="input-field col s12">
+                        <input type="text" title="Promotion Address"  id="promo_adds"   (keyup)="onKey($event)"  value="{{this.locatclick}}" class="validate" formControlName="promo_adds">
+                         <label for="promo_adds" [ngClass]=" address ? 'active' : ''">Promotion Address *</label>
+
+                        <input id="promo_add_selected" type="hidden"  value="{{this.selectedLoc}}"  formControlName="promo_add_selected">
+                        
+                        <span *ngIf="!editpromo.get('promo_adds').valid && editpromo.get('promo_adds').touched" class="help-block">Enter Address</span>
+                        
+                        <ul class="addFetch"  *ngIf="locatadd"> 
+                          <li *ngFor="let locatlist of locatadd" >
+                            <span (click)="getlocAdd($event); setlocAdd($event);" [attr.data-latlan]="locatlist.point.coordinates"  >{{locatlist.name}}</span>
+                          </li>
+                        </ul>
+                        </div>
+                      </div>  
+
+
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <!-- <textarea id="promo_desc" class="materialize-textarea" title="Promo Descriptions" formControlName="promo_desc"></textarea>
+                          <label for="promo_desc"  [ngClass]="content ? 'active' : ''">Promo Descriptions</label> -->
+                          <angular-editor id="buss_promo_descdesc" title="Promo Description"  class="materialize-textarea" formControlName="promo_desc" [config]="config"></angular-editor>
+                          <span *ngIf="!editpromo.get('promo_desc').valid && editpromo.get('promo_desc').touched" class="help-block">Enter  Descriptions </span>
+                        </div>
+                      </div>
+                      
+                      <div class="row">
+                          <div class="db-v2-list-form-inn-tit">
+                            <h5>Contact Details: </h5>
+                          </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <input id="promo_email" type="email" title="Email Address" class="validate" formControlName="promo_email">
+                          <label for="promo_email"  [ngClass]="email ? 'active' : ''" >Email Address <span>*</span></label>
+                          <span *ngIf="!editpromo.get('promo_email').valid && editpromo.get('promo_email').touched" class="help-block">Enter promo email</span>
+                        </div>
+                      </div>
+      
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <input id="promo_phone" type="text" title="Phone Number" class="validate" formControlName="promo_phone">
+                          <label for="promo_phone" [ngClass]="phone ? 'active' : ''" >Phone Number  <span>*</span></label>
+                          
+                          <span *ngIf="!editpromo.get('promo_phone').valid && editpromo.get('promo_phone').touched" class="help-block">Enter valid phone number. </span> 
+                        </div>
+                      </div>
+                      
+                      <div class="row">
+                       <!--  <div class="input-field col s3">
+                            <select id="promo_mob_cd"  class="validate" title="Prefix Code"   formControlName="promo_mob_cd">
+                              <option value="" selected>Prefix Code</option>
+                              <option *ngFor="let listcode of mobCodes" [value]="listcode.country">{{listcode.country}} - ({{listcode.code}}) </option>
+                            </select>
+                            <span *ngIf="editpromo.get('promo_mobile').value!='' &&   editpromo.get('promo_mob_cd').value=='' " class="help-block">Select Prefix</span>
+                        </div> -->
+                            
+                        <div class="input-field col s12">
+                          <input id="promo_mobile" type="text" title="Mobile Number"  class="validate"  formControlName="promo_mobile">
+                          <label for="promo_mobile" [ngClass]="mobile ? 'active' : ''" >Mobile Number</label>
+                          <span *ngIf="editpromo.controls['promo_mobile'].hasError('pattern')" class="help-block">Enter 10 digits no.</span>
+                        </div>
+                      </div>
+      
+                      <div class="row">
+                          <div class="input-field col s12">
+                            <input id="promo_web" type="url" title="Website Url"  class="validate" formControlName="promo_web">
+                            <label for="promo_web" [ngClass]="website ? 'active' : ''" >Website Url <span>*</span></label>
+                           <!--  <span *ngIf="!editpromo.get('promo_web').valid && editpromo.get('promo_web').touched" class="help-block">Enter valid url </span> -->
+                           <span *ngIf="!editpromo.get('promo_web').valid && editpromo.get('promo_web').value!='' && editpromo.get('promo_web').touched" class="help-block">Enter valid url </span>
+                           <span *ngIf="!editpromo.get('promo_web').valid && editpromo.get('promo_web').value=='' && editpromo.get('promo_web').touched" class="help-block">Enter Website Url</span>
+                            <span class="infonote">Ex: http://websitename.com</span>
+                          </div>
+                      </div>
+      
+                      <div class="row">
+                          <div class="db-v2-list-form-inn-tit">
+                            <h5>Social Media Informations:</h5>
+                          </div>
+                          <div class="col"> <p><em>Have at least ONE of the following</em></p></div>
+                        </div>
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <input type="text" name="promo_fb" title="Facebook Url" class="validate" formControlName="promo_fb">
+                            <label for="promo_fb" [ngClass]="facebook_url ? 'active' : ''" >https://www.facebook.com/business-name</label>
+                            <span *ngIf="!editpromo.get('promo_fb').valid && editpromo.get('promo_fb').touched" class="help-block">Enter valid url </span>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <input type="text" name="promo_yt" title="Youtube Url" class="validate" formControlName="promo_yt">
+                            <label  for="promo_yt" [ngClass]="youtube_url ? 'active' : ''" >https://www.youtube.com/business-name</label>
+                            <span *ngIf="!editpromo.get('promo_yt').valid && editpromo.get('promo_yt').touched" class="help-block">Enter valid url </span>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <input type="text" name="promo_tw"  title="Twitter Url"  class="validate" formControlName="promo_tw">
+                            <label  for="promo_tw" [ngClass]="twitter_url ? 'active' : ''"  >https://www.twitter.com/business-name</label>
+                            <span *ngIf="!editpromo.get('promo_tw').valid && editpromo.get('promo_tw').touched" class="help-block">Enter valid url </span>
+                          </div>
+                        </div>	
+                        <div class="row">
+                            <div class="input-field col s12">
+                              <input type="text" name="promo_inst" title="Instagram Url"  class="validate" formControlName="promo_inst">
+                              <label for="promo_inst" [ngClass]="instagram_url ? 'active' : ''"  >https://www.instagram.com/business-name</label>
+                              <span *ngIf="!editpromo.get('promo_inst').valid && editpromo.get('promo_inst').touched" class="help-block">Enter valid url </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                              <input type="text" name="promo_linked" title="LinkedIn Url"  class="validate" formControlName="promo_linked">
+                              <label for="promo_linked" [ngClass]="linkedin_url ? 'active' : ''" >https://www.linkedin.com/business-name</label>
+                              <span *ngIf="!editpromo.get('promo_linked').valid && editpromo.get('promo_linked').touched" class="help-block">Enter valid url </span>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                              <input type="text" name="promo_pint" title="Pinterest Url"  class="validate" formControlName="promo_pint">
+                              <label for="promo_pint" [ngClass]="pintrest_url ? 'active' : ''" >https://www.pinterest.com/business-name</label>
+                              <span *ngIf="!editpromo.get('promo_pint').valid && editpromo.get('promo_pint').touched" class="help-block">Enter valid url </span>
+                            </div>
+                        </div>
+                        
+                      <div class="row">
+                          <div class="db-v2-list-form-inn-tit">
+                            <h5>Logo <sup>*</sup></h5><span class="v2-db-form-note">(image size 150x100):</span>
+                          </div>
+                      </div>
+                      <div class="row tz-file-upload">
+                          <div class="col s2"  *ngIf="post_logo" >
+                              <div class="input-field">
+                                <img src="{{imgPath}}{{post_logo.small}}" alt="Logo"  title="Logo"  />
+                              </div>
+                          </div>
+
+                          <div class="col s10">
+                              <div class="file-field input-field">
+                                  <div class="tz-up-btn"> <span>Upload Image</span>
+                                  <input type="file" name="logo" title="Logo"  (change)="logoUpload($event)" formControlName="promo_logo" accept="image/png, image/jpeg"> </div>
+                                  <div class="file-path-wrapper db-v2-pg-inp">
+                                    <input disabled class="file-path validate" type="text"> 
+                                  </div>
+                                  <span *ngIf="!editpromo.get('promo_logo').valid && editpromo.get('promo_logo').touched" class="help-block">Upload Logo</span>
+                                </div>
+                          </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="db-v2-list-form-inn-tit">
+                          <h5>Banner Image </h5><span class="v2-db-form-note">(image size 1350x500):</span>
+                        </div>
+                    </div>
+                    <div class="row tz-file-upload">
+                        <div class="col s2" *ngIf="post_cover" >
+                           <div class="input-field"> <img src="{{imgPath}}{{post_cover?.small}}" alt="Cover image" /></div>
+                        </div>
+                        <div class="col s10">
+                          <div class="file-field input-field">
+                            <div class="tz-up-btn"> <span>Upload Image</span>
+                              <input type="file" name="coverimage" title="Cover Image" (change)="coverUpload($event)" formControlName="promo_cimg" accept="image/png, image/jpeg"> </div>
+                            <div class="file-path-wrapper db-v2-pg-inp">
+                              <input disabled class="file-path validate" type="text"> 
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="db-v2-list-form-inn-tit">
+                          <h5>Photo Gallery </h5><span class="v2-db-form-note">(upload multiple photos note:size 750x500):</span>
+                        </div>
+                    </div>
+                    <div class="row tz-file-upload">
+                        <div class="file-field input-field">
+                          <div class="tz-up-btn"> <span>Upload Images</span>
+                            <input type="file" title="Gallery multiple Image"  formControlName="promo_gall" (change)="galleryUpload($event)" multiple  name="gallimage" accept="image/png, image/jpeg"> </div>
+                          <div class="file-path-wrapper db-v2-pg-inp">
+                            <input disabled class="file-path validate" type="text"> 
+                          </div>
+                        </div>
+                        <div class="col s12">
+                          <div class="input-field">
+                              <div class="col s2 text-center" *ngFor="let gallimg of post_gall">
+                                  <img src="{{imgPath}}{{gallimg.attachment.small}}" alt="gallery">
+                                  <!--<a href="javascript:void(0)"><i class="fa fa-times"></i></a>-->
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="db-v2-list-form-inn-tit">
+                          <h5>Video Url </h5><span class="v2-db-form-note">(Youtube / Vimeo) </span>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <input type="text" name="video_url"  title="Video Url"  class="validate" formControlName="video_url">
+                          <label [ngClass]="video_url ? 'active' : ''">Video Url </label>
+                          <span *ngIf="!editpromo.get('video_url').valid && editpromo.get('video_url').touched" class="help-block">Enter valid url</span>
+                        </div>
+                      </div>
+
+                      
+                        <div class="row">
+                          <div class="db-v2-list-form-inn-tit">
+                              <h5>360 Degree Map (copy and paste your Embed a map code):</h5>
+                              <div class="note360"><a href="assets/images/360note.jpg" target="_blank"> Example: click here</a></div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <input type="text" title="360 Degree iframe code" id="map" class="validate" formControlName="map">
+                            <label for="map" [ngClass]="post_map ? 'active' : ''">Embed a map</label>
+                          </div>
+                        </div>			
+                        
+                        <div class="divider mt-2"></div>
+                        
+                        <div class="row">
+                            <div class="input-field col s12 v2-mar-top-40"> 
+                              <input type="hidden"  name="plan_id" formControlName="plan_id" />
+                              <button type="submit" title="Update Promotion" class="waves-effect waves-light btn-large full-btn"  (click)="onSubmit()">Update Promotion <i class="fa fa-spinner fa-spin" *ngIf="loading"></i></button>
+                            </div>
+                        </div>
+      
+                        <div class="alert alert-success" *ngIf="successmsg">
+                          <h3> Promotion Updated.</h3>
+                      </div>
+            
+                      <div class="alert alert-danger" *ngIf="errormsg">
+                        <h3>{{errormsg}}</h3>
+                      </div>
+    
+                      <div class="alert alert-warning" *ngIf="warningmsg">
+                        <h5>No change has been made / Required fields are missing. </h5>
+                      </div>
+
+                      <div class="loc_other  mt-1 mb-1 alert alert-danger" *ngIf="statelocsub">
+                          <p class="text-center">Only PAID user can post business on OTHER location - Outside USA.</p>
+                          <p class="text-center">Please <a class="waves-effect waves-light btn green" href="/plan">UPGRADE</a></p>
+                        </div>
+
+                    </form>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+  <!--Right SECTION-->
+  <app-dashmenu class="mobile_dashnav"></app-dashmenu>
+  <app-dashmsg></app-dashmsg>
+
+</div>
+</section>
+<!--END DASHBOARD-->

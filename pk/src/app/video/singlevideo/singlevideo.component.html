@@ -1,0 +1,199 @@
+<br><br><br>
+<div class="video-wrapper">
+  <div class="container" *ngIf="videoerror==false">
+    <h3>This video access denied</h3>
+  </div>
+  <div class="container" *ngIf="videoerror">
+    <div class="row">
+      <div class="col-md-12 single-video-wrap">
+        <div class="row">
+          <div class="col-md-7">
+            <h1 class="mt-2" [innerHtml]=content?.yt?.snippet?.localized?.title></h1>
+          </div>
+          <div class="col-md-5">
+            <!-- <div class="mt-2 mb-2">
+              <ng-adsense [adClient]="'ca-pub-7283079374771718'" [adSlot]="5010102535" [display]="'inline-block'"
+                [adFormat]="'horizontal'" [width]="468" [height]="31"></ng-adsense>
+            </div> -->
+          </div>
+        </div>
+        <div class="video-frame" *ngIf="content?.yt?.id">
+          <iframe frameBorder="0" [src]="safeURL"></iframe>
+          <!-- <iframe width="560" height="440" src="https://www.youtube.com/embed/{{content?.yt?.id}}?autoplay=1"
+            frameborder="0" allowfullscreen></iframe> -->
+        </div>
+        <div class="single-video_author">
+          <div class="row">
+            <div class="col-md-5">
+              <div class="video_auth">
+                <!--   {{content?.listing?.user?.first_name}}
+                {{content?.listing?.user?.last_name}}
+                {{content?.listing?.user?.email}}
+                {{content?.listing?.user?.username}} -->
+
+                <img src="assets/images/icon/profile.jpg" alt="user profile"
+                  *ngIf="!content?.listing?.user?.userimage?.medium" />
+                <img src="{{ imgPath }}{{
+                content?.listing?.user?.userimage?.medium
+              }}" alt="" *ngIf="content?.listing?.user?.userimage?.medium" />
+              </div>
+              <div class="author_content">
+                <a href="/listing/{{content?.listing?.slug}}">
+                  <h3 *ngIf="!content?.listing?.user?.first_name" innerHtml="{{content?.listing?.user?.username}}"></h3>
+                  <h3 *ngIf="content?.listing?.user?.first_name"
+                    innerHtml="{{content?.listing?.user?.first_name }} {{content?.listing?.user?.last_name }}"></h3>
+                </a>
+                <div class=" listing_dcates" *ngIf="content?.listing?.currentcategory">
+                  <a routerLink="/listing-category/{{
+                    content?.listing?.currentcategory?.category?.parentCat?.slug
+                    }}">
+                    <h4 [innerHtml]="
+                    content?.listing?.currentcategory?.category?.parentCat?.name
+                      "></h4>
+                  </a>
+                  <i class="fa fa-angle-right"></i>
+                  <a routerLink="/listing-category/{{
+                    content?.listing?.currentcategory?.category?.parentCat?.slug
+                    }}/{{ content?.listing?.currentcategory?.category?.slug }}">
+                    <h4 [innerHtml]="content?.listing?.currentcategory?.category?.name"></h4>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-7">
+              <ul class="video_static">
+                <li><i class="fa fa-eye"></i> <span>{{content?.yt?.statistics?.viewCount}} Views</span></li>
+                <li><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                  <span>{{content?.yt?.statistics?.likeCount}}</span>
+                </li>
+                <li><i class="fa fa-commenting-o" aria-hidden="true"></i>
+                  <span>{{content?.yt?.statistics?.commentCount}}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="container">
+  <div class="row  mt-2">
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="heading-wrap">
+            <h3>Recent Videos <a href="/video">Show More <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+            </h3>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 resent-grid recommended-grid" *ngFor="let list of recent_content; let i = index; ">
+          <div class="resent-grid-img recommended-grid-img">
+            <a href="/video/{{list?.enc}}">
+              <img src="{{ list?.snippet?.thumbnails?.high?.url}}" alt="">
+            </a>
+            <div class="time small-time">
+              <p><i class="fa fa-clock-o" aria-hidden="true"></i> {{list?.contentDetails?.duration}}</p>
+            </div>
+          </div>
+          <div class="resent-grid-info recommended-grid-info video-info-grid">
+            <h5 title="{{list?.snippet?.localized?.title}}"><a href="/video/{{list?.enc}}"
+                class="title">{{list?.snippet?.localized?.title}}</a></h5>
+            <ul>
+              <li>
+                <p class="author author-info">
+                  <span class="author" *ngIf="list.user.first_name" innerHtml="{{list.user.first_name}}"></span>
+                  <span class="author" *ngIf="list.user.first_name==''" innerHtml="{{list.user.username}}"></span>
+
+                </p>
+              </li>
+              <li class="right-list">
+                <p class="views views-info">{{list?.statistics?.viewCount}} views</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="gads mb-3">
+        <ng-adsense [adClient]="'ca-pub-7283079374771718'" [adSlot]="5010102535" [display]="'inline-block'"
+          [adFormat]="'horizontal'" [width]="728" [height]="90"></ng-adsense>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="heading-wrap">
+            <h3>Related Listing Videos <a href="/video-category/{{relatedcate}}">Show More <i class="fa fa-angle-right"
+                  aria-hidden="true"></i></a>
+            </h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 resent-grid recommended-grid"
+          *ngFor="let list of related_content | slice:0:6; let i = index; ">
+          <div class="resent-grid-img recommended-grid-img">
+            <a href="/video/{{list?.enc}}">
+              <img src="{{ list?.snippet?.thumbnails?.high?.url}}" alt="">
+            </a>
+            <div class="time small-time">
+              <p><i class="fa fa-clock-o" aria-hidden="true"></i> {{list?.contentDetails?.duration}}</p>
+            </div>
+          </div>
+          <div class="resent-grid-info recommended-grid-info video-info-grid">
+            <h5 title="{{list?.snippet?.localized?.title}}"><a href="/video/{{list?.enc}}"
+                class="title">{{list?.snippet?.localized?.title}}</a></h5>
+            <ul>
+              <li>
+                <p class="author author-info">
+                  <span class="author" *ngIf="list.user.first_name" innerHtml="{{list.user.first_name}}"></span>
+                  <span class="author" *ngIf="list.user.first_name==''" innerHtml="{{list.user.username}}"></span>
+                </p>
+              </li>
+              <li class="right-list">
+                <p class="views views-info">{{list?.statistics?.viewCount}} views</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="gads mb-3">
+        <ng-adsense [adClient]="'ca-pub-7283079374771718'" [adSlot]="5010102535" [display]="'inline-block'"
+          [adFormat]="'horizontal'" [width]="728" [height]="90"></ng-adsense>
+      </div>
+
+    </div>
+
+    <div class="col-md-3">
+      <div class="row ">
+        <div class="col-md-12">
+          <div class="heading-wrap">
+            <h3>Walldirectory Videos</h3>
+          </div>
+          <ul class="wall_channel_list">
+            <ng-container *ngFor="let list of wall_videos | slice:0: 5; let i =index;">
+              <li>
+                <a href="https://www.youtube.com/watch?v={{list?.id?.videoId}}" target="_blank">
+                  <img src="{{list?.snippet?.thumbnails?.medium?.url}}" alt="{{list?.snippet?.title}}" />
+                  <h2 innerHtml="{{list?.snippet?.title}}"></h2>
+                </a>
+              </li>
+              <!--  <li class="mt-2 mb-2" *ngIf="!wall_videos">
+                <ng-adsense [adClient]="'ca-pub-7283079374771718'" [adSlot]="5010102535" [display]="'inline-block'"
+                  [adFormat]="'horizontal'" [width]="728" [height]="90"></ng-adsense>
+              </li> -->
+
+            </ng-container>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!----->
+</div>

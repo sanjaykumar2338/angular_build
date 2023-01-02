@@ -1,0 +1,197 @@
+<section class="agent-wrapper">
+  <div class="tz">
+    <!--LEFT SECTION-->
+    <app-agentsidebar class="desk_dashnav"></app-agentsidebar>
+
+    <!--CENTER SECTION-->
+    <div class="tz-2">
+      <div class="tz-2-com tz-2-main">
+        <h4>Create New Customer</h4>
+        <div class="db-list-com tz-db-table">
+          <div class="ds-boar-title">
+            <h2>New Customer Lead</h2>
+            <p>
+              Create your customer profile informations here.
+            </p>
+          </div>
+
+          <div class="hom-cre-acc-right">
+            <div class="tz2-form-pay tz2-form-com">
+              <form
+                class="col s12"
+                [formGroup]="newlead"
+                enctype="multipart/form-data"
+              >
+                <div class="row">
+                  <div class="input-field col s12 m6" title="First Name">
+                    <input
+                      type="text"
+                      name="first_name"
+                      id="first_name"
+                      value="test"
+                      class="validate"
+                      formControlName="first_name"
+                    />
+                    <label for="first_name">First Name</label>
+                    <span
+                      *ngIf="
+                        !newlead.get('first_name').valid &&
+                        newlead.get('first_name').touched
+                      "
+                      class="help-block"
+                      >Enter First Name</span
+                    >
+                  </div>
+
+                  <div class="input-field col s12 m6" title="Last Name">
+                    <input
+                      type="text"
+                      name="last_name"
+                      id="last_name"
+                      class="validate"
+                      formControlName="last_name"
+                    />
+                    <label for="last_name">Last Name</label>
+                    <span
+                      *ngIf="
+                        !newlead.get('last_name').valid &&
+                        newlead.get('last_name').touched
+                      "
+                      class="help-block"
+                      >Enter Last Name</span
+                    >
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="input-field col s12" title="Company">
+                    <input
+                      type="text"
+                      name="company"
+                      id="company"
+                      class="validate"
+                      formControlName="company"
+                    />
+                    <label for="last_name">Company Name</label>
+                  </div>
+
+                  <div class="input-field col s12" title="Email">
+                    <input
+                      type="email"
+                      class="validate"
+                      formControlName="email"
+                    />
+                    <label>Email id</label>
+                  </div>
+                  <span
+                    *ngIf="
+                      !newlead.get('email').valid &&
+                      newlead.get('email').touched
+                    "
+                    class="help-block"
+                  >
+                    Enter valid email</span
+                  >
+                </div>
+
+                <div class="row">
+                  <div class="input-field col s12" title="Address">
+                    <textarea
+                      id="address"
+                      class=""
+                      formControlName="address"
+                    ></textarea>
+                    <label for="address">Address</label>
+                    <span
+                      *ngIf="
+                        !newlead.get('address').valid &&
+                        newlead.get('address').touched
+                      "
+                      class="help-block"
+                      >Enter Address</span
+                    >
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="input-field col s12">
+                    <div class="select-wrapper" title="State">
+                      <select name="state" id="state" formControlName="state">
+                        <option value="">Select State</option>
+                        <option
+                          *ngFor="let listReg of listRegs"
+                          [value]="listReg.id"
+                          [innerHtml]="listReg.name"
+                        ></option>
+                      </select>
+                      <span
+                        *ngIf="
+                          !newlead.get('state').valid &&
+                          newlead.get('state').touched
+                        "
+                        class="help-block"
+                        >Select State</span
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="input-field col s12" title="Country">
+                    <div class="select-wrapper">
+                      <select
+                        name="country"
+                        id="country"
+                        formControlName="country"
+                      >
+                        <option value="">Select Country</option>
+                        <option
+                          *ngFor="let listctry of listcountry"
+                          [value]="listctry.id"
+                          >{{ listctry.name }}
+                        </option>
+                      </select>
+                      <span
+                        *ngIf="
+                          !newlead.get('country').valid &&
+                          newlead.get('country').touched
+                        "
+                        class="help-block"
+                        >Select Country</span
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="input-field col s12 v2-mar-top-40">
+                    <button
+                      type="submit"
+                      class="waves-effect waves-light btn-large full-btn"
+                      (click)="onSubmit()"
+                    >
+                      Create
+                    </button>
+                  </div>
+                </div>
+
+                <div class="alert alert-success mt-2" *ngIf="successmsg">
+                  <h5>
+                    New Lead added. And an Email sent to Customer with your
+                    REFERRAL CODE and LINK to register. Thank you!
+                  </h5>
+                </div>
+
+                <div class="alert alert-danger  mt-2" *ngIf="errormsg">
+                  <h5>{{ errormsg }}</h5>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+	
+	<app-agentsidebar class="mobile_dashnav"></app-agentsidebar>
+  </div>
+</section>

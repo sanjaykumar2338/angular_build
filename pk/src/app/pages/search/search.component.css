@@ -1,0 +1,32 @@
+.most_viewed_wrap {
+  padding: 15px;
+  background: #ffffff;
+  padding-bottom: 15px;
+}
+.most_viewed_wrap li {
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+.most_viewed li img {
+  float: left;
+  width: 28px;
+  height: 28px;
+  margin-right: 10px;
+}
+.tz-most_viewed ul li a h5 {
+  color: #333;
+  font-size: 15px;
+  margin-top: 0px;
+  text-overflow: ellipsis;
+  white-space: pre;
+  overflow: hidden;
+  text-transform: capitalize;
+  margin-bottom: 0px;
+}
+.most_viewed ul li a p {
+  /*padding-left: 40px;*/
+  margin-bottom: 0px;
+  color: #969595;
+  font-size: 12px;
+  line-height: 18px;
+}

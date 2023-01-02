@@ -1,0 +1,57 @@
+<!-- /*Business email verification */ -->
+<section class="dir-pa-sp-top">
+  <div class="container com-padd dir-hom-pre-tit thankpage">
+    <div class="com-title">
+      <h2 *ngIf="verifyfail">
+        Invalid request url.<br />
+        Contact support@walldirectory.com.
+      </h2>
+      <h1 *ngIf="verifysucc">
+        Thank you, Your request sent to customer. Hope they reach you soon.
+      </h1>
+      <a href="https://walldirectory.com/customer-requests" class="mt-4 waves-effect waves-light btn-large">View
+        Customer Details</a>
+    </div>
+    <hr />
+    <div class="row text-center">
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="tk_gird">
+          <a href="{{ sitepath }}/profile-edit">
+            <img src="assets/images/icon/001-profile.svg" alt="Update your profile" />
+            <h3>Complete Your Profile</h3>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="tk_gird">
+          <a href="{{ sitepath }}/plans">
+            <img src="assets/images/icon/004-subscribe.svg" alt="Subscribe to a Business Package" />
+            <h3>Subscribe to a Business Package</h3>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="tk_gird">
+          <a href="{{ sitepath }}/all-business">
+            <img src="assets/images/icon/002-planning.svg" alt="Update Business Listing" />
+            <h3>Update Business Listing</h3>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="tk_gird">
+          <a href="{{ sitepath }}/add-promotion">
+            <img src="assets/images/icon/003-megaphone.svg" alt="Add Promotions" />
+            <h3>Add Promotions</h3>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <app-unit4></app-unit4>
+
+  </div>
+</section>

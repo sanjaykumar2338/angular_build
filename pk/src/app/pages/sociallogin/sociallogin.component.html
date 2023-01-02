@@ -1,0 +1,28 @@
+<div *ngIf="pageplan == 1">
+  <h2>Browse Around... <span class="ng-binding"></span></h2>
+  <h1>
+    FIND THE BEST LOCAL DEALS. EXPLORE WHAT YOUR NEIGHBORHOOD HAS TO OFFER!
+  </h1>
+</div>
+<h5>Connect Now</h5>
+<ul>
+  <li>
+    <a href="javascript:void(0);" (click)="signInWithFB()"
+      ><i class="fa fa-facebook"></i> {{ fbtxt }}</a
+    >
+  </li>
+  <li>
+    <a href="javascript:void(0);" (click)="signInWithGoogle()"
+      ><i class="fa fa-google-plus"></i> {{ gltxt }}</a
+    >
+  </li>
+</ul>
+<div class="career_logs">
+  <h5>CAREER - Become a Sales Agent</h5>
+  <p>
+    Join to refer multiple businesses, collect commission and represent
+    WallDirectory
+  </p>
+  <a href="/career" class="cagent">Create Account</a>
+  <br />
+</div>

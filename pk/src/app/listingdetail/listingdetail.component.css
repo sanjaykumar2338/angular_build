@@ -1,0 +1,84 @@
+.social_rating a {
+  display: flex;
+  margin-bottom: 20px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.rate_p {
+  width: 33%;
+  text-align: center;
+  font-size: 2.8rem;
+  background: #ccc;
+  height: 66px;
+  color: #fff;
+  line-height: 72px;
+  border: 1px solid transparent;
+  float: left;
+}
+.rate_img {
+  width: 67%;
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-width: 1px 1px 1px 0;
+  float: left;
+}
+.socialrating li {
+  display: inline-block;
+  margin-bottom: 8px;
+  width: 100%;
+}
+.fb_rate.rate_p {
+  background-color: #3c4ca1;
+}
+.rate_p.wall_rate {
+  background-color: #f16739;
+}
+.twitter_rate.rate_p {
+  background-color: #00acee;
+}
+
+.fb-comments,
+.fb-comments span,
+.fb-comments span iframe[style] {
+  min-width: 100% !important;
+  width: 100% !important;
+}
+.fb_gallery_list li {
+  width: 33%;
+  height: 150px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  float: left;
+  display: inline-block;
+  vertical-align: middle;
+}
+.fbgall {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+#social_feeds_cont .pglist-p-com-ti h3 {
+  background-color: #152032;
+  color: #fff;
+}
+.ribbon1:before {
+  display: none;
+}
+.nofoundlisting {
+  padding: 180px 0px;
+}
+.pg-list-user-pro span{
+  display: none;
+}
+
+.sidebarads.pglist-bg{
+  border:0;
+  margin-bottom: 0;
+  background: transparent;
+}

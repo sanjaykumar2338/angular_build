@@ -1,0 +1,279 @@
+<section>
+  <div class="tz">
+    <!--LEFT SECTION-->
+    <app-dashmenu class="desk_dashnav"></app-dashmenu>
+
+    <!--CENTER SECTION-->
+    <div class="tz-2">
+      <div class="tz-2-com tz-2-main">
+        <h4>Manage Business</h4>
+        <div class="db-list-com tz-db-table table-responsive all-listing-dash">
+          <div class="ds-boar-title">
+            <h2>Business</h2>
+            <p>Here is a list of your business and promotions</p>
+          </div>
+
+          <div class="text-center" id="upgraderes">
+            <div class="alert  alert-success" *ngIf="upgradeSuccess1">
+              <h5>{{ upgradeSuccess }}</h5>
+            </div>
+            <div class="alert  alert-warning" *ngIf="upgradeSuccess2">
+              <h5>{{ upgradeSuccess }}</h5>
+            </div>
+            <div class="alert alert-danger" *ngIf="upgradeError">
+              <h5>{{ upgradeError }}</h5>
+              <div class="mt-2 mb-2">
+                <a href="/plans" class="btn btn-success">Upgrade Plan</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-right">
+            <a href="{{ siteUrl }}add-business" class="mt-2 waves-effect waves-light btn btn-success">ADD YOUR BUSINESS
+              NOW</a>
+          </div>
+          <table class="mt-2 table  table-striped  bordered">
+            <thead>
+              <tr valign="middle" bgcolor="#ccc">
+                <th class="text-left" width="20%">Business Type</th>
+                <th width="30%">Business Name</th>
+                <th class="text-center" width="15%">Business Verified</th>
+                <th class="text-center" width="15%">Email Verified</th>
+                <th class="text-center" width="20%">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let lists of listDetails">
+                <td class="text-left" colspan="5" width="100%">
+                  <table width="100%">
+                    <tr>
+                      <td width="20%">
+                        <div *ngIf="lists?.type.id == 696">
+                          <b>Business</b>
+                        </div>
+                        <div *ngIf="lists?.type.id != 696">
+                          <b>Promotion</b>
+                        </div>
+                        <div class="label label-success" *ngIf="lists?.plan_id == freepackid">
+                          Free Package
+                        </div>
+                        <div class="label label-success" *ngIf="lists?.plan_id != freepackid">
+                          Paid Package
+                        </div>
+                      </td>
+                      <td width="30%">
+                        <a class="txt_uline text-cap" routerLink="/listing/{{ lists?.slug }}">{{ lists?.title }}</a>
+                        <label style="display:block;font-size: 10px; color:#01a0d8;">
+                          {{ lists?.created_at | date: "MM/dd/yyyy" }}</label>
+                      </td>
+                      <td class="text-center" width="15%">
+                        <span class="fa fa-check green" *ngIf="lists?.is_verified"></span>
+                        <span title="Not Verified" class="fa fa-times text-danger" *ngIf="!lists?.is_verified"></span>
+                      </td>
+                      <td class="text-center" width="15%">
+                        <a href="javascript:void(0)" (click)="verifyemail(lists?.id)" class="verifyemail"
+                          *ngIf="!lists?.is_owner_verified">Request to verify</a>
+                        <span class="fa fa-check green" *ngIf="lists?.is_owner_verified"></span>
+                      </td>
+                      <td class="text-center" width="20%">
+                        <span class="text-danger" *ngIf="lists?.status === 'pending'">Pending</span>
+                        <span class="text-success" *ngIf="lists?.status === 'publish'">Published</span>
+                        <span class="text-warning" *ngIf="lists?.status === 'expired'">Expired</span>
+                        <span class="text-danger" *ngIf="lists?.status === 'draft'">Draft</span>
+                        <span class="text-danger" *ngIf="lists?.status === 'pending_payment'">Pending payment</span>
+                        <span class="text-danger" *ngIf="lists?.status === 'trash'">Trash</span>
+                      </td>
+                    </tr>
+                    <tr style="background-color: rgba(204, 204, 204, 0.27)">
+                      <td colspan="5">
+                        <table>
+                          <tr>
+                            <td>Actions:</td>
+                            <td>
+                              <div class="actionlinks" style="display: inline-block;" *ngIf="lists?.type.id == 696">
+                                <a href="/listing-stats/{{ lists?.id }}" class="db-list-stats"
+                                  title="Statistics Report"><i class="fa fa-bar-chart" aria-hidden="true"></i>
+                                  Statistics</a>
+                                <a routerLink="/edit-business/{{ lists?.id }}" *ngIf="lists?.status === 'publish'"
+                                  class="db-list-edit" title="Edit"><i class="fa fa-pencil-square-o"
+                                    aria-hidden="true"></i>
+                                  Edit</a>
+                                <a href="javascript:void(0)" (click)="deleteList(lists?.id)" class="db-list-del"
+                                  title="Delete"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                                  Delete</a>
+
+                                <a href="https://walldirectory.com/newsletter-unsubscribe?email={{
+                                    lists?.unsubscribe_slug
+                                  }}" class="db-list-unsub" *ngIf="lists?.is_subscribed == null">Unsubscribe</a>
+                              </div>
+                              <div class="actionlinks" *ngIf="lists?.type.id != 696">
+                                <a href="/listing-stats/{{ lists?.id }}" class="db-list-stats"
+                                  title="Statistics Report"><i class="fa fa-bar-chart" aria-hidden="true"></i>
+                                  Statistics</a>
+                                <a routerLink="/edit-promotion/{{ lists?.id }}" *ngIf="lists?.status === 'publish'"
+                                  class="db-list-edit" title="Edit">Edit</a>
+                                &nbsp;
+                                <a href="javascript:void(0)" (click)="deleteList(lists.id)" class="db-list-edit"
+                                  title="Delete">Delete</a>
+                                <a href="https://walldirectory.com/newsletter-unsubscribe?email={{
+                                    lists?.unsubscribe_slug
+                                  }}" class="db-list-unsub" *ngIf="lists?.is_subscribed == null">Unsubscribe</a>
+                              </div>
+                            </td>
+                            <td class="text-right">
+                              <button class="btn btn-danger" (click)="onupgarde(lists?.id)" *ngIf="lists?.plan_id">
+                                MOVE YOUR BUSINESS <br/>TO ACTIVE PACKAGE
+                                <i class="fa fa-angle-right"></i>
+                              </button>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <!--  <tr *ngFor="let lists of listDetails">
+                <td class="text-left">
+                  
+                </td>
+                <td width="20%">
+                  <a
+                    class="txt_uline text-cap"
+                    routerLink="/listing/{{ lists?.slug }}"
+                    >{{ lists?.title }}</a
+                  >
+                  <label style="display:block;font-size: 10px; color:#01a0d8;">
+                    {{ lists?.created_at | date: "MM/dd/yyyy" }}</label
+                  >
+                </td>
+                <td class="text-center">
+                  <span
+                    class="fa fa-check green"
+                    *ngIf="lists?.is_verified"
+                  ></span>
+                  <span
+                    title="Not Verified"
+                    class="fa fa-times text-danger"
+                    *ngIf="!lists?.is_verified"
+                  ></span>
+                </td>
+                <td class="text-center">
+                  <a
+                    href="javascript:void(0)"
+                    (click)="verifyemail(lists?.id)"
+                    class="verifyemail"
+                    *ngIf="!lists?.is_owner_verified"
+                    >Request to verify</a
+                  >
+                  <span
+                    class="fa fa-check green"
+                    *ngIf="lists?.is_owner_verified"
+                  ></span>
+                </td>
+                <td class="text-center">
+                  // {{ lists?.status }}
+                  <span class="text-danger" *ngIf="lists?.status === 'pending'"
+                    >Pending</span
+                  >
+                  <span class="text-success" *ngIf="lists?.status === 'publish'"
+                    >Publish</span
+                  >
+                  <span class="text-warning" *ngIf="lists?.status === 'expired'"
+                    >Expired</span
+                  >
+                  <span class="text-danger" *ngIf="lists?.status === 'draft'"
+                    >Draft</span
+                  >
+                  <span
+                    class="text-danger"
+                    *ngIf="lists?.status === 'pending_payment'"
+                    >Pending payment</span
+                  >
+                  <span class="text-danger" *ngIf="lists?.status === 'trash'"
+                    >Trash</span
+                  >
+                </td>
+                <td class="text-center" width="15%">
+                  <div *ngIf="lists?.type.id == 696">
+                    <a href="#" class="db-list-stats" title="Statistics Report"
+                      ><i class="fa fa-bar-chart" aria-hidden="true"></i>
+                      Statistics</a
+                    >
+                    <a
+                      routerLink="/edit-business/{{ lists?.id }}"
+                      *ngIf="lists?.status === 'publish'"
+                      class="db-list-edit"
+                      title="Edit"
+                      ><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                      Edit</a
+                    >
+                    <a
+                      href="javascript:void(0)"
+                      (click)="deleteList(lists?.id)"
+                      class="db-list-edit"
+                      title="Delete"
+                      ><i class="fa fa-trash-o" aria-hidden="true"></i>
+                      Delete</a
+                    >
+                  </div>
+                  <div *ngIf="lists?.type.id != 696">
+                    <a
+                      routerLink="/edit-promotion/{{ lists?.id }}"
+                      *ngIf="lists?.status === 'publish'"
+                      class="db-list-edit"
+                      title="Edit"
+                      >Edit</a
+                    >
+                    &nbsp;
+                    <a
+                      href="javascript:void(0)"
+                      (click)="deleteList(lists.id)"
+                      class="db-list-edit"
+                      title="Delete"
+                      >Delete</a
+                    >
+                  </div>
+                </td>
+                <td class="text-center">
+                 
+                </td>
+              </tr> -->
+              <tr *ngIf="!listDetails?.length" class="danger text-center">
+                <td colspan="5">
+                  <h5>No Business Found</h5>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="alert alert-success" *ngIf="vmailsend">
+            <a href="javascript:void(0)" (click)="closealert()"><i class="fa fa-check"></i></a>
+            {{ vmailsend }}
+          </div>
+          <div class="alert alert-danger" *ngIf="vmailfail">
+            <a href="javascript:void(0)" (click)="closealert()"><i class="fa fa-check"></i></a>
+            Unable to Send Email, Try Later
+          </div>
+
+          <div class="alert alert-success" *ngIf="successmsg">
+            <h3>One Listing Deleted.</h3>
+          </div>
+
+          <div class="alert alert-danger" *ngIf="errormsg">
+            <h3>{{ errormsg }}</h3>
+          </div>
+        </div>
+
+        <div class="mt-2 mb-1">
+          <app-unit5></app-unit5>
+        </div>
+      </div>
+    </div>
+
+    <!--Right SECTION-->
+    <app-dashmenu class="mobile_dashnav"></app-dashmenu>
+    <app-dashmsg></app-dashmsg>
+  </div>
+</section>

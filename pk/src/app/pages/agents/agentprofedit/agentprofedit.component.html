@@ -1,0 +1,400 @@
+<section class="agent-wrapper">
+  <div class="tz">
+    <!--LEFT SECTION-->
+    <app-agentsidebar class="desk_dashnav"></app-agentsidebar>
+
+    <!--CENTER SECTION-->
+    <div class="tz-2">
+      <div class="tz-2-com tz-2-main">
+        <h4>Profile</h4>
+        <div class="db-list-com tz-db-table">
+          <div class="ds-boar-title">
+            <h2>Edit Profile</h2>
+            <p>
+              Update your profile informations here. Leave blank fields are not
+              unchange.
+            </p>
+          </div>
+
+          <div class="hom-cre-acc-right">
+            <div class="tz2-form-pay tz2-form-com">
+              <form
+                class="col s12"
+                [formGroup]="profileForm"
+                enctype="multipart/form-data"
+              >
+                <div class="row">
+                  <div class="input-field col s12 m6" title="First Name">
+                    <input
+                      type="text"
+                      name="prof_fname"
+                      id="prof_fname"
+                      value="test"
+                      class="validate"
+                      formControlName="prof_fname"
+                    />
+                    <label for="prof_fname" [ngClass]="pfname ? 'active' : ''"
+                      >First Name</label
+                    >
+                    <span
+                      *ngIf="
+                        !profileForm.get('prof_fname').valid &&
+                        profileForm.get('prof_fname').touched
+                      "
+                      class="help-block"
+                      >Enter First Name</span
+                    >
+                  </div>
+
+                  <div class="input-field col s12 m6" title="Last Name">
+                    <input
+                      type="text"
+                      name="prof_lname"
+                      id="prof_lname"
+                      class="validate"
+                      formControlName="prof_lname"
+                    />
+                    <label for="prof_lname" [ngClass]="plname ? 'active' : ''"
+                      >Last Name</label
+                    >
+                    <span
+                      *ngIf="
+                        !profileForm.get('prof_lname').valid &&
+                        profileForm.get('prof_lname').touched
+                      "
+                      class="help-block"
+                      >Enter Last Name</span
+                    >
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="input-field col s12 m6" title="Password">
+                    <input
+                      type="password"
+                      name="prof_pwd"
+                      id="prof_pwd"
+                      class="validate"
+                      formControlName="prof_pwd"
+                    />
+                    <label for="prof_pwd">Enter Password</label>
+                    <span
+                      *ngIf="
+                        profileForm.controls['prof_pwd'].hasError('minlength')
+                      "
+                      class="help-block"
+                    >
+                      Enter Min. 6 characters
+                    </span>
+                    <span
+                      *ngIf="
+                        profileForm.get('prof_cpwd').value != '' &&
+                        profileForm.get('prof_pwd').value == '' &&
+                        profileForm.controls['prof_cpwd'].valid
+                      "
+                      class="help-block"
+                    >
+                      Password required
+                    </span>
+                  </div>
+
+                  <div class="input-field col s12 m6" title="Confirm Password">
+                    <input
+                      type="password"
+                      name="prof_cpwd"
+                      id="prof_cpwd"
+                      class="validate"
+                      formControlName="prof_cpwd"
+                    />
+                    <label for="prof_cpwd">Confirm Password</label>
+                    <span
+                      *ngIf="
+                        profileForm.get('prof_pwd').value != '' &&
+                        profileForm.get('prof_cpwd').value == '' &&
+                        profileForm.controls['prof_cpwd'].valid
+                      "
+                      class="help-block"
+                    >
+                      Confirm Password required
+                    </span>
+                    <span
+                      *ngIf="
+                        profileForm.controls['prof_cpwd'].hasError('minlength')
+                      "
+                      class="help-block"
+                    >
+                      Enter Min. 6 characters
+                    </span>
+                    <span
+                      *ngIf="
+                        profileForm.get('prof_pwd').value != '' &&
+                        profileForm.controls['prof_cpwd'].valid &&
+                        profileForm.get('prof_cpwd').value != '' &&
+                        profileForm.get('prof_pwd').value !==
+                          profileForm.get('prof_cpwd').value
+                      "
+                      class="help-block"
+                    >
+                      Mismatch password</span
+                    >
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="input-field col s12" title="Phone Number">
+                    <input
+                      type="text"
+                      name="prof_phone"
+                      id="prof_phone"
+                      class="validate"
+                      formControlName="prof_phone"
+                    />
+                    <label for="prof_phone" [ngClass]="pphone ? 'active' : ''"
+                      >Phone</label
+                    >
+                    <span
+                      *ngIf="
+                        !profileForm.get('prof_phone').valid &&
+                        profileForm.get('prof_phone').touched
+                      "
+                      class="help-block"
+                      >Enter Phone Number</span
+                    >
+                  </div>
+                </div>
+
+                <div class="row">
+                  <!--  <div class="input-field col s3" title="Mobile Prefix Code">
+                    <select id="mob_cd"  class="validate"  formControlName="mob_cd">
+                      <option value=""[selected]="pmcd == '' " >Prefix Code</option>
+                      <option *ngFor="let listcode of mobCodes" [value]="listcode.country">{{listcode.country}} - ({{listcode.code}}) </option>
+                    </select>
+                    <span *ngIf="profileForm.get('prof_mobile').value!='' &&   profileForm.get('mob_cd').value=='' " class="help-block">Select Prefix</span>
+                  </div> -->
+
+                  <div class="input-field col s12" title="Mobile Number">
+                    <input
+                      type="text"
+                      name="prof_mobile"
+                      id="prof_mobile"
+                      minlength="10"
+                      maxlength="10"
+                      class="validate"
+                      formControlName="prof_mobile"
+                    />
+                    <label for="prof_mobile" [ngClass]="pmobile ? 'active' : ''"
+                      >Mobile</label
+                    >
+                    <span
+                      *ngIf="
+                        profileForm.controls['prof_mobile'].hasError('pattern')
+                      "
+                      class="help-block"
+                      >Enter 10 digits no.</span
+                    >
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div
+                    class="input-field col s12"
+                    title="Date Of Birth (YYYY-MM-DD)"
+                  >
+                    <input
+                      type="text"
+                      name="prof_dob"
+                      id="prof_dob"
+                      class="validate "
+                      (change)="dateselected()"
+                      formControlName="prof_dob"
+                    />
+                    <label for="prof_dob" [ngClass]="pdob ? 'active' : ''"
+                      >Date Of Birth (YYYY-MM-DD)</label
+                    >
+                    <span
+                      *ngIf="
+                        !profileForm.get('prof_dob').valid &&
+                        profileForm.get('prof_dob').touched
+                      "
+                      class="help-block"
+                      >Field required</span
+                    >
+                  </div>
+                </div>
+
+                <div class="row tz-file-upload">
+                  <div [ngClass]="pimg ? 'col s3' : ''" *ngIf="pimg">
+                    <div class="input-field text-center">
+                      <img
+                        src="{{ imgpath }}{{ pimg.small }}"
+                        alt="profileimage"
+                        width="50"
+                      />
+                    </div>
+                  </div>
+
+                  <div [ngClass]="pimg1 ? 'col s3' : ''" *ngIf="pimg1">
+                    <div class="input-field text-center">
+                      <img src="{{ pimg1 }}" alt="profileimage" width="50" />
+                    </div>
+                  </div>
+
+                  <div class="col s9">
+                    <div class="file-field input-field" title="Profile Image">
+                      <div class="tz-up-btn">
+                        <span>Profile Photo</span>
+                        <input
+                          type="file"
+                          (change)="imgUpload($event)"
+                          name="prof_img"
+                          id="prof_img"
+                          formControlName="prof_img"
+                          accept="image/png, image/jpeg"
+                        />
+                      </div>
+                      <div class="file-path-wrapper">
+                        <input
+                          disabled
+                          class="file-path validate"
+                          type="text"
+                        />
+                      </div>
+                      <span
+                        *ngIf="
+                          !profileForm.get('prof_img').valid &&
+                          profileForm.get('prof_img').touched
+                        "
+                        class="help-block"
+                        >Upload Profile Photo</span
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="input-field col s12" title="Address">
+                    <textarea
+                      id="paddress"
+                      class=""
+                      formControlName="paddress"
+                    ></textarea>
+                    <label for="paddress" [ngClass]="paddress ? 'active' : ''"
+                      >Address</label
+                    >
+                    <span
+                      *ngIf="
+                        !profileForm.get('paddress').valid &&
+                        profileForm.get('paddress').touched
+                      "
+                      class="help-block"
+                      >Enter Address</span
+                    >
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="input-field col s12">
+                    <div class="select-wrapper" title="State">
+                      <select name="state" id="state" formControlName="state">
+                        <option value="" [selected]="pstate == ''"
+                          >Select State</option
+                        >
+                        <option
+                          *ngFor="let listReg of listRegs"
+                          [attr.selected]="pstate === listReg.id ? true : null"
+                          [value]="listReg.id"
+                          [innerHtml]="listReg.name"
+                        ></option>
+                      </select>
+                      <span
+                        *ngIf="
+                          !profileForm.get('state').valid &&
+                          profileForm.get('state').touched
+                        "
+                        class="help-block"
+                        >Select State</span
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="input-field col s12" title="Country">
+                    <div class="select-wrapper">
+                      <select
+                        name="country"
+                        id="country"
+                        formControlName="country"
+                      >
+                        <option value="" [selected]="pcountry == ''"
+                          >Select Country</option
+                        >
+                        <option
+                          *ngFor="let listctry of listcountry"
+                          [value]="listctry.id"
+                          >{{ listctry.name }}
+                        </option>
+                      </select>
+                      <span
+                        *ngIf="
+                          !profileForm.get('country').valid &&
+                          profileForm.get('country').touched
+                        "
+                        class="help-block"
+                        >Select Country</span
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="input-field col s12" title="Paypal account id">
+                    <input
+                      id="paypal_id"
+                      class=""
+                      formControlName="paypal_id"
+                      placeholder="Paypal account id"
+                    />
+                  </div>
+                </div>
+
+                <!--  <div class="row">
+                  <div class="input-field col s12" title="bankdetail">
+                    <textarea
+                      id="bankdetails"
+                      class=""
+                      formControlName="bankdetail"
+                      placeholder="Bank detail"
+                    ></textarea>
+                  </div>
+                </div> -->
+
+                <div class="row">
+                  <div class="input-field col s12 v2-mar-top-40">
+                    <button
+                      type="submit"
+                      class="waves-effect waves-light btn-large full-btn"
+                      (click)="onSubmit()"
+                    >
+                      Update
+                    </button>
+                  </div>
+                </div>
+
+                <div class="alert alert-success" *ngIf="successmsg">
+                  <h5>Profile Updated.</h5>
+                </div>
+
+                <div class="alert alert-danger" *ngIf="errormsg">
+                  <h5>{{ errormsg }}</h5>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+	
+	<app-agentsidebar class="mobile_dashnav"></app-agentsidebar>
+  </div>
+</section>

@@ -1,0 +1,219 @@
+<section class="tz-register">
+  <div class="log-in-pop">
+    <div class="log-in-pop-right">
+      <!--
+        <a href="#" class="pop-close" data-dismiss="modal"><img src="images/cancel.png" alt=""></a>
+        -->
+      <h4>Create an Account</h4>
+      <p>
+        Don't have an account? Create your account. It's take less than a
+        minutes
+      </p>
+      <form class="s12" autocomplete="off" [formGroup]="registerForm">
+        <div *ngIf="errormsg" class="errormsgs">
+          {{ errormsg }}
+        </div>
+        <div *ngIf="sendmsg" class="sendmsgs">
+          Successfully registered. Loading...
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="input-field s12">
+              <input type="text" class="validate" formControlName="agentid" />
+              <label>Refferal Id</label>
+            </div>
+            <span
+              *ngIf="
+                !registerForm.get('agentid').valid &&
+                registerForm.get('agentid').touched
+              "
+              class="help-block"
+            >
+              Please enter Refferal Id</span
+            >
+          </div>
+          <div class="col-md-6 pr-5">
+            <div>
+              <div class="input-field s12">
+                <input
+                  type="text"
+                  data-ng-model="name1"
+                  class="validate"
+                  formControlName="fname"
+                />
+                <label>First name</label>
+              </div>
+              <span
+                *ngIf="
+                  !registerForm.get('fname').valid &&
+                  registerForm.get('fname').touched
+                "
+                class="help-block"
+              >
+                Please enter firstname</span
+              >
+            </div>
+          </div>
+          <div class="col-md-6 pl-5">
+            <div>
+              <div class="input-field s12">
+                <input type="text" class="validate" formControlName="lname" />
+                <label>Last name</label>
+              </div>
+              <span
+                *ngIf="
+                  !registerForm.get('lname').valid &&
+                  registerForm.get('lname').touched
+                "
+                class="help-block"
+              >
+                Please enter lastname</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="input-field s12">
+            <input type="email" class="validate" formControlName="email" />
+            <label>Email id</label>
+          </div>
+          <span
+            *ngIf="
+              !registerForm.get('email').valid &&
+              registerForm.get('email').touched
+            "
+            class="help-block"
+          >
+            Enter valid email</span
+          >
+        </div>
+        <div>
+          <div class="input-field s12">
+            <input
+              type="password"
+              minLength="6"
+              class="validate"
+              formControlName="pass"
+            />
+            <label>Password</label>
+          </div>
+
+          <span
+            *ngIf="registerForm.controls['pass'].hasError('minlength')"
+            class="help-block"
+          >
+            Enter Min. 6 characters
+          </span>
+          <span
+            *ngIf="
+              registerForm.controls['pass'].hasError('required') &&
+              !registerForm.get('pass').valid &&
+              registerForm.get('pass').touched
+            "
+            class="help-block"
+          >
+            Enter password
+          </span>
+        </div>
+
+        <div>
+          <div class="input-field s12">
+            <input
+              type="password"
+              minLength="6"
+              class="validate"
+              formControlName="cpass"
+            />
+            <label>Confirm password</label>
+          </div>
+
+          <span
+            *ngIf="registerForm.controls['cpass'].hasError('minlength')"
+            class="help-block"
+          >
+            Enter Min. 6 characters
+          </span>
+          <span
+            *ngIf="
+              registerForm.controls['cpass'].hasError('required') &&
+              !registerForm.get('cpass').valid &&
+              registerForm.get('cpass').touched
+            "
+            class="help-block"
+          >
+            Enter Confirm password
+          </span>
+
+          <span
+            *ngIf="
+              registerForm.get('pass').value != '' &&
+              registerForm.controls['cpass'].valid &&
+              registerForm.get('cpass').value != '' &&
+              registerForm.get('pass').value !== registerForm.get('cpass').value
+            "
+            class="help-block"
+          >
+            Mismatch password</span
+          >
+        </div>
+
+        <div class="col s12 terms_condition">
+          <input
+            type="checkbox"
+            id="terms_check"
+            formControlName="term"
+            required
+          />
+          <label for="terms_check"
+            >I Agree with
+            <a routerLink="/terms-and-conditions" target="_blank"
+              >Terms & Conditions</a
+            >
+            and
+            <a routerLink="/privacy-policy" target="_blank"
+              >Privacy Policy</a
+            ></label
+          >
+        </div>
+        <span
+          *ngIf="
+            !registerForm.get('term').valid && registerForm.get('term').touched
+          "
+          class="help-block"
+          >Field required</span
+        >
+
+        <div>
+          <div class="input-field s4">
+            <button
+              type="submit"
+              class="waves-effect waves-light log-in-btn waves-input-wrapper"
+              (click)="onSubmit()"
+            >
+              Register <i class="fa fa-spin fa-spinner" *ngIf="loader"></i>
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <div class="input-field s12">
+            <a routerLink="/login">Are you a already member ? Login</a>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- <div class="container bgwhite">
+      <h4 class="mb-2">Online Advertising Business Registration</h4>
+      <p>
+        Join the online advertising network to start an effective online
+        advertising campaign. Create a business owner profile and a publically
+        searchable business page. Start adding business pages and advertisements
+        to your secure dashboard to get more local attention, calls and page
+        visitors.
+      </p>
+    </div> -->
+  </div>
+</section>

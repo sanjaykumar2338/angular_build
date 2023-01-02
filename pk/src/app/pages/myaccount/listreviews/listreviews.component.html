@@ -1,0 +1,73 @@
+<section>
+  <div class="tz">
+    <!--LEFT SECTION-->
+    <app-dashmenu class="desk_dashnav"></app-dashmenu>
+
+    <!--CENTER SECTION-->
+    <div class="tz-2">
+      <div class="tz-2-com tz-2-main">
+        <h4>Business Reviews</h4>
+        <div class="db-list-com tz-db-table">
+          <div class="ds-boar-title">
+            <h2>Reviews</h2>
+            <p>Here are the reviews about your business.</p>
+          </div>
+          <div class="tz-mess">
+            <ul *ngIf="recounts?.reviews_count > 0">
+              <li class="view-msg" *ngFor="let ls_review of reviewls; let i = index">
+                <div class="review-postname">
+                  <h5>Review at: {{ ls_review?.title }}</h5>
+                </div>
+                <div class="" *ngFor="let lreview of ls_review?.reviews; let r = index">
+                  <h5>
+                    <img src="assets/images/avatar.jpg" alt="{{ lreview?.name }}"
+                      *ngIf="!lreview?.user?.userimage?.small" />
+                    <img src="{{ imgPath }}{{ lreview?.user?.userimage?.small }}" alt="{{ lreview?.name }} "
+                      *ngIf="lreview?.user?.userimage?.small" />
+                    {{ lreview?.name }}
+                    <span class="reviewdate">{{
+                      lreview?.created_at | date: "LLL dd, yyyy"
+                      }}</span>
+                    <span class="tz-revi-star">
+                      <i class="fa rating-star " [ngClass]="{
+                          full: lreview?.rating >= 1,
+                          piece: lreview?.rating == 0.5
+                        }"></i>
+                      <i class="fa rating-star " [ngClass]="{
+                          full: lreview?.rating >= 2,
+                          piece: lreview?.rating == 1.5
+                        }"></i>
+                      <i class="fa rating-star " [ngClass]="{
+                          full: lreview?.rating >= 3,
+                          piece: lreview?.rating == 2.5
+                        }"></i>
+                      <i class="fa rating-star " [ngClass]="{
+                          full: lreview?.rating >= 4,
+                          piece: lreview?.rating == 3.5
+                        }"></i>
+                      <i class="fa rating-star " [ngClass]="{
+                          full: lreview?.rating >= 5,
+                          piece: lreview?.rating == 4.5
+                        }"></i>
+                    </span>
+                  </h5>
+                  <p *ngIf="lreview?.rating">{{ lreview?.content }}</p>
+                </div>
+              </li>
+            </ul>
+            <div class="alert alert-danger" *ngIf="recounts?.reviews_count == 0">
+              <h5>No Review Found.</h5>
+            </div>
+          </div>
+        </div>
+        <div class="mt-2 mb-1">
+          <app-unit5></app-unit5>
+        </div>
+      </div>
+    </div>
+
+    <!--Right SECTION-->
+    <app-dashmenu class="mobile_dashnav"></app-dashmenu>
+    <app-dashmsg></app-dashmsg>
+  </div>
+</section>

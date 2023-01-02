@@ -1,0 +1,18 @@
+<!---User listings email unsubscribe-->
+<section>
+  <div class="container">
+    <div class="unsubscribepage" *ngIf="success">
+      <h1 class="mt-2">Unsubscribe Successful</h1>
+      <h3 class="mt-2">
+        You have been removed from WallDirectory newsletter subscription.
+      </h3>
+    </div>
+
+    <div class="unsubscribepage" *ngIf="errormsg">
+      <h1 class="mt-2">Unsubscribe Not Successful</h1>
+      <h3 class="mt-2">
+        You are not subscribed newsletter.
+      </h3>
+    </div>
+  </div>
+</section>

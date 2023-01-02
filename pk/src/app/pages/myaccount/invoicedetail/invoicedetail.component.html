@@ -1,0 +1,148 @@
+<section>
+  <div class="tz">
+    <!--LEFT SECTION-->
+    <app-dashmenu class="desk_dashnav"></app-dashmenu>
+
+    <!--CENTER SECTION-->
+    <div class="tz-2">
+      <div class="tz-2-com tz-2-main">
+        <h4>Invoice</h4>
+        <div class="db-list-com  tz-db-table">
+          <!-- <div class="ds-boar-title">
+            <h2>Amazon Directory</h2>
+            <p>Paid listing package invoice</p>
+          </div>-->
+          <div class="invoice">
+            <div class="invoice-1">
+              <div class="invoice-1-logo">
+                <img src="assets/images/walldirectory-icon.png" alt="" /><span>invoice</span>
+              </div>
+              <div class="invoice-1-add">
+                <div class="invoice-1-add-left">
+                  <h3 innerHtml="{{ billingdata?.user?.first_name }} {{
+                      billingdata?.user?.last_name
+                    }} "></h3>
+                  <p innerHtml="{{ billingdata?.user?.address }}"></p>
+                  <h5>Bill To</h5>
+                  <p>Email: {{ billingdata?.user?.email }}</p>
+                </div>
+                <div class="invoice-1-add-right">
+                  <ul>
+                    <li><span>Invoice Number : </span> {{ billingdata?.id }}</li>
+                    <li><span>Plan Subscribed : </span> {{billingdata?.plan?.title}}</li>
+                    <!--  <li *ngIf="billingdata?.plan_id == '766'">
+                      <span>Start Date</span>{{ billingdata?.created_at | date: "LLL dd, yyyy" }}
+                    </li>
+                    <li *ngIf="billingdata?.plan_id != '766'">
+                      <span>Start Date</span>{{
+                      billingdata?.subscription?.start_date
+                      | date: "LLL dd, yyyy"
+                      }}
+                    </li> -->
+
+                    <!-- <li *ngIf="billingdata?.plan_id == '766'">
+                      <span>Due Date</span>Unlimited
+                    </li>
+                    <li *ngIf="billingdata?.plan_id != '766'">
+                      <span>Due Date</span>{{
+                      billingdata?.subscription?.end_date
+                      | date: "LLL dd, yyyy"
+                      }}
+                    </li> -->
+                  </ul>
+                </div>
+              </div>
+              <div class="invoice-1-tab table-responsive ">
+                <table class="table table-striped bordered">
+                  <thead>
+                    <tr>
+                      <th>Price</th>
+                      <th>Duration</th>
+                      <th>Amount</th>
+                      <th *ngIf="billingdata?.plan_id != '766'">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngIf="billingdata?.plan_id == '766'">
+                      <td class="amount_dis">
+                        <span *ngIf="billingdata?.subscription?.price" class="">Amount:
+                          <del>${{ billingdata?.plan?.price }}</del></span>
+                        <span *ngIf="billingdata?.subscription?.price" class="">Discount: ${{
+                          billingdata?.plan?.discount }}</span>
+                        <span>${{
+                          billingdata?.subscription?.price
+                          ? billingdata?.subscription?.price
+                          : billingdata?.plan?.price
+                          }}</span>
+                      </td>
+                      <td>
+                        {{
+                        billingdata?.plan?.duration == "-1"
+                        ? "Unlimited"
+                        : billingdata?.plan?.duration
+                        }}
+                      </td>
+                      <td class="invo-sub">
+                        ${{
+                        billingdata?.subscription?.price
+                        ? billingdata?.subscription?.price
+                        : billingdata?.plan?.price
+                        }}
+                      </td>
+                    </tr>
+                    <ng-container *ngIf="billingdata?.plan_id != '766'">
+                      <tr *ngFor="let  invoiceslist of billingdata.invoices; let i=index;">
+
+                        <td class="amount_dis">
+                          <span *ngIf="billingdata?.subscription?.price" class="">
+                            ${{ billingdata?.plan?.price }}</span>
+                          <!-- <span *ngIf="billingdata?.subscription?.price" class="">Discount: ${{
+                            billingdata?.plan?.discount }}</span>
+                          <span>Paid: ${{
+                            billingdata?.subscription?.price
+                            ? billingdata?.subscription?.price
+                            : billingdata?.plan?.price
+                            }}</span> -->
+                        </td>
+                        <td>
+                          <!-- <span class="label label-default">{{
+                            billingdata?.plan?.duration == "-1"
+                            ? "Unlimited"
+                            : billingdata?.plan?.duration
+                            }}</span> -->
+                          <div style="margin:3px auto;"><span class="label label-success">Renewal Date : {{
+                              invoiceslist?.start_date | date: "LLL
+                              dd, yyyy" }}</span></div>
+                          <div style="margin:3px auto;"><span class="label label-danger">Expire Date : {{
+                              invoiceslist?.end_date | date: "LLL dd,
+                              yyyy" }}</span></div>
+                        </td>
+                        <td class="invo-sub">
+                          ${{
+                          invoiceslist?.price
+                          }}
+                        </td>
+                        <td><span class="label label-success" style="margin-left:3px;">{{invoiceslist?.status}}</span>
+                        </td>
+                      </tr>
+                    </ng-container>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="invoice-print">
+              <button class="waves-effect waves-light btn-large" (click)="onPrint()">
+                Print
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Right SECTION-->
+    <app-dashmenu class="mobile_dashnav"></app-dashmenu>
+    <app-dashmsg></app-dashmsg>
+  </div>
+</section>

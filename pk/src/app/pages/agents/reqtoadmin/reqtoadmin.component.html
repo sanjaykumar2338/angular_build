@@ -1,0 +1,74 @@
+<section class="agent-wrapper">
+  <div class="tz">
+    <!--LEFT SECTION-->
+     <app-agentsidebar class="desk_dashnav"></app-agentsidebar>
+
+    <!--CENTER SECTION-->
+    <div class="tz-2">
+      <div class="tz-2-com tz-2-main">
+        <h4>Payment Request to Admin</h4>
+      </div>
+      <div class="agent-content">
+        <div _ngcontent-c4="" class="ds-boar-title">
+          <h2 _ngcontent-c4="">Request payment</h2>
+          <p _ngcontent-c4="">Earned amount request from admin</p>
+        </div>
+        <div style="max-width:600px">
+          <form class="col" [formGroup]="reqtoAdmin">
+            <div class="form-group">
+              <label>Amount</label
+              ><input
+                type="text"
+                class="form-control"
+                placeholder="123"
+                formControlName="amount"
+              />
+              <span
+                *ngIf="
+                  !reqtoAdmin.get('amount').valid &&
+                  reqtoAdmin.get('amount').touched
+                "
+                class="help-block"
+              >
+                Please Enter Amount</span
+              >
+            </div>
+
+            <div class="form-group">
+              <label>Message</label>
+              <textarea
+                placeholder="Request Message"
+                class="form-control"
+                formControlName="message"
+              ></textarea>
+              <span
+                *ngIf="
+                  !reqtoAdmin.get('message').valid &&
+                  reqtoAdmin.get('message').touched
+                "
+                class="help-block"
+                >Enter message</span
+              >
+            </div>
+            <div class="form-group">
+              <button class="waves-effect waves-light btn" (click)="onSubmit()">
+                Send <i class="fa fa-spinner fa-spin" *ngIf="frmload"></i>
+              </button>
+            </div>
+          </form>
+
+          <div class="col s12 text-center">
+            <div class="alert alert-success mt-2" *ngIf="frmsuccess">
+              <h5>Payment Request Send</h5>
+            </div>
+            <div class="alert alert-success mt-2" *ngIf="frmerr">
+              <h5>Request not send. Try later.</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+	
+	<app-agentsidebar class="mobile_dashnav"></app-agentsidebar>
+  </div>
+</section>

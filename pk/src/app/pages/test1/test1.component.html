@@ -1,0 +1,271 @@
+<div class="pricing_header">
+  <div class="container">
+    <h1 class="mb-4">GROW YOUR BUSINESS - All in ONE Package</h1>
+  </div>
+  <ul class="tab_pricing_nav">
+    <li [ngClass]="(tab=='1')?'active':''"><a href="javascript:void(0)" (click)="tabshow('1')">Link
+        Building</a></li>
+    <li [ngClass]="(tab=='2')?'active':''"><a href="javascript:void(0)" (click)="tabshow('2')">Landing Page</a></li>
+    <li [ngClass]="(tab=='3')?'active':''"><a href="javascript:void(0)" (click)="tabshow('3')">Advertising</a></li>
+    <li [ngClass]="(tab=='4')?'active':''"><a href="javascript:void(0)" (click)="tabshow('4')">Marketing</a></li>
+  </ul>
+</div>
+
+<ng-container *ngIf="tab==1">
+  <div class="container">
+    <div class="row  tab-pricing">
+      <div class="col-md-4">
+        <h2 class="pricing_heading">Free</h2>
+        <!--  <h5>ONE MONTH PACKAGE</h5> -->
+        <div class="bt b--gray8"></div>
+
+        <div class="pack_amount" *ngIf="!freepack"><sup>$</sup>{{ pack[6928].price }}<span> /
+            Month </span></div>
+        <div class="pack_amount" *ngIf="freepack"><sup>$</sup>{{ pack[766].price }}<span> /
+            Month </span></div>
+
+        <p>Improve your brand reputation and website traffic. submit your business to the local directory to get more
+          website visitors. </p>
+        <a class="pk-learnmore" href="/plans/link-building-service">Read more</a>
+        <div class="bt b--gray8"></div>
+        <p class="notetxt"><span>Support response: Median email response time of less than 4 hours for urgent issues,
+            and
+            <a href="mailto:support@walldirectory.com">Contact Email</a> for any enquiry.
+          </span></p>
+      </div>
+
+      <div class="col-md-4">
+        <ul>
+          <li><img src="../../../assets/images/check-mark.svg" alt=""><strong>1 Business
+              Listing</strong></li>
+          <li><img src="../../../assets/images/check-mark.svg" alt=""><strong>1 Promotion /
+              landing page</strong></li>
+          <li><img src="../../../assets/images/circle-x.svg" alt="">Open engagement</li>
+          <li><img src="../../../assets/images/circle-x.svg" alt="">Email List Building</li>
+          <li><img src="../../../assets/images/circle-x.svg" alt=""> No Competitor Ads</li>
+          <li><img src="../../../assets/images/circle-x.svg" alt="">Access Client Request</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt=""> Video Landing Page</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Descriptions</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Map Location</li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <ul>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Visiter Counts</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Visit Website</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Show Social Medias</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Call Now</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Photo Gallery</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Social Media Share</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Enquiry</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Rating & Reviews</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Contact Info</li>
+        </ul>
+      </div>
+      <div class="col-md-12">
+        <div class="pricing_btn_sec text-left mt-3 mb-2">
+          <h3>( Business location USA & Global ) Instant Approval </h3>
+          <a href="javascript:void(0)" (click)="checkout('766')"
+            class="free-package-766 waves-effect waves-light btn-large" *ngIf="freepack == true">Add a
+            Business</a>
+          <a href="javascript:void(0)" (click)="checkout('6928')"
+            class="paidpage-6928 waves-effect waves-light btn-large" *ngIf="freepack == false">Add a
+            Business</a>
+          <p>* Additional <a href="https://walldirectory.com/terms-and-conditions" class="package-terms">terms and
+              conditions</a> may apply.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ng-container>
+
+<ng-container *ngIf="tab==2">
+  <div class="container">
+    <div class="row  tab-pricing">
+      <div class="col-md-4">
+        <h2 class="pricing_heading">Landing Page</h2>
+        <!--  <h5>ONE MONTH PACKAGE</h5> -->
+        <div class="bt b--gray8"></div>
+        <div class="pack_amount"><sup>$</sup>{{ pack[162].price }}<span> /
+            Month </span>
+        </div>
+        <p>Increase your conversion rate here. Generate unlimited leads and engage with interested shoppers. Use the
+          Lead capture landing page builder to connect with committed prospects. </p>
+        <a class="pk-learnmore" href="/plans/landing-page-builder">Read more</a>
+        <div class="bt b--gray8"></div>
+        <p class="notetxt"><span>Support response: Median email response time of less than 4 hours for urgent issues,
+            and
+            <a href="mailto:support@walldirectory.com">Contact Email</a> for any enquiry.
+          </span></p>
+      </div>
+
+      <div class="col-md-4">
+        <ul>
+          <li><img src="../../../assets/images/check-mark.svg" alt=""><strong>1 Business Listing
+            </strong></li>
+          <li><img src="../../../assets/images/check-mark.svg" alt=""><strong>3 Promotion /
+              landing page</strong></li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Open engagement</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Email List Building</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt=""> No Competitor Ads</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Access Client Request</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt=""> Video Landing Page</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Descriptions</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Map Location</li>
+        </ul>
+      </div>
+
+      <div class="col-md-4">
+        <ul>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Visiter Counts</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Visit Website</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Show Social Medias</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Call Now</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Photo Gallery</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Social Media Share</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Enquiry</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Rating & Reviews</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Contact Info</li>
+        </ul>
+      </div>
+      <div class="col-md-12">
+        <div class="pricing_btn_sec text-left mt-3 mb-2">
+          <h3>( Business location USA & Global ) Instant Approval </h3>
+          <a href="javascript:void(0)" (click)="checkout('162')" class="waves-effect waves-light btn-large">Add a
+            Business</a>
+          <p>* Additional <a href="https://walldirectory.com/terms-and-conditions" class="package-terms">terms and
+              conditions</a> may apply.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="tab==3">
+  <div class="container">
+    <div class="row  tab-pricing">
+      <div class="col-md-4">
+        <h2 class="pricing_heading">Advertising</h2>
+        <div class="bt b--gray8"></div>
+        <div class="pack_amount"><sup _ngcontent-c4="">$</sup>{{ pack[92].price }}<span _ngcontent-c4=""> /
+            Month </span>
+        </div>
+        <p>Advertise to local shoppers here. connect with qualified leads to sell products and services now. Get
+          unlimited leads, website traffic and customer connections with this subscription.</p>
+        <a class="pk-learnmore" href="/plans/advertising">Read more</a>
+        <div class="bt b--gray8"></div>
+        <p class="notetxt"><span>Support response: Median email response time of less than 4 hours for urgent issues,
+            and
+            <a href="mailto:support@walldirectory.com">Contact Email</a> for any enquiry.
+          </span></p>
+      </div>
+
+      <div class="col-md-4">
+        <ul>
+          <li><img src="../../../assets/images/check-mark.svg" alt=""><strong>1 Business
+              Listing</strong></li>
+          <li><img src="../../../assets/images/check-mark.svg" alt=""><strong>5 Promotion /
+              landing page</strong></li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Open engagement</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Email List Building</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt=""> No Competitor Ads</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Access Client Request</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt=""> Video Landing Page</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Descriptions</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Map Location</li>
+        </ul>
+      </div>
+
+      <div class="col-md-4">
+        <ul>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Visiter Counts</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Visit Website</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Show Social Medias</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Call Now</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Photo Gallery</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Social Media Share</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Enquiry</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Rating & Reviews</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Contact Info</li>
+        </ul>
+      </div>
+      <div class="col-md-12">
+        <div class="pricing_btn_sec text-left mt-3 mb-2">
+          <h3>( Business location USA & Global ) Instant Approval </h3>
+          <a href="javascript:void(0)" (click)="checkout('92')" class="waves-effect waves-light btn-large">Add a
+            Business</a>
+          <p>* Additional <a href="https://walldirectory.com/terms-and-conditions" class="package-terms">terms and
+              conditions</a> may apply.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="tab==4">
+  <div class="container">
+    <div class="row  tab-pricing">
+      <div class="col-md-4">
+        <h2 class="pricing_heading">Marketing</h2>
+        <div class="bt b--gray8"></div>
+        <div class="pack_amount"><sup _ngcontent-c4="">$</sup>{{ pack[91].price }}<span _ngcontent-c4=""> /
+            Month </span>
+        </div>
+        <p>Use the SEO marketing tools to maximize lead conversion. Build effective pages, ads and promotions to get
+          more website traffic, online bookings and qualified lead engagement.</p>
+        <a class="pk-learnmore" href="/plans/marketing">Read more</a>
+        <div class="bt b--gray8"></div>
+        <p class="notetxt"><span>Support response: Median email response time of less than 4 hours for urgent issues,
+            and
+            <a href="mailto:support@walldirectory.com">Contact Email</a> for any enquiry.
+          </span></p>
+      </div>
+
+      <div class="col-md-4">
+        <ul>
+          <li><img src="../../../assets/images/check-mark.svg" alt=""><b>Unlimited Business
+              Listing</b>
+          </li>
+          <li><img src="../../../assets/images/check-mark.svg" alt=""><b>Unlimited Promotion /
+              landing page</b></li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Open engagement</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Email List Building</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt=""> No Competitor Ads</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Access Client Request</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt=""> Video Landing Page</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Descriptions</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Map Location</li>
+        </ul>
+      </div>
+
+      <div class="col-md-4">
+        <ul>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Visiter Counts</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Visit Website</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Show Social Medias</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Call Now</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Photo Gallery</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Social Media Share</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Enquiry</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Rating & Reviews</li>
+          <li><img src="../../../assets/images/check-mark.svg" alt="">Contact Info</li>
+        </ul>
+
+      </div>
+      <div class="col-md-12">
+        <div class="pricing_btn_sec text-left mt-3 mb-2">
+          <h3>( Business location USA & Global ) Instant Approval </h3>
+          <a href="javascript:void(0)" (click)="checkout('91')" class="waves-effect waves-light btn-large">Add a
+            Business</a>
+          <p>* Additional <a href="https://walldirectory.com/terms-and-conditions" class="package-terms">terms and
+              conditions</a> may apply.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

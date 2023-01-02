@@ -1,0 +1,28 @@
+<section class="inn-page-bg">
+  <div class="container">
+    <div class="row">
+      <div class="inn-pag-ban">
+        <h1 innerHtml="{{ pagecontent?.title }}"></h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="p-about  termssecion com-padd com-padd-redu-bot1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-sm-4 col-xs-12 termssection">
+        <app-termsidebar></app-termsidebar>
+      </div>
+      <div class="col-md-8 col-sm-8 col-xs-12 whitebg termcontent_wrap">
+        <div innerHtml="{{ pagecontent?.content }}"></div>
+
+        <div class="row">
+          <div class="col-md-12 ads text-left">
+            <app-unit4></app-unit4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

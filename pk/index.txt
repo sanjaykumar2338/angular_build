@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Walldirectory</title>
+  <base href="/" />
+  <meta name="google-site-verification" content="kPsIcWzcafyR0_tBSp5f4eb3GR5MBaQoWXFOvhwdtRo" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta property="article:publisher" content="https://www.facebook.com/walldirectory" />
+  <meta itemprop="author" content="WallDirectory" />
+  <meta name="Owner" content="https://walldirectory.com" />
+
+  <meta name="twitter:site" content="@WallDirectory" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <meta property="fb:page_id" content="875235052554772" />
+  <meta property="fb:app_id" content="685147935275841" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Wall Directory" />
+
+  <meta name="googlebot" content="index, follow" />
+
+  <meta name="Search Engines" content="ALL" />
+  <meta name="revisit-after" content="7 days" />
+  <meta name="distribution" content="global" />
+
+  <meta name="geo.region" content="US-NJ" />
+  <meta name="geo.position" content="40.075738;-74.404162" />
+  <meta name="ICBM" content="40.075738, -74.404162" />
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins|Quicksand:500,700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="favicon.png" sizes="32x32" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- <script data-ad-client="ca-pub-7283079374771718" async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+  <script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6"></script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Walldirectory",
+      "image":"https://walldirectory.com/assets/images/walldirectory.png",
+       "description": "This is the best listing directory for products, prices, places and promotions. Explore nearby shops, engage business owners, shop local and write reviews here.",
+      "address":
+            {
+                "@type": "PostalAddress",
+                "addressLocality": "Rutherford, New Jersey, USA",
+                "addressRegion": "USA",
+                "postalCode": "07070",
+                "streetAddress": "Meadow Rd., Rutherford",
+                "telephone": "+1 973-437-3877"
+            },
+            "email":"support@walldirectory.com",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4",
+        "reviewCount": "276"
+       
+      },
+      "openingHours": [
+        "24 Hours"
+      ],
+      "brand":{
+      "@type":"Brand",
+      "name":"Walldirectory"
+      },
+     "priceRange": "9",
+      "url": "https://www.walldirectory.com/"
+    }
+    </script>
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org/",
+      "@type": "Person",
+      "name": "Walldirectory",
+      "sponsor":
+        {
+        "@type": "Person",
+        "name": "Walldirectory",
+        "sameAs":[ "https://www.facebook.com/walldirectory",
+        "https://www.instagram.com/walldirectory",
+        "https://www.twitter.com/walldirectory", 
+        "https://www.linkedin.com/company/walldirectory", 
+        "https://plus.google.com/+Walldirectory", 
+        "https://in.pinterest.com/walldirectory/pins/"
+        ]
+        }
+    }
+    </script>
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Organization ",
+      "name": "Walldirectory",
+      "image":"https://walldirectory.com/assets/images/walldirectory.png",
+      "url": "https://www.walldirectory.com/",
+       "address":
+            {
+                "@type": "PostalAddress",
+                "addressLocality": "Rutherford, New Jersey, USA",
+                "addressRegion": "USA",
+                "postalCode": "07070",
+                "streetAddress": "Meadow Rd., Rutherford",
+                "telephone": "+1 973-437-3877"
+            },
+            "email":"support@walldirectory.com",
+      "contactPoint" : [
+        { "@type" : "ContactPoint",
+        "url":"https://www.walldirectory.com/",
+          "contactType" : "customer service",
+          "areaServed" : "USA"
+        }
+        ]
+    }
+    </script>
+
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-MBKLQ7L');</script>
+
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i["GoogleAnalyticsObject"] = r;
+      (i[r] =
+        i[r] ||
+        function () {
+          (i[r].q = i[r].q || []).push(arguments);
+        }),
+        (i[r].l = 1 * new Date());
+      (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m);
+    })(
+      window,
+      document,
+      "script",
+      "//www.google-analytics.com/analytics.js",
+      "ga"
+    );
+
+    ga("create", "UA-52234405-1", "auto");
+    ga("send", "pageview");
+  </script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-7283079374771718",
+      enable_page_level_ads: true,
+    }); 
+  </script>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBKLQ7L" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <app-root></app-root>
+</body>
+
+</html>

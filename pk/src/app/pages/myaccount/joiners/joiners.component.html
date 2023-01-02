@@ -1,0 +1,56 @@
+<section>
+  <div class="tz">
+    <!--LEFT SECTION-->
+    <app-dashmenu class="desk_dashnav"></app-dashmenu>
+
+    <!--CENTER SECTION-->
+    <div class="tz-2">
+      <div class="tz-2-com tz-2-main">
+        <h4>List of Joiners</h4>
+        <div class="db-list-com  tz-db-table">
+          <div class="ds-boar-title">
+            <h2>Joiners (Followers)</h2>
+            <p>
+              Here is a list of leads interested in your
+              business/product/service and want to learn more about your offers.
+              Send them a newsletters now!.
+            </p>
+          </div>
+          <div class="tz-mess">
+            <ul *ngIf="joincount?.joiners_count > 0">
+              <li class="view-msg joinerslists" *ngFor="let lsjoin of joinerls; let i = index">
+                <div class="review-postname">
+                  <h5>Joiner at: {{ ls_review?.title }}</h5>
+                </div>
+                <ul>
+                  <li class="" *ngFor="let lists of lsjoin?.joiners; let r = index">
+                    <h5>
+                      <img src="assets/images/avatar.jpg" alt="{{ lists?.name }}"
+                        *ngIf="!lists?.user?.userimage?.small" />
+                      <img src="{{ imgPath }}{{ lists?.user?.userimage?.small }}" alt="{{ lists?.name }} "
+                        *ngIf="lists?.user?.userimage?.small" />
+                      {{ lists?.name }}
+                      <span>Join at:
+                        {{ lists?.created_at | date: "MM dd, yyyy" }}</span>
+                    </h5>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <div class="alert alert-danger" *ngIf="joincount?.joiners_count == 0">
+              <h5>No Joiner Found.</h5>
+            </div>
+          </div>
+        </div>
+        <div class="mt-2 mb-1">
+          <app-unit5></app-unit5>
+        </div>
+      </div>
+    </div>
+
+    <!--Right SECTION-->
+    <app-dashmenu class="mobile_dashnav"></app-dashmenu>
+
+    <app-dashmsg></app-dashmsg>
+  </div>
+</section>

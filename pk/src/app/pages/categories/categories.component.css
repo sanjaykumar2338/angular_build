@@ -1,0 +1,106 @@
+.cate_li_thumb img {
+  height: 155px;
+  width: auto;
+  width: 100%;
+  margin: 0 auto;
+  object-fit: cover;
+}
+.cate_li_wrap {
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 6px #c6c7cc;
+  overflow: hidden;
+  min-height: 100%;
+  position: relative;
+  margin-bottom: 30px;
+}
+.cate_li_wrap .subcategory {
+  padding: 15px 15px;
+}
+.cate_li_wrap .subcategory ul li {
+  line-height: 2.5em;
+  text-align: left;
+}
+.cate_li_wrap .subcategory ul li a {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  font-weight: 300;
+}
+.cate_li_wrap .subcategory ul li span {
+  font-size: 14px;
+}
+.cate_li_wrap a:hover span {
+  color: #f3672f !important;
+}
+.cate_li_wrap .subcategory ul li span.tax_name {
+  width: 76%;
+  display: inline-block;
+  color: #01a0d8;
+  overflow: hidden;
+  white-space: pre;
+}
+.cate_li_wrap .subcategory ul li span.tax_name span {
+  background-color: #fff;
+  padding-right: 5px;
+  position: relative;
+  z-index: 4;
+  color: #01a0d8;
+}
+.cate_li_wrap .subcategory ul li span.tax_name:after {
+  content: "..........................................................................................................";
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  top: -3px;
+  letter-spacing: 3px;
+}
+.cate_li_wrap .subcategory ul li .tax_count {
+  width: 15%;
+  float: right;
+  text-align: right;
+  background-color: #fff;
+  position: relative;
+}
+.cate_li_wrap .subcategory h4 {
+  background: #f4f6fa;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 18px;
+  margin: 0 auto;
+  margin-top: -40px;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  text-indent: 0;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+.cate_li_wrap .subcategory h4 .fa,
+span.cat-read_more {
+  color: #f3672f;
+}
+.cate-title h3 {
+  color: #f3672f;
+  font-size: 20px;
+}
+.subcategory .hidechildcate {
+  display: none;
+}
+.listing_categories {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.listing_categories ul {
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+@media only screen and (min-width: 768px) {
+  .cate_li_wrap .subcategory {
+    min-height: 295px;
+  }
+}

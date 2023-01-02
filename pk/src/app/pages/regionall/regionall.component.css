@@ -1,0 +1,16 @@
+.region_list {
+  position: relative;
+}
+.region_list .list-mig-lc-con2 {
+  text-align: center;
+  /* margin: 0;
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-flow: column; */
+}
+.inn-pag-ban p {
+  color: #fff;
+}

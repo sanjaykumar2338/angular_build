@@ -1,0 +1,31 @@
+<section>
+  <div class="tz">
+    <!--LEFT SECTION-->
+    <app-dashmenu class="desk_dashnav"></app-dashmenu>
+
+    <!--CENTER SECTION-->
+    <div class="tz-2">
+      <div class="tz-2-com tz-2-main">
+        <h4>Cancel Subscription</h4>
+        <div class="db-list-com  tz-db-table">
+          <form class="col s12" [formGroup]="cancel_sup" enctype="multipart/form-data">
+            <div class="form-group">
+              <textarea id="notes" placeholder="Notes" class="" formControlName="notes" rows="5"></textarea>
+            </div>
+            <span *ngIf="!cancel_sup.get('notes').valid && cancel_sup.get('notes').touched" class="help-block">Enter
+              Cancelation Note</span>
+            <button type="submit" class="waves-effect waves-light btn-large " (click)="onSubmit()">Cancel Now</button>
+          </form>
+          <div class="label label-success" style="display: block; margin-top: 14px; padding: 12px; font-size: 16px;"
+            *ngIf="successmsg">
+            Your Subscription Cancelled.
+          </div>
+          <div class="label label-danger" style="display: block; margin-top: 14px; padding: 12px; font-size: 16px;"
+            *ngIf="errormsg">
+            {{errormsg}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
